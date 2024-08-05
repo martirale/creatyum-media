@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --logo: url("/creatyum-logo-k.svg");
+  --logo-icon: url("/creatyum-icon-k.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --logo: url("/creatyum-logo-y.svg");
+    --logo-icon: url("/creatyum-icon-y.svg");
+  }
+}
+
+html {
+  font-size: 18px;
+}
+
+.custom-vh {
+  min-height: 100vh;
+  display: grid;
+  align-content: space-between;
+}
+
+/* HEADERS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bricolagegrotesque);
+  line-height: 1 !important;
+}
+
+h1 {
+  display: none;
+}
+
+/* LOGO-ICON */
+.logo {
+  background-image: var(--logo);
+  width: 196px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.logo-icon {
+  background-image: var(--logo-icon);
+  width: 64px;
+  height: 64px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 269px;
+    height: 55px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* NAVBAR */
+.navbar-open {
+  background-image: var(--navbar-open);
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.navbar-close {
+  background-image: var(--navbar-close);
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -8px;
+}
