@@ -5,7 +5,7 @@ export const metadata = {
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 
-export default function Podcast() {
+export default function PrivacyPage() {
   return (
     <div className="container mx-auto px-8 py-8 md:px-0">
       <h1>Política de privacidad</h1>

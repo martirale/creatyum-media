@@ -5,7 +5,7 @@ export const metadata = {
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 
-export default function Podcast() {
+export default function PodcastPage() {
   return (
     <div>
       <h1>Café Creativo Podcast</h1>
