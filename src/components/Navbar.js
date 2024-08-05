@@ -52,6 +52,13 @@ export default function Navbar() {
           >
             Podcast
           </Link>
+          <Link
+            href="https://archive.creatyum.com"
+            target="_blank"
+            className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
+          >
+            Archivo
+          </Link>
         </div>
 
         <div className="flex items-center md:hidden">
