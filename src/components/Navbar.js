@@ -44,7 +44,7 @@ export default function Navbar() {
             href="/"
             className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
           >
-            Inicio
+            Portada
           </Link>
           <Link
             href="/podcast"
