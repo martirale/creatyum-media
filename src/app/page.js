@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Creatyum Media",
+  title: "Creatyum Media - Revista digital para creativos en Latam",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 
