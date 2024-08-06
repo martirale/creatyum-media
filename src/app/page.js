@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function ArticleCard({ article }) {
   return (
@@ -58,11 +59,23 @@ export default function HomePage() {
     <div className="container mx-auto px-8 py-5 md:px-0">
       <h1>Creatyum Media</h1>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {articles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
-      </div>
+      <InfiniteScroll
+        dataLength={articles.length}
+        next={fetchArticles}
+        hasMore={hasMore}
+        loader={<h4>Cargando...</h4>}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Has visto todos los artículos</b>
+          </p>
+        }
+      >
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {articles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
+        </div>
+      </InfiniteScroll>
     </div>
   );
 }
