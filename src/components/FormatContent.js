@@ -53,7 +53,7 @@ export function FormatContent({ blocks }) {
             className="w-full h-auto rounded-3xl mb-2 border border-black bg-black text-yellow dark:border-yellow"
           />
           {block.image.caption && (
-            <figcaption className="text-xs text-center text-black dark:text-yellow">
+            <figcaption className="text-xs text-center text-black md:px-24 dark:text-yellow">
               <FontAwesomeIcon icon={faCircleInfo} className="mr-1 w-3 h-3" />
               {block.image.caption}
             </figcaption>
