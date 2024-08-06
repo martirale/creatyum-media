@@ -82,7 +82,7 @@ export function FormatContent({ blocks }) {
       return (
         <blockquote
           key={index}
-          className="rounded-3xl border border-black text-center italic p-8 my-8 dark:border-yellow"
+          className="rounded-3xl border border-black text-xl text-center italic p-4 my-8 dark:border-yellow md:p-8"
         >
           <FontAwesomeIcon icon={faQuoteLeft} className="mr-2 w-7 h-7" />
           {formatText(block.children)}
