@@ -6,14 +6,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 function ArticleCard({ article }) {
   return (
-    <div className="border border-black rounded-3xl">
+    <div className="rounded-3xl border border-black dark:border-yellow">
       <Link href={`/articles/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover && (
             <img
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
               alt={article.attributes.title}
-              className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black"
+              className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
             />
           )}
         </div>
