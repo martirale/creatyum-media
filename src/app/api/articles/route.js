@@ -9,7 +9,7 @@ export async function GET(request) {
     const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
     const response = await fetch(
-      `${strapiUrl}/api/articles?sort=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
+      `${strapiUrl}/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
       {
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
