@@ -64,6 +64,11 @@ export default async function ArticlePage({ params }) {
             </ul>
           </div> */}
         </div>
+
+        {/* SIDEBAR */}
+        <div className="col-span-12 md:col-span-4">
+          <div className="rounded-xl border border-solid border-black p-8 dark:border-yellow"></div>
+        </div>
       </div>
     </article>
   );
