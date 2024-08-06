@@ -38,7 +38,7 @@ export default async function ArticlePage({ params }) {
   }
 
   return (
-    <article className="container mx-auto px-8 py-5 md:px-0">
+    <article className="container mx-auto px-4 py-2 md:px-0">
       <h1>{article.attributes.title}</h1>
 
       <div className="grid grid-cols-12 gap-4 md:gap-12">
