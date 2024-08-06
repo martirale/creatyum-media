@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const page = parseInt(searchParams.get("page") || "1", 10);
-  const pageSize = 15;
+  const pageSize = 9;
 
   try {
     const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
