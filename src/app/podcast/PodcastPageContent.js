@@ -44,7 +44,7 @@ const PodcastPageContent = () => {
   };
 
   return (
-    <div className="container mx-auto px-8 py-8 md:px-0">
+    <div className="container mx-auto px-8 py-5 md:px-0">
       {latestEpisode && (
         // FEATURED MOST RECENT EPISODE
         <div className="grid grid-cols-12 items-center border border-solid border-black bg-black text-yellow dark:border-yellow dark:bg-yellow dark:text-black">
