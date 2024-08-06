@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import FormatContent from "../../../components/FormatContent";
+import SidebarArticle from "../../../components/SidebarArticles";
 
 async function getArticle(slug) {
   const res = await fetch(
@@ -83,7 +84,9 @@ export default async function ArticlePage({ params }) {
 
         {/* SIDEBAR */}
         <div className="col-span-12 md:col-span-4">
-          <div className="rounded-xl border border-solid border-black p-8 dark:border-yellow"></div>
+          <div className="rounded-xl border border-solid border-black p-8 dark:border-yellow">
+            <SidebarArticle />
+          </div>
         </div>
       </div>
     </article>
