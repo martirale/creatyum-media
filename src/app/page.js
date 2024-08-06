@@ -47,10 +47,15 @@ export default function HomePage() {
 
     if (data.data.length === 0) {
       setHasMore(false);
-    } else {
-      setArticles((prevArticles) => [...prevArticles, ...data.data]);
-      setPage((prevPage) => prevPage + 1);
     }
+    setArticles((prevArticles) => {
+      const newArticles = data.data.filter(
+        (newArticle) =>
+          !prevArticles.some((prevArticle) => prevArticle.id === newArticle.id)
+      );
+      return [...prevArticles, ...newArticles];
+    });
+    setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
@@ -74,6 +79,8 @@ export default function HomePage() {
             </b>
           </p>
         }
+        style={{ overflow: "visible" }}
+        scrollableTarget="scrollableDiv"
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {articles.map((article) => (
