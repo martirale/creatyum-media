@@ -13,6 +13,22 @@ async function getArticle(slug) {
   return res.json();
 }
 
+export async function generateMetadata({ params }) {
+  const article = await getArticle(params.slug);
+
+  if (!article) {
+    return {
+      title: "Artículo no encontrado - Creatyum Media",
+      description: "El artículo que buscas no existe.",
+    };
+  }
+
+  return {
+    title: `${article.attributes.title} - Creatyum Media`,
+    description: "Revista digital para diseñadores y creativos en Latam.",
+  };
+}
+
 export default async function ArticlePage({ params }) {
   const article = await getArticle(params.slug);
 
