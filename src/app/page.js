@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFaceKissWinkHeart } from "@fortawesome/free-solid-svg-icons";
 
 function ArticleCard({ article }) {
   return (
@@ -63,10 +65,13 @@ export default function HomePage() {
         dataLength={articles.length}
         next={fetchArticles}
         hasMore={hasMore}
-        loader={<h4>Cargando...</h4>}
+        loader={<h4 className="text-3xl font-extrabold">Cargando...</h4>}
         endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b>Has visto todos los artículos</b>
+          <p className="mt-8" style={{ textAlign: "center" }}>
+            <b>
+              Has visto todos los artículos{" "}
+              <FontAwesomeIcon icon={faFaceKissWinkHeart} />
+            </b>
           </p>
         }
       >
