@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 function ArticleCard({ article }) {
   return (
@@ -75,41 +77,41 @@ export default function HomePage() {
             {articles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
-
-            {/* PAGINACIÓN */}
-            <div className="flex justify-center space-x-2 mt-8">
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="px-3 py-2 rounded bg-gray-200 disabled:opacity-50"
-              >
-                Anterior
-              </button>
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`px-3 py-2 rounded ${
-                      currentPage === page
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200"
-                    }`}
-                  >
-                    {page}
-                  </button>
-                )
-              )}
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="px-3 py-2 rounded bg-gray-200 disabled:opacity-50"
-              >
-                Siguiente
-              </button>
-            </div>
           </>
         )}
+      </div>
+
+      {/* PAGINACIÓN */}
+      <div className="flex justify-center mt-8">
+        <div className="inline-flex -space-x-px rounded-md">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="inline-flex items-center px-4 py-2 text-sm border rounded-l-3xl disabled:opacity-25"
+          >
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`inline-flex items-center px-4 py-2 text-sm ${
+                currentPage === page
+                  ? "bg-black text-yellow border border-black dark:bg-yellow dark:text-black dark:border-yellow"
+                  : "bg-yellow border border-black dark:bg-black dark:border-yellow"
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="inline-flex items-center px-4 py-2 text-sm border rounded-r-3xl disabled:opacity-25"
+          >
+            <FontAwesomeIcon icon={faAngleRight} />
+          </button>
+        </div>
       </div>
     </div>
   );
