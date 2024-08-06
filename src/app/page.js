@@ -64,7 +64,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container mx-auto px-8 py-5 md:px-0">
+    <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Creatyum Media</h1>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -75,6 +75,8 @@ export default function HomePage() {
             {articles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
+
+            {/* PAGINACIÓN */}
             <div className="flex justify-center space-x-2 mt-8">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
