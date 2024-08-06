@@ -1,5 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSun,
+  faMoon,
+  faCircleInfo,
+  faQuoteLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const headingClasses = {
   1: "text-7xl",
@@ -77,8 +82,9 @@ export function FormatContent({ blocks }) {
       return (
         <blockquote
           key={index}
-          className="border-l-4 border-black italic pl-4 my-4"
+          className="rounded-3xl border border-black text-center italic p-8 my-8 dark:border-yellow"
         >
+          <FontAwesomeIcon icon={faQuoteLeft} className="mr-2 w-7 h-7" />
           {formatText(block.children)}
         </blockquote>
       );
