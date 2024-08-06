@@ -32,7 +32,7 @@ export default async function ArticlePage({ params }) {
               <img
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                 alt={article.attributes.title}
-                className="rounded-xl absolute inset-0 w-full h-full object-cover"
+                className="rounded-3xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow"
               />
             )}
           </div>
