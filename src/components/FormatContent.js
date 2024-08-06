@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+
 const headingClasses = {
   1: "text-7xl",
   2: "text-5xl",
@@ -43,7 +46,7 @@ export function FormatContent({ blocks }) {
     }
     if (block.type === "image") {
       return (
-        <figure key={index} className="my-8">
+        <figure key={index} className="mt-8 mb-12">
           <img
             src={block.image.url}
             alt={block.image.alternativeText || ""}
@@ -51,6 +54,7 @@ export function FormatContent({ blocks }) {
           />
           {block.image.caption && (
             <figcaption className="text-xs text-center text-black dark:text-yellow">
+              <FontAwesomeIcon icon={faCircleInfo} className="mr-1 w-3 h-3" />
               {block.image.caption}
             </figcaption>
           )}
