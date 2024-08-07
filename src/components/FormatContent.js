@@ -1,10 +1,6 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSun,
-  faMoon,
-  faCircleInfo,
-  faQuoteLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
 const headingClasses = {
   1: "text-7xl",
@@ -20,9 +16,25 @@ export function FormatContent({ blocks }) {
     return children.map((child, index) => {
       if (child.type === "text") {
         let text = child.text;
-        if (child.bold) text = <b key={index}>{text}</b>;
-        if (child.italic) text = <em key={index}>{text}</em>;
-        return text;
+
+        const formattedText = text.split("\n").map((line, i) => (
+          <React.Fragment key={i}>
+            {line}
+            {i < text.split("\n").length - 1 && <br />}
+          </React.Fragment>
+        ));
+
+        if (child.bold) {
+          return formattedText.map((fragment, i) => (
+            <b key={`${index}-${i}`}>{fragment}</b>
+          ));
+        }
+        if (child.italic) {
+          return formattedText.map((fragment, i) => (
+            <em key={`${index}-${i}`}>{fragment}</em>
+          ));
+        }
+        return formattedText;
       }
       if (child.type === "link") {
         return (
