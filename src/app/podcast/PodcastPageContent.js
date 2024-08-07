@@ -49,7 +49,7 @@ const PodcastPageContent = () => {
         // FEATURED MOST RECENT EPISODE
         <div className="grid grid-cols-12 items-center border border-black bg-black text-yellow rounded-3xl dark:border-yellow dark:bg-yellow dark:text-black">
           <div className="col-span-12 md:col-span-6">
-            <div className="w-100 h-100 overflow-hidden rounded-t-3xl md:rounded-t-none md:rounded-l-3xl">
+            <div className="w-100 h-100 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-r-none">
               <img
                 src={latestEpisode.itunes.image}
                 alt={latestEpisode.title}
@@ -84,11 +84,11 @@ const PodcastPageContent = () => {
             key={episode.guid}
             className="border border-black bg-black text-yellow rounded-3xl dark:border-yellow"
           >
-            <div className="w-100 h-100 overflow-hidden">
+            <div className="w-100 h-100 overflow-hidden rounded-t-3xl">
               <img
                 src={episode.itunes.image}
                 alt={episode.title}
-                className="w-full h-full object-cover rounded-t-3xl"
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="p-4">
