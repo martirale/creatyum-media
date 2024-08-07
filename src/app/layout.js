@@ -4,6 +4,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
+export const metadata = {
+  title: "Creatyum Media - Revista digital para creativos en Latam",
+  description: "Revista digital para diseñadores y creativos en Latam.",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
