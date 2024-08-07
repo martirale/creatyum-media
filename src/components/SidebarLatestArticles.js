@@ -38,7 +38,7 @@ const SidebarLatestArticles = () => {
                   <img
                     src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                     alt={article.attributes.title}
-                    className="w-14 h-14 object-cover rounded-full md:w-16 md:h-16"
+                    className="w-14 h-14 object-cover rounded-full border border-black md:w-16 md:h-16 dark:border-yellow"
                   />
                 )}
                 <div class="flex flex-col justify-center">

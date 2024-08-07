@@ -11,6 +11,7 @@ export async function GET() {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
           "Content-Type": "application/json",
         },
+        cache: "no-store",
       }
     );
 
