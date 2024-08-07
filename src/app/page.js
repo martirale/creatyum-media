@@ -117,7 +117,7 @@ export default function HomePage() {
               return (
                 <span
                   key={page}
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black"
+                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black dark:border-yellow"
                 >
                   ...
                 </span>
