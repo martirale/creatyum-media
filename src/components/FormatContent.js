@@ -104,7 +104,9 @@ export function FormatContent({ blocks }) {
     if (block.type === "list") {
       const ListTag = block.format === "ordered" ? "ol" : "ul";
       const listClass =
-        block.format === "ordered" ? "list-decimal pl-6" : "list-disc pl-6";
+        block.format === "ordered"
+          ? "list-decimal pl-6 mb-4"
+          : "list-disc pl-6 mb-4";
       return (
         <ListTag key={index} className={listClass}>
           {block.children.map((item, itemIndex) => (
