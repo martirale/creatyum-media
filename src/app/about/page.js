@@ -5,9 +5,9 @@ export const metadata = {
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 
-export default function Home() {
+export default function AboutPage() {
   return (
-    <div className="container mx-auto px-8 py-8 md:px-0">
+    <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Sobre Creatyum</h1>
 
       <AboutPageContent />

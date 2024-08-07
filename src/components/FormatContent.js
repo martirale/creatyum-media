@@ -1,3 +1,11 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSun,
+  faMoon,
+  faCircleInfo,
+  faQuoteLeft,
+} from "@fortawesome/free-solid-svg-icons";
+
 const headingClasses = {
   1: "text-7xl",
   2: "text-5xl",
@@ -43,14 +51,15 @@ export function FormatContent({ blocks }) {
     }
     if (block.type === "image") {
       return (
-        <figure key={index} className="my-4">
+        <figure key={index} className="mt-8 mb-12">
           <img
             src={block.image.url}
             alt={block.image.alternativeText || ""}
-            className="w-full h-auto mb-2"
+            className="w-full h-auto rounded-3xl mb-2 border border-black bg-black text-yellow dark:border-yellow"
           />
           {block.image.caption && (
-            <figcaption className="text-xs text-center text-black dark:text-yellow">
+            <figcaption className="text-xs text-center text-black md:px-24 dark:text-yellow">
+              <FontAwesomeIcon icon={faCircleInfo} className="mr-1 w-3 h-3" />
               {block.image.caption}
             </figcaption>
           )}
@@ -73,8 +82,9 @@ export function FormatContent({ blocks }) {
       return (
         <blockquote
           key={index}
-          className="border-l-4 border-black italic pl-4 my-4"
+          className="rounded-3xl border border-black text-xl text-center italic p-4 my-8 dark:border-yellow md:p-8"
         >
+          <FontAwesomeIcon icon={faQuoteLeft} className="mr-2 w-7 h-7" />
           {formatText(block.children)}
         </blockquote>
       );

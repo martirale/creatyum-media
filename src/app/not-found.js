@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="container mx-auto px-8 py-8 md:px-0">
+    <div className="container mx-auto px-8 py-5 md:px-0">
       <h1>404 Not Found</h1>
 
       <div className="grid grid-cols-12 gap-4 md:gap-12">

@@ -26,7 +26,10 @@ module.exports = {
       fontSize: {
         base: "18px",
       },
+      spacing: {
+        "9/16": "56.25%",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
