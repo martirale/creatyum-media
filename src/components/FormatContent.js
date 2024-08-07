@@ -67,7 +67,7 @@ export function FormatContent({ blocks }) {
           <img
             src={block.image.url}
             alt={block.image.alternativeText || ""}
-            className="w-full h-auto rounded-3xl mb-2 border border-black bg-black text-yellow dark:border-yellow"
+            className="w-full h-auto rounded-3xl mb-2 border border-black dark:border-yellow"
           />
           {block.image.caption && (
             <figcaption className="text-xs text-center text-black md:px-24 dark:text-yellow">
