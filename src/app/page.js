@@ -87,7 +87,7 @@ export default function HomePage() {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="inline-flex items-center px-4 py-2 text-sm border rounded-l-3xl disabled:opacity-25"
+            className="inline-flex items-center px-4 py-2 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
           >
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
@@ -97,8 +97,8 @@ export default function HomePage() {
               onClick={() => handlePageChange(page)}
               className={`inline-flex items-center px-4 py-2 text-sm ${
                 currentPage === page
-                  ? "bg-black text-yellow border border-black dark:bg-yellow dark:text-black dark:border-yellow"
-                  : "bg-yellow border border-black dark:bg-black dark:border-yellow"
+                  ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                  : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
               }`}
             >
               {page}
@@ -107,7 +107,7 @@ export default function HomePage() {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="inline-flex items-center px-4 py-2 text-sm border rounded-r-3xl disabled:opacity-25"
+            className="inline-flex items-center px-4 py-2 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
           >
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
