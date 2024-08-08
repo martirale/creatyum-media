@@ -28,14 +28,14 @@ function ArticleCard({ article }) {
             {article.attributes.title}
           </h2>
           <p>
-            <FontAwesomeIcon icon={faCalendarDays} className="mr-1" />
+            <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {new Intl.DateTimeFormat("es-ES", {
               year: "numeric",
               month: "long",
               day: "numeric",
             }).format(new Date(article.attributes.date))}
 
-            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1" />
+            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
             {article.attributes.categories.data.map((category, index) => (
               <span key={index}>{category.attributes.title}</span>
             ))}

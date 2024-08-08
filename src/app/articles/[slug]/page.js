@@ -58,14 +58,14 @@ export default async function ArticlePage({ params }) {
           {/* END COVER */}
 
           <p className="mb-4">
-            <FontAwesomeIcon icon={faCalendarDays} className="mr-1" />
+            <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {new Intl.DateTimeFormat("es-ES", {
               year: "numeric",
               month: "long",
               day: "numeric",
             }).format(new Date(article.attributes.date))}
 
-            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1" />
+            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
             {article.attributes.categories.data.map((category, index) => (
               <span key={index}>{category.attributes.title}</span>
             ))}
@@ -74,19 +74,35 @@ export default async function ArticlePage({ params }) {
           <h2 className="font-extrabold text-5xl md:text-7xl">
             {article.attributes.title}
           </h2>
+
           <div className="py-8">
             <hr />
           </div>
+
           <FormatContent blocks={article.attributes.content} />
 
-          {/* <div>
-            <h3>Categories:</h3>
-            <ul>
-              {article.attributes.categories.data.map((category) => (
-                <li key={category.id}>{category.attributes.name}</li>
-              ))}
-            </ul>
-          </div> */}
+          <div className="py-8">
+            <hr />
+          </div>
+
+          <div>
+            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+              <img
+                src="https://source.unsplash.com/75x75/?portrait"
+                alt=""
+                className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
+              />
+              <div className="flex flex-col">
+                <h4 className="text-lg font-semibold">Leroy Jenkins</h4>
+                <p className="dark:text-gray-600">
+                  Sed non nibh iaculis, posuere diam vitae, consectetur neque.
+                  Integer velit ligula, semper sed nisl in, cursus commodo elit.
+                  Pellentesque sit amet mi luctus ligula euismod lobortis
+                  ultricies et nibh.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* SIDEBAR */}
