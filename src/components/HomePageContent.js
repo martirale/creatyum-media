@@ -3,7 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faCalendarDays,
+  faTag,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ArticleCard({ article }) {
   return (
@@ -23,11 +28,17 @@ function ArticleCard({ article }) {
             {article.attributes.title}
           </h2>
           <p>
+            <FontAwesomeIcon icon={faCalendarDays} className="mr-1" />
             {new Intl.DateTimeFormat("es-ES", {
               year: "numeric",
               month: "long",
               day: "numeric",
             }).format(new Date(article.attributes.date))}
+
+            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1" />
+            {article.attributes.categories.data.map((category, index) => (
+              <span key={index}>{category.attributes.title}</span>
+            ))}
           </p>
         </div>
       </Link>

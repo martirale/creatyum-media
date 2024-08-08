@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/SidebarMain";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays, faTag } from "@fortawesome/free-solid-svg-icons";
 
 async function getArticle(slug) {
   const res = await fetch(
@@ -56,12 +58,17 @@ export default async function ArticlePage({ params }) {
           {/* END COVER */}
 
           <p className="mb-4">
-            Publicado:{" "}
+            <FontAwesomeIcon icon={faCalendarDays} className="mr-1" />
             {new Intl.DateTimeFormat("es-ES", {
               year: "numeric",
               month: "long",
               day: "numeric",
             }).format(new Date(article.attributes.date))}
+
+            <FontAwesomeIcon icon={faTag} className="ml-4 mr-1" />
+            {article.attributes.categories.data.map((category, index) => (
+              <span key={index}>{category.attributes.title}</span>
+            ))}
           </p>
 
           <h2 className="font-extrabold text-5xl md:text-7xl">
