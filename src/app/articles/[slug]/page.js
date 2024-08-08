@@ -85,20 +85,23 @@ export default async function ArticlePage({ params }) {
             <hr />
           </div>
 
-          <div>
+          <div className="mb-16 md:mb-0">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
               <img
-                src="https://source.unsplash.com/75x75/?portrait"
+                src="{https://source.unsplash.com/75x75/?portrait}"
                 alt=""
                 className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
               />
               <div className="flex flex-col">
-                <h4 className="text-lg font-semibold">Leroy Jenkins</h4>
-                <p className="dark:text-gray-600">
-                  Sed non nibh iaculis, posuere diam vitae, consectetur neque.
-                  Integer velit ligula, semper sed nisl in, cursus commodo elit.
-                  Pellentesque sit amet mi luctus ligula euismod lobortis
-                  ultricies et nibh.
+                <h4 className="text-3xl text-center font-extrabold mt-1 mb-2 md:text-left">
+                  {article.attributes.redactions.data.map((author, index) => (
+                    <span key={index}>{author.attributes.name}</span>
+                  ))}
+                </h4>
+                <p className="text-center md:text-left">
+                  {article.attributes.redactions.data.map((author, index) => (
+                    <span key={index}>{author.attributes.description}</span>
+                  ))}
                 </p>
               </div>
             </div>
