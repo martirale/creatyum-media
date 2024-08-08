@@ -13,8 +13,4 @@
 
 # About
 
-Creatyum es una revista digital de divulgación sobre diseño e industria creativa en formato de blog y podcast creado por [Alejandro Mártir](https://alemartir.com).
-
-Este proyecto es para la nueva versión del blog por el décimo aniversario de Creatyum, tomando como base el micro-sitio realizado para el "archivo" con lo más destacado en la historia de este proyecto de divulgación y de diseño.
-
-[Creatyum Archive](https://github.com/martirale/creatyum-diez)
+Creatyum es una revista digital de divulgación sobre diseño e industria creativa en formato de blog y podcast creado por [Alejandro Mártir](https://alemartir.com). Este proyecto es la nueva versión del blog por el décimo aniversario de Creatyum.
