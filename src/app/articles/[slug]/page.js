@@ -39,6 +39,9 @@ export default async function ArticlePage({ params }) {
     notFound();
   }
 
+  const author = article.attributes.redactions.data[0]?.attributes;
+  const profileImageUrl = author?.profile?.data?.attributes?.url;
+
   return (
     <article className="container mx-auto px-4 py-2 md:px-0">
       <h1>{article.attributes.title}</h1>
@@ -55,8 +58,8 @@ export default async function ArticlePage({ params }) {
               />
             )}
           </div>
-          {/* END COVER */}
 
+          {/* POST INFO */}
           <p className="mb-4">
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {new Intl.DateTimeFormat("es-ES", {
@@ -85,13 +88,16 @@ export default async function ArticlePage({ params }) {
             <hr />
           </div>
 
+          {/* AUTHOR */}
           <div className="mb-16 md:mb-0">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-              <img
-                src="{https://source.unsplash.com/75x75/?portrait}"
-                alt=""
-                className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
-              />
+              {profileImageUrl && (
+                <img
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
+                  alt={author?.name || "Author"}
+                  className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
+                />
+              )}
               <div className="flex flex-col">
                 <h4 className="text-3xl text-center font-extrabold mt-1 mb-2 md:text-left">
                   {article.attributes.redactions.data.map((author, index) => (
