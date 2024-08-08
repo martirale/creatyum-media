@@ -1,7 +1,7 @@
 import AboutPageContent from "./AboutPageContent";
 
 export const metadata = {
-  title: "Sobre Creatyum - Creatyum Media",
+  title: "Sobre Creatyum — Creatyum Media",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 

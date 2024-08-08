@@ -1,7 +1,7 @@
 import PodcastPageContent from "./PodcastPageContent";
 
 export const metadata = {
-  title: "Café Creativo Podcast - Creatyum Media",
+  title: "Café Creativo Podcast — Creatyum Media",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 

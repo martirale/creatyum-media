@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata = {
-  title: "404 Not Found - Creatyum Media",
+  title: "404 Not Found — Creatyum Media",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 

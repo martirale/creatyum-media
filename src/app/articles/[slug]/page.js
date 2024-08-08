@@ -19,13 +19,13 @@ export async function generateMetadata({ params }) {
 
   if (!article) {
     return {
-      title: "Artículo no encontrado - Creatyum Media",
+      title: "Artículo no encontrado — Creatyum Media",
       description: "El artículo que buscas no existe.",
     };
   }
 
   return {
-    title: `${article.attributes.title} - Creatyum Media`,
+    title: `${article.attributes.title} — Creatyum Media`,
     description: "Revista digital para diseñadores y creativos en Latam.",
   };
 }
