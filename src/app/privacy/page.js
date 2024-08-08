@@ -1,7 +1,7 @@
 import PrivacyPageContent from "./PrivacyPageContent";
 
 export const metadata = {
-  title: "Política de privacidad - Creatyum Media",
+  title: "Política de privacidad — Creatyum Media",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 

@@ -1,7 +1,7 @@
 import TermsPageContent from "./TermsPageContent";
 
 export const metadata = {
-  title: "Términos de uso - Creatyum Media",
+  title: "Términos de uso — Creatyum Media",
   description: "Revista digital para diseñadores y creativos en Latam.",
 };
 
