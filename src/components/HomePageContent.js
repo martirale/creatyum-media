@@ -126,7 +126,7 @@ export default function HomePageContent() {
               return (
                 <span
                   key={page}
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black dark:border-yellow"
+                  className="inline-flex items-center px-2 py-2 md:px-4 text-sm border border-black dark:border-yellow"
                 >
                   ...
                 </span>
@@ -137,7 +137,7 @@ export default function HomePageContent() {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="inline-flex items-center px-4 py-2 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
+            className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
           >
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
