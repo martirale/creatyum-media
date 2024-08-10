@@ -32,7 +32,10 @@ const SidebarLatestArticles = () => {
       ) : (
         <ul className="list-none p-0">
           {articles.map((article) => (
-            <Link href={`/article/${article.attributes.slug}`} key={article.id}>
+            <Link
+              href={`/articulo/${article.attributes.slug}`}
+              key={article.id}
+            >
               <li className="flex items-center space-x-4 mb-4">
                 {article.attributes.cover && article.attributes.cover.data && (
                   <img

@@ -11,7 +11,7 @@ import {
 function ArticleCard({ article }) {
   return (
     <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
-      <Link href={`/article/${article.attributes.slug}`}>
+      <Link href={`/articulo/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover?.data?.attributes?.url && (
             <img
@@ -90,7 +90,7 @@ export default async function CategoryPage({ params, searchParams }) {
             <div className="inline-flex -space-x-px rounded-md">
               {page > 1 ? (
                 <Link
-                  href={`/category/${slug}?page=${page - 1}`}
+                  href={`/categoria/${slug}?page=${page - 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
@@ -112,7 +112,7 @@ export default async function CategoryPage({ params, searchParams }) {
                     return (
                       <Link
                         key={pageNum}
-                        href={`/category/${slug}?page=${pageNum}`}
+                        href={`/categoria/${slug}?page=${pageNum}`}
                         passHref
                         className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                           page === pageNum
@@ -142,7 +142,7 @@ export default async function CategoryPage({ params, searchParams }) {
 
               {page < totalPages ? (
                 <Link
-                  href={`/category/${slug}?page=${page + 1}`}
+                  href={`/categoria/${slug}?page=${page + 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >

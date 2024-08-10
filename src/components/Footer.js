@@ -65,13 +65,13 @@ export default function Footer() {
           </Link>
           <div className="pt-12 md:pt-0">
             <Link
-              href="/privacy"
+              href="/privacidad"
               className="text-2xl mr-4 hover:underline md:text-base md:mr-8"
             >
               Privacidad
             </Link>
             <Link
-              href="/terms"
+              href="/terminos"
               className="text-2xl mr-4 hover:underline md:text-base md:mr-8"
             >
               Términos
