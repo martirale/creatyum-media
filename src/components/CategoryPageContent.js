@@ -102,7 +102,7 @@ export default function CategoryPageContent({ slug }) {
     <div>
       {/* Título de la Categoría */}
       <div className="mb-8">
-        <h2 className="text-4xl font-extrabold">
+        <h2 className="font-extrabold text-7xl md:text-9xl">
           {data.category?.attributes?.title ?? "Categoría no encontrada"}
         </h2>
       </div>
