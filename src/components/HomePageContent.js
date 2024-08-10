@@ -60,7 +60,7 @@ export default function HomePageContent() {
   const fetchArticles = async (page) => {
     setIsLoading(true);
     try {
-      const data = await getArticles(page, 18);
+      const data = await getArticles(page, 9);
       setArticles(data.data);
       setTotalPages(data.meta.pagination.pageCount);
     } catch (error) {
