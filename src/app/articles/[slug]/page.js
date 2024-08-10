@@ -1,19 +1,17 @@
 import { notFound } from "next/navigation";
+import { getArticleBySlug } from "../../../lib/api";
 import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/SidebarMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faTag } from "@fortawesome/free-solid-svg-icons";
 
 async function getArticle(slug) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/articles/${slug}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) {
-    if (res.status === 404) return null;
-    throw new Error("Failed to fetch data");
+  try {
+    return await getArticleBySlug(slug);
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    return null;
   }
-  return res.json();
 }
 
 export async function generateMetadata({ params }) {

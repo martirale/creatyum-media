@@ -9,6 +9,7 @@ import {
   faCalendarDays,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
+import { getArticles } from "../lib/api"; // Asegúrate de que la ruta sea correcta
 
 function ArticleCard({ article }) {
   return (
@@ -59,8 +60,7 @@ export default function HomePageContent() {
   const fetchArticles = async (page) => {
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/articles?page=${page}`);
-      const data = await res.json();
+      const data = await getArticles(page, 18); // Asumimos 18 artículos por página
       setArticles(data.data);
       setTotalPages(data.meta.pagination.pageCount);
     } catch (error) {

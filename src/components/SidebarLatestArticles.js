@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { getLatestArticles } from "../lib/api"; // Asegúrate de que la ruta sea correcta
 
 const SidebarLatestArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -14,8 +15,7 @@ const SidebarLatestArticles = () => {
   const fetchLatestArticles = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("/api/articles/latest");
-      const data = await res.json();
+      const data = await getLatestArticles(5); // Obtenemos los 5 artículos más recientes
       setArticles(data);
     } catch (error) {
       console.error("Error fetching latest articles:", error);
@@ -32,18 +32,21 @@ const SidebarLatestArticles = () => {
       ) : (
         <ul className="list-none p-0">
           {articles.map((article) => (
-            <Link href={`/articles/${article.attributes.slug}`}>
-              <li class="flex items-center space-x-4 mb-4">
-                {article.attributes.cover && (
+            <Link
+              href={`/articles/${article.attributes.slug}`}
+              key={article.id}
+            >
+              <li className="flex items-center space-x-4 mb-4">
+                {article.attributes.cover && article.attributes.cover.data && (
                   <img
                     src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                     alt={article.attributes.title}
                     className="w-14 h-14 object-cover rounded-full border border-black md:w-16 md:h-16 dark:border-yellow"
                   />
                 )}
-                <div class="flex flex-col justify-center">
-                  <h3 class="text-2xl">{article.attributes.title}</h3>
-                  <p class="text-sm font-bold">
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-2xl">{article.attributes.title}</h3>
+                  <p className="text-sm font-bold">
                     {new Intl.DateTimeFormat("es-ES", {
                       year: "numeric",
                       month: "long",
