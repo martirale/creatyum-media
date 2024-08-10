@@ -24,7 +24,12 @@ const fetchAPI = async (endpoint, options = {}) => {
 };
 
 export const getArticleBySlug = async (slug) => {
-  const data = await fetchAPI(`/api/articles?filters[slug]=${slug}&populate=*`);
+  const data = await fetchAPI(
+    `/api/articles?filters[slug]=${slug}&populate=*`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (data.data.length === 0) {
     throw new Error("Article not found");
@@ -46,7 +51,10 @@ export const getArticleBySlug = async (slug) => {
 
 export const getArticles = async (page = 1, pageSize = 18) => {
   return fetchAPI(
-    `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`
+    `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
+    {
+      cache: "no-store",
+    }
   );
 };
 
@@ -66,7 +74,10 @@ export const getCategoryWithArticles = async (
   const category = categoryData.data[0];
 
   const articlesData = await fetchAPI(
-    `/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories&sort[0]=date:desc`
+    `/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories&sort[0]=date:desc`,
+    {
+      cache: "no-store",
+    }
   );
 
   return {
