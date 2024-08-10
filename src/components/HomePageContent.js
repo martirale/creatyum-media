@@ -9,12 +9,12 @@ import {
   faCalendarDays,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import { getArticles } from "../lib/api"; // Asegúrate de que la ruta sea correcta
+import { getArticles } from "../lib/api";
 
 function ArticleCard({ article }) {
   return (
     <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
-      <Link href={`/articles/${article.attributes.slug}`}>
+      <Link href={`/article/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover && (
             <img
@@ -60,7 +60,7 @@ export default function HomePageContent() {
   const fetchArticles = async (page) => {
     setIsLoading(true);
     try {
-      const data = await getArticles(page, 18); // Asumimos 18 artículos por página
+      const data = await getArticles(page, 18);
       setArticles(data.data);
       setTotalPages(data.meta.pagination.pageCount);
     } catch (error) {

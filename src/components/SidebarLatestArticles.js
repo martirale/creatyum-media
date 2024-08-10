@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { getLatestArticles } from "../lib/api"; // Asegúrate de que la ruta sea correcta
+import { getLatestArticles } from "../lib/api";
 
 const SidebarLatestArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -15,7 +15,7 @@ const SidebarLatestArticles = () => {
   const fetchLatestArticles = async () => {
     setIsLoading(true);
     try {
-      const data = await getLatestArticles(5); // Obtenemos los 5 artículos más recientes
+      const data = await getLatestArticles(5);
       setArticles(data);
     } catch (error) {
       console.error("Error fetching latest articles:", error);
@@ -32,10 +32,7 @@ const SidebarLatestArticles = () => {
       ) : (
         <ul className="list-none p-0">
           {articles.map((article) => (
-            <Link
-              href={`/articles/${article.attributes.slug}`}
-              key={article.id}
-            >
+            <Link href={`/article/${article.attributes.slug}`} key={article.id}>
               <li className="flex items-center space-x-4 mb-4">
                 {article.attributes.cover && article.attributes.cover.data && (
                   <img

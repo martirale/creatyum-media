@@ -11,7 +11,7 @@ import {
 function ArticleCard({ article }) {
   return (
     <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
-      <Link href={`/articles/${article.attributes.slug}`}>
+      <Link href={`/article/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover?.data?.attributes?.url && (
             <img
@@ -88,17 +88,20 @@ export default async function CategoryPage({ params, searchParams }) {
           {/* PAGINACIÓN */}
           <div className="flex justify-center mt-8">
             <div className="inline-flex -space-x-px rounded-md">
-              <Link
-                href={`/categories/${slug}?page=${page > 1 ? page - 1 : 1}`}
-                passHref
-              >
-                <button
-                  disabled={page === 1}
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
+              {page > 1 ? (
+                <Link
+                  href={`/categories/${slug}?page=${page - 1}`}
+                  passHref
+                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
                   <FontAwesomeIcon icon={faAngleLeft} />
-                </button>
-              </Link>
+                </Link>
+              ) : (
+                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl opacity-50 dark:border-yellow">
+                  <FontAwesomeIcon icon={faAngleLeft} />
+                </span>
+              )}
+
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                 (pageNum) => {
                   if (
@@ -111,16 +114,13 @@ export default async function CategoryPage({ params, searchParams }) {
                         key={pageNum}
                         href={`/categories/${slug}?page=${pageNum}`}
                         passHref
+                        className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
+                          page === pageNum
+                            ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                            : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                        }`}
                       >
-                        <button
-                          className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
-                            page === pageNum
-                              ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
-                              : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
-                          }`}
-                        >
-                          {pageNum}
-                        </button>
+                        {pageNum}
                       </Link>
                     );
                   } else if (
@@ -139,17 +139,20 @@ export default async function CategoryPage({ params, searchParams }) {
                   return null;
                 }
               )}
-              <Link
-                href={`/categories/${slug}?page=${page < totalPages ? page + 1 : totalPages}`}
-                passHref
-              >
-                <button
-                  disabled={page === totalPages}
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25"
+
+              {page < totalPages ? (
+                <Link
+                  href={`/categories/${slug}?page=${page + 1}`}
+                  passHref
+                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
                   <FontAwesomeIcon icon={faAngleRight} />
-                </button>
-              </Link>
+                </Link>
+              ) : (
+                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl opacity-50 dark:border-yellow">
+                  <FontAwesomeIcon icon={faAngleRight} />
+                </span>
+              )}
             </div>
           </div>
         </div>
