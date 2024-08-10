@@ -58,6 +58,12 @@ export default function Footer() {
             About
           </Link>
           <Link
+            href="/categorias"
+            className="text-5xl hover:underline md:text-base"
+          >
+            Categorías
+          </Link>
+          <Link
             href="/podcast"
             className="text-5xl hover:underline md:text-base"
           >
