@@ -90,7 +90,7 @@ export default async function CategoryPage({ params, searchParams }) {
             <div className="inline-flex -space-x-px rounded-md">
               {page > 1 ? (
                 <Link
-                  href={`/categories/${slug}?page=${page - 1}`}
+                  href={`/category/${slug}?page=${page - 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
@@ -112,7 +112,7 @@ export default async function CategoryPage({ params, searchParams }) {
                     return (
                       <Link
                         key={pageNum}
-                        href={`/categories/${slug}?page=${pageNum}`}
+                        href={`/category/${slug}?page=${pageNum}`}
                         passHref
                         className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                           page === pageNum
@@ -142,7 +142,7 @@ export default async function CategoryPage({ params, searchParams }) {
 
               {page < totalPages ? (
                 <Link
-                  href={`/categories/${slug}?page=${page + 1}`}
+                  href={`/category/${slug}?page=${page + 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
