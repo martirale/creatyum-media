@@ -34,9 +34,9 @@ export async function GET(request, { params }) {
       );
     }
 
-    // Fetch de los artículos en la categoría con paginación
+    // Fetch de los artículos en la categoría con paginación y orden descendente por fecha
     const articlesResponse = await fetch(
-      `${strapiUrl}/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories`,
+      `${strapiUrl}/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories&sort[0]=date:desc`,
       {
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
