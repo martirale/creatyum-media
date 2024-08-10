@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
   const { slug } = params;
+  const url = new URL(request.url);
+  const page = parseInt(url.searchParams.get("page")) || 1;
+  const pageSize = 18;
 
   try {
     const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
@@ -31,9 +34,9 @@ export async function GET(request, { params }) {
       );
     }
 
-    // Fetch de los artículos en la categoría
+    // Fetch de los artículos en la categoría con paginación
     const articlesResponse = await fetch(
-      `${strapiUrl}/api/articles?filters[categories][slug][$eq]=${slug}&populate=cover,categories`,
+      `${strapiUrl}/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories`,
       {
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
@@ -47,10 +50,12 @@ export async function GET(request, { params }) {
     }
 
     const articlesData = await articlesResponse.json();
+    const { meta, data: articles } = articlesData;
 
     return NextResponse.json({
       category: category,
-      articles: articlesData.data,
+      articles: articles,
+      meta: meta,
     });
   } catch (error) {
     console.error("Error fetching data:", error);
