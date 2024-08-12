@@ -59,14 +59,11 @@ export default function Footer() {
           </Link>
           <Link
             href="/categorias"
-            className="text-5xl hover:underline md:text-base"
+            className="text-5xl hover:underline md:hidden"
           >
             Categorías
           </Link>
-          <Link
-            href="/podcast"
-            className="text-5xl hover:underline md:text-base"
-          >
+          <Link href="/podcast" className="text-5xl hover:underline md:hidden">
             Podcast
           </Link>
           <div className="pt-12 md:pt-0">
