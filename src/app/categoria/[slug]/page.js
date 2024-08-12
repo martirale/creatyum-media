@@ -178,7 +178,7 @@ export async function generateMetadata({ params }) {
       title: `${category.attributes.title} — Creatyum Media`,
       description:
         category.attributes.description ||
-        "Revista digital para diseñadores y creativos en Latam.",
+        "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     };
   } catch (error) {
     console.error("Error generating metadata:", error);

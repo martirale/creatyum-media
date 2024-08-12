@@ -2,7 +2,8 @@ import PrivacyPageContent from "./PrivacyPageContent";
 
 export const metadata = {
   title: "Política de privacidad — Creatyum Media",
-  description: "Revista digital para diseñadores y creativos en Latam.",
+  description:
+    "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
 };
 
 export default function PrivacyPage() {

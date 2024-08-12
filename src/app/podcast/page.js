@@ -2,7 +2,8 @@ import PodcastPageContent from "./PodcastPageContent";
 
 export const metadata = {
   title: "Café Creativo Podcast — Creatyum Media",
-  description: "Revista digital para diseñadores y creativos en Latam.",
+  description:
+    "Café Creativo es el podcast de Creatyum donde conversamos sobre temas relacionados a la industria creativa.",
 };
 
 export default function PodcastPage() {

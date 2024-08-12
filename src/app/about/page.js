@@ -2,7 +2,8 @@ import AboutPageContent from "./AboutPageContent";
 
 export const metadata = {
   title: "Sobre Creatyum — Creatyum Media",
-  description: "Revista digital para diseñadores y creativos en Latam.",
+  description:
+    "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
 };
 
 export default function AboutPage() {
