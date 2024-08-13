@@ -41,12 +41,14 @@ const SidebarLatestArticles = () => {
                   <img
                     src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                     alt={article.attributes.title}
-                    className="w-14 h-14 object-cover rounded-full border border-black md:w-16 md:h-16 dark:border-yellow"
+                    className="w-16 h-16 object-cover rounded-full border border-black md:w-20 md:h-20 dark:border-yellow"
                   />
                 )}
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-2xl">{article.attributes.title}</h3>
-                  <p className="text-sm font-bold">
+                  <h3 className="text-2xl font-extrabold">
+                    {article.attributes.title}
+                  </h3>
+                  <p className="text-sm mt-2">
                     {new Intl.DateTimeFormat("es-ES", {
                       year: "numeric",
                       month: "long",
