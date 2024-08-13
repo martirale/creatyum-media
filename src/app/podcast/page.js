@@ -1,17 +1,14 @@
-import PodcastPageContent from "./PodcastPageContent";
+import PodcastPlayer from "./PodcastPlayer";
 
-export const metadata = {
-  title: "Café Creativo Podcast — Creatyum Media",
-  description:
-    "Café Creativo es el podcast de Creatyum donde conversamos sobre temas relacionados a la industria creativa.",
-};
+const PodcastPage = () => {
+  const rssFeed = "https://anchor.fm/s/a59b2a8/podcast/rss";
 
-export default function PodcastPage() {
   return (
-    <div>
-      <h1>Café Creativo Podcast</h1>
-
-      <PodcastPageContent />
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">Podcast</h1>
+      <PodcastPlayer rssFeed={rssFeed} />
     </div>
   );
-}
+};
+
+export default PodcastPage;
