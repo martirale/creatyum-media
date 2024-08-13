@@ -88,11 +88,17 @@ export default function FeaturedArticles() {
   const fetchFeaturedArticles = async () => {
     setIsLoading(true);
     try {
-      const data = await getArticles(1, 5, {
-        filters: { featured: true },
+      const data = await getArticles(1, 10, {
         sort: ["date:desc"],
       });
-      setFeaturedArticles(data.data);
+
+      const filteredArticles = data.data.filter(
+        (article) => article.attributes.featured === true
+      );
+
+      const limitedArticles = filteredArticles.slice(0, 5);
+
+      setFeaturedArticles(limitedArticles);
     } catch (error) {
       console.error("Error fetching featured articles:", error);
     } finally {
@@ -127,7 +133,7 @@ export default function FeaturedArticles() {
                   isMain={true}
                 />
                 <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
-                  {/* Siguientes 3 artículos destacados */}
+                  {/* Siguientes 4 artículos destacados */}
                   {featuredArticles.slice(1, 5).map((article) => (
                     <FeaturedArticleCard
                       key={article.id}
