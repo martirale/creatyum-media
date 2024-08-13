@@ -66,8 +66,12 @@ export default async function CategoryPage({ params, searchParams }) {
       <div className="container mx-auto px-4 py-2 md:px-0">
         <div>
           {/* Título de la Categoría */}
-          <div className="mb-8">
-            <h2 className="font-extrabold text-7xl md:text-9xl">
+          <div className="mb-5 md:mb-8">
+            <h2 className="font-extrabold text-5xl md:text-9xl">
+              <FontAwesomeIcon
+                icon={faTag}
+                className="w-8 h-8 align-baseline md:w-24 md:h-24 md:align-middle"
+              />{" "}
               {category.attributes.title}
             </h2>
           </div>

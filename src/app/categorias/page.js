@@ -11,7 +11,9 @@ export default function CategoriesPage() {
     <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Categorías</h1>
 
-      <h2 className="font-extrabold text-7xl mb-8 md:text-9xl">Categorías</h2>
+      <h2 className="font-extrabold text-5xl mb-5 md:text-9xl md:mb-8">
+        Categorías
+      </h2>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
