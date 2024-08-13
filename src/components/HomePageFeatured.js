@@ -96,7 +96,7 @@ export default function FeaturedArticles() {
         (article) => article.attributes.featured === true
       );
 
-      const limitedArticles = filteredArticles.slice(0, 5);
+      const limitedArticles = filteredArticles.slice(0, 7);
 
       setFeaturedArticles(limitedArticles);
     } catch (error) {
@@ -134,7 +134,7 @@ export default function FeaturedArticles() {
                 />
                 <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
                   {/* Siguientes 4 artículos destacados */}
-                  {featuredArticles.slice(1, 5).map((article) => (
+                  {featuredArticles.slice(1, 7).map((article) => (
                     <FeaturedArticleCard
                       key={article.id}
                       article={article}
