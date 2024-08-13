@@ -51,7 +51,7 @@ export const getArticleBySlug = async (slug) => {
 };
 
 // HOME INDEX
-export const getArticles = async (page = 1, pageSize = 18) => {
+export const getArticles = async (page = 1, pageSize = 12) => {
   return fetchAPI(
     `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
     {
