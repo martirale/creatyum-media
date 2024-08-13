@@ -1,7 +1,5 @@
 # Creatyum Media
 
-<div align="center"><img src="./public/cover.jpg"><p></p></div>
-
 <div align="center">
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -10,6 +8,8 @@
 ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
 
 </div>
+
+<div align="center"><img src="./public/creatyum-media-homepage-full-2024.webp"><p></p></div>
 
 # About
 
