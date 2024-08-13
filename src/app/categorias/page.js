@@ -16,7 +16,7 @@ export default function CategoriesPage() {
       </h2>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/diseno`}>
             <div className="relative w-full aspect-w-1 aspect-h-1">
               <img
@@ -33,7 +33,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/industria`}
           >
@@ -52,7 +52,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/radar`}>
             <div className="relative w-full aspect-w-1 aspect-h-1">
               <img
@@ -69,7 +69,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/entrevistas`}
           >
@@ -88,7 +88,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/marcas`}>
             <div className="relative w-full aspect-w-1 aspect-h-1">
               <img
@@ -105,7 +105,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/ilustracion`}
           >
@@ -124,7 +124,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/foto`}>
             <div className="relative w-full aspect-w-1 aspect-h-1">
               <img
@@ -141,7 +141,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/designer-class`}
           >
@@ -160,7 +160,7 @@ export default function CategoriesPage() {
           </Link>
         </div>
 
-        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+        <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
           <Link
             href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/miscelaneo`}
           >

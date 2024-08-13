@@ -10,7 +10,7 @@ import {
 
 function ArticleCard({ article }) {
   return (
-    <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black">
+    <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
       <Link href={`/articulo/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover?.data?.attributes?.url && (
