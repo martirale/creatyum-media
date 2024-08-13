@@ -36,7 +36,7 @@ const SidebarLatestArticles = () => {
               href={`/articulo/${article.attributes.slug}`}
               key={article.id}
             >
-              <li className="flex items-center space-x-4 mb-4">
+              <li className="flex items-center space-x-4 mb-8">
                 {article.attributes.cover && article.attributes.cover.data && (
                   <img
                     src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
