@@ -22,7 +22,9 @@ const PodcastPlayer = () => {
         const episodesData = feed.items.map((item) => ({
           title: item.title,
           audioUrl: item.enclosure.url,
-          imageUrl: item.itunes?.image || "/default-image.jpg", // Imagen por defecto si no se encuentra ninguna
+          imageUrl:
+            item.itunes?.image ||
+            "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/1636506/1636506-1713733779208-14b89918f43a.jpg",
         }));
 
         setEpisodes(episodesData);
