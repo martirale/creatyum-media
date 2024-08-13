@@ -59,7 +59,7 @@ function FeaturedArticleCard({ article, isMain }) {
               />
             )}
             <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-extrabold md:text-3xl">
+              <h3 className="text-2xl font-extrabold md:text-3xl hover:underline">
                 {article.attributes.title}
               </h3>
               <p className="text-sm mt-2">
