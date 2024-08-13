@@ -60,7 +60,7 @@ export default function HomePageContent() {
   const fetchArticles = async (page) => {
     setIsLoading(true);
     try {
-      const data = await getArticles(page, 9);
+      const data = await getArticles(page, 12);
       setArticles(data.data);
       setTotalPages(data.meta.pagination.pageCount);
     } catch (error) {
@@ -78,7 +78,13 @@ export default function HomePageContent() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8">
+        <h2 className="font-extrabold text-7xl md:text-9xl">
+          Artículos recientes
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {isLoading ? (
           <p className="text-center">Cargando artículos...</p>
         ) : (

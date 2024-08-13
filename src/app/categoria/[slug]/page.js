@@ -47,7 +47,7 @@ function ArticleCard({ article }) {
 export default async function CategoryPage({ params, searchParams }) {
   const { slug } = params;
   const page = parseInt(searchParams.page || "1", 10);
-  const pageSize = 18;
+  const pageSize = 20;
 
   try {
     const { category, articles, meta } = await getCategoryWithArticles(
@@ -73,7 +73,7 @@ export default async function CategoryPage({ params, searchParams }) {
           </div>
 
           {/* Artículos */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {articles.length === 0 ? (
               <p className="text-center">
                 No hay artículos para esta categoría.
