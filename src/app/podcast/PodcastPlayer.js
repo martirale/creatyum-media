@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  faBackward,
+  faPause,
+  faPlay,
+  faRotateBack,
+  faRotateForward,
+  faVolumeHigh,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 import Parser from "rss-parser";
 
@@ -101,77 +110,87 @@ const PodcastPlayer = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full md:w-1/2 bg-gray-800 p-4 rounded-lg">
+      <div className="w-full md:w-1/2 bg-black px-4 pt-4 pb-8 rounded-3xl flex flex-col items-center md:p-12">
         {currentEpisode && (
-          <div>
+          <div className="flex flex-col items-center">
+            {/* Episode Cover */}
             <img
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
-              className="w-full h-full object-cover mb-4 rounded"
+              className="w-auto h-auto object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96"
             />
-            <h2 className="text-white text-xl mb-4">{currentEpisode.title}</h2>
-            <audio
-              ref={audioRef}
-              src={currentEpisode.audioUrl}
-              className="w-full mb-4"
-              controls={false}
-            >
-              Your browser does not support the audio element.
-            </audio>
-            <div className="flex justify-between space-x-4 items-center mb-4">
-              <button
-                onClick={() => handleSkip(-15)}
-                className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
-              >
-                -15s
+            {/* Episode Title */}
+            <h2 className="text-yellow text-2xl font-extrabold mb-4 text-center md:text-4xl">
+              {currentEpisode.title}
+            </h2>
+            {/* Progress and Time */}
+            <div className="w-full mb-6">
+              <div className="flex items-center justify-between text-yellow mb-2">
+                <span>{formatTime(currentTime)}</span>
+                <input
+                  type="range"
+                  className="w-full mx-4 accent-yellow"
+                  min="0"
+                  max={duration || 0}
+                  value={currentTime}
+                  onChange={(e) =>
+                    (audioRef.current.currentTime = e.target.value)
+                  }
+                />
+                <span>{formatTime(duration)}</span>
+              </div>
+              {/* Default Player HIDE */}
+              <audio
+                ref={audioRef}
+                src={currentEpisode.audioUrl}
+                className="w-full"
+                controls={false}
+              ></audio>
+            </div>
+            {/* Control Buttons */}
+            <div className="flex justify-around w-full text-yellow text-2xl">
+              {/* Speed Control */}
+              <button onClick={() => handlePlaybackRateChange(1)}>1x</button>
+              {/* Backward 15s */}
+              <button onClick={() => handleSkip(-15)}>
+                <FontAwesomeIcon
+                  icon={faRotateBack}
+                  className="w-6 h-6 align-middle"
+                />
               </button>
+              {/* Play-Pause */}
               <button
                 onClick={togglePlayPause}
-                className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
+                className="bg-yellow text-black px-4 py-3.5 rounded-full"
               >
-                {isPlaying ? "Pause" : "Play"}
+                {isPlaying ? (
+                  <FontAwesomeIcon
+                    icon={faPause}
+                    className="w-7 h-7 align-middle"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faPlay}
+                    className="w-7 h-7 align-middle"
+                  />
+                )}
               </button>
-              <button
-                onClick={() => handleSkip(30)}
-                className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
-              >
-                +30s
+              {/* Forward 30s */}
+              <button onClick={() => handleSkip(30)}>
+                <FontAwesomeIcon
+                  icon={faRotateForward}
+                  className="w-6 h-6 align-middle"
+                />
               </button>
-              <input
-                type="range"
-                className="w-24"
-                min="0"
-                max="1"
-                step="0.01"
-                onChange={(e) => (audioRef.current.volume = e.target.value)}
-                defaultValue="1"
-              />
-              <select
-                onChange={(e) => handlePlaybackRateChange(e.target.value)}
-                className="bg-gray-700 text-white rounded px-2 py-1"
-                value={playbackRate}
-              >
-                <option value="0.5">0.5x</option>
-                <option value="1">1x</option>
-                <option value="1.5">1.5x</option>
-                <option value="2">2x</option>
-              </select>
-            </div>
-            <div className="flex justify-between items-center text-white">
-              <span>{formatTime(currentTime)}</span>
-              <input
-                type="range"
-                className="w-full mx-4"
-                min="0"
-                max={duration || 0}
-                value={currentTime}
-                onChange={(e) =>
-                  (audioRef.current.currentTime = e.target.value)
-                }
-              />
-              <span>{formatTime(duration)}</span>
+              {/* Volume Control */}
+              <button>
+                <FontAwesomeIcon
+                  icon={faVolumeHigh}
+                  className="w-6 h-6 align-middle"
+                />
+              </button>
             </div>
           </div>
         )}
