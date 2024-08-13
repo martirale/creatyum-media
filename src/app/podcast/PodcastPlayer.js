@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Parser from "rss-parser";
 
-const PodcastPlayer = ({ rssFeed }) => {
+const PodcastPlayer = () => {
   const [episodes, setEpisodes] = useState([]);
   const [currentEpisode, setCurrentEpisode] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -11,26 +12,28 @@ const PodcastPlayer = ({ rssFeed }) => {
   const [playbackRate, setPlaybackRate] = useState(1);
 
   const audioRef = useRef(null);
+  const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
 
   useEffect(() => {
-    fetch(rssFeed)
-      .then((response) => response.text())
-      .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
-      .then((data) => {
-        const items = Array.from(data.querySelectorAll("item"));
-        const episodesData = items.map((item) => ({
-          title: item.querySelector("title").textContent,
-          audioUrl: item.querySelector("enclosure").getAttribute("url"),
-          imageUrl: item.querySelector("itunes\\:image")
-            ? item.querySelector("itunes\\:image").getAttribute("href")
-            : data.querySelector("itunes\\:image")
-              ? data.querySelector("itunes\\:image").getAttribute("href")
-              : "/default-image.jpg",
+    const fetchEpisodes = async () => {
+      const parser = new Parser();
+      try {
+        const feed = await parser.parseURL(rssUrl);
+        const episodesData = feed.items.map((item) => ({
+          title: item.title,
+          audioUrl: item.enclosure.url,
+          imageUrl: item.itunes?.image || "/default-image.jpg", // Imagen por defecto si no se encuentra ninguna
         }));
+
         setEpisodes(episodesData);
         setCurrentEpisode(episodesData[0]);
-      });
-  }, [rssFeed]);
+      } catch (error) {
+        console.error("Error fetching podcast episodes:", error);
+      }
+    };
+
+    fetchEpisodes();
+  }, []);
 
   useEffect(() => {
     const audioElement = audioRef.current;
@@ -101,7 +104,9 @@ const PodcastPlayer = ({ rssFeed }) => {
 
   const handlePlaybackRateChange = (rate) => {
     setPlaybackRate(rate);
-    audioRef.current.playbackRate = rate;
+    if (audioRef.current) {
+      audioRef.current.playbackRate = rate;
+    }
   };
 
   const formatTime = (seconds) => {
@@ -127,7 +132,7 @@ const PodcastPlayer = ({ rssFeed }) => {
               ref={audioRef}
               src={currentEpisode.audioUrl}
               className="w-full mb-4"
-              controls={false} // Ocultar controles del reproductor por defecto
+              controls={false}
             >
               Your browser does not support the audio element.
             </audio>
