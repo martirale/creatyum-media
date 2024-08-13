@@ -43,7 +43,6 @@ const PodcastPlayer = () => {
     if (audioElement) {
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
       audioElement.addEventListener("loadedmetadata", handleLoadedMetadata);
-      audioElement.addEventListener("ended", handleNextEpisode);
     }
 
     return () => {
@@ -53,7 +52,6 @@ const PodcastPlayer = () => {
           "loadedmetadata",
           handleLoadedMetadata
         );
-        audioElement.removeEventListener("ended", handleNextEpisode);
       }
     };
   }, [currentEpisode]);
@@ -75,22 +73,6 @@ const PodcastPlayer = () => {
     if (audioRef.current) {
       audioRef.current.currentTime += seconds;
     }
-  };
-
-  const handleNextEpisode = () => {
-    const currentIndex = episodes.findIndex(
-      (episode) => episode === currentEpisode
-    );
-    const nextIndex = (currentIndex + 1) % episodes.length;
-    setCurrentEpisode(episodes[nextIndex]);
-  };
-
-  const handlePreviousEpisode = () => {
-    const currentIndex = episodes.findIndex(
-      (episode) => episode === currentEpisode
-    );
-    const prevIndex = (currentIndex - 1 + episodes.length) % episodes.length;
-    setCurrentEpisode(episodes[prevIndex]);
   };
 
   const togglePlayPause = () => {
@@ -140,12 +122,6 @@ const PodcastPlayer = () => {
             </audio>
             <div className="flex justify-between space-x-4 items-center mb-4">
               <button
-                onClick={handlePreviousEpisode}
-                className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
-              >
-                Prev
-              </button>
-              <button
                 onClick={() => handleSkip(-15)}
                 className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
               >
@@ -162,12 +138,6 @@ const PodcastPlayer = () => {
                 className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
               >
                 +30s
-              </button>
-              <button
-                onClick={handleNextEpisode}
-                className="text-white bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
-              >
-                Next
               </button>
               <input
                 type="range"
