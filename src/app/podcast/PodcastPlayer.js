@@ -236,7 +236,7 @@ const PodcastPlayer = () => {
       </div>
 
       {/* Columna 2: Lista de episodios */}
-      <div className="w-full md:w-1/2 max-h-96 p-4 rounded-3xl border border-black md:max-h-[756px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+      <div className="w-full md:w-1/2 max-h-96 p-4 rounded-3xl border border-black md:max-h-[756px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] dark:border-yellow">
         <ul>
           {episodes.map((episode, index) => (
             <li
