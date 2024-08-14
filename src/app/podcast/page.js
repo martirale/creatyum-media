@@ -1,4 +1,4 @@
-import PodcastPageContent from "./PodcastPageContent";
+import PodcastPlayer from "./PodcastPlayer";
 
 export const metadata = {
   title: "Café Creativo Podcast — Creatyum Media",
@@ -8,10 +8,10 @@ export const metadata = {
 
 export default function PodcastPage() {
   return (
-    <div>
+    <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Café Creativo Podcast</h1>
 
-      <PodcastPageContent />
+      <PodcastPlayer />
     </div>
   );
 }
