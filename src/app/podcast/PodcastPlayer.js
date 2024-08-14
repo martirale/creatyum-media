@@ -226,7 +226,7 @@ const PodcastPlayer = () => {
                     step="0.01"
                     onChange={(e) => (audioRef.current.volume = e.target.value)}
                     defaultValue="1"
-                    className=" bg-yellow accent-yellow absolute top-20 right-0 w-64 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7"
+                    className=" bg-yellow accent-yellow absolute top-20 -right-1 w-60 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7"
                   />
                 )}
               </div>
