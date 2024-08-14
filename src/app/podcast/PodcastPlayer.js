@@ -19,6 +19,8 @@ const PodcastPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
+  const [isVolumeVisible, setIsVolumeVisible] = useState(false);
+  const [volume, setVolume] = useState(1);
 
   const audioRef = useRef(null);
   const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
@@ -95,11 +97,26 @@ const PodcastPlayer = () => {
     }
   };
 
-  const handlePlaybackRateChange = (rate) => {
-    setPlaybackRate(rate);
+  const cyclePlaybackRate = () => {
+    const rates = [0.5, 1, 1.5, 2];
+    const currentRateIndex = rates.indexOf(playbackRate);
+    const nextRate = rates[(currentRateIndex + 1) % rates.length];
+    setPlaybackRate(nextRate);
     if (audioRef.current) {
-      audioRef.current.playbackRate = rate;
+      audioRef.current.playbackRate = nextRate;
     }
+  };
+
+  const handleVolumeChange = (e) => {
+    const volumeValue = e.target.value;
+    setVolume(volumeValue);
+    if (audioRef.current) {
+      audioRef.current.volume = volumeValue;
+    }
+  };
+
+  const toggleVolumeVisibility = () => {
+    setIsVolumeVisible(!isVolumeVisible);
   };
 
   const formatTime = (seconds) => {
@@ -112,7 +129,7 @@ const PodcastPlayer = () => {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full md:w-1/2 bg-black px-4 pt-4 pb-8 rounded-3xl flex flex-col items-center md:p-12">
+      <div className="w-full md:w-1/2 bg-black px-4 pt-4 pb-10 rounded-3xl flex flex-col items-center md:p-12">
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
@@ -152,7 +169,12 @@ const PodcastPlayer = () => {
             {/* Control Buttons */}
             <div className="flex justify-around w-full text-yellow text-2xl">
               {/* Speed Control */}
-              <button onClick={() => handlePlaybackRateChange(1)}>1x</button>
+              <button
+                onClick={cyclePlaybackRate}
+                className="w-8 text-base text-center"
+              >
+                {playbackRate}x
+              </button>
               {/* Backward 15s */}
               <button onClick={() => handleSkip(-15)}>
                 <FontAwesomeIcon
@@ -185,12 +207,25 @@ const PodcastPlayer = () => {
                 />
               </button>
               {/* Volume Control */}
-              <button>
-                <FontAwesomeIcon
-                  icon={faVolumeHigh}
-                  className="w-6 h-6 align-middle"
-                />
-              </button>
+              <div className="relative flex items-center">
+                <button onClick={() => setIsVolumeVisible(!isVolumeVisible)}>
+                  <FontAwesomeIcon
+                    icon={faVolumeHigh}
+                    className="w-6 h-6 align-middle"
+                  />
+                </button>
+                {isVolumeVisible && (
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    onChange={(e) => (audioRef.current.volume = e.target.value)}
+                    defaultValue="1"
+                    className=" bg-yellow accent-yellow absolute top-20 right-0 w-64 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7"
+                  />
+                )}
+              </div>
             </div>
           </div>
         )}
