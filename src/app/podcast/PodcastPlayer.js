@@ -129,14 +129,14 @@ const PodcastPlayer = () => {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full md:w-1/2 bg-black px-4 pt-4 pb-10 rounded-3xl flex flex-col items-center md:p-12">
+      <div className="w-full md:w-1/2 bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:p-12">
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
             <img
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
-              className="w-auto h-auto object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96"
+              className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96"
             />
             {/* Episode Title */}
             <h2 className="text-yellow text-2xl font-extrabold mb-4 text-center md:text-4xl">
