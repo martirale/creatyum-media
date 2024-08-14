@@ -1,7 +1,7 @@
 "use client";
 
+import "../../styles/page.module.css";
 import {
-  faBackward,
   faPause,
   faPlay,
   faRotateBack,
@@ -129,7 +129,7 @@ const PodcastPlayer = () => {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full md:w-1/2 bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:p-12 dark:bg-yellow">
+      <div className="w-full bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:w-1/2 md:max-h-[756px] md:p-12 dark:bg-yellow">
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
@@ -236,15 +236,27 @@ const PodcastPlayer = () => {
       </div>
 
       {/* Columna 2: Lista de episodios */}
-      <div className="w-full md:w-1/2 bg-gray-700 p-4 rounded-lg overflow-y-auto max-h-96">
-        <ul className="space-y-2">
+      <div className="w-full md:w-1/2 max-h-96 p-4 rounded-3xl border border-black md:max-h-[756px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+        <ul>
           {episodes.map((episode, index) => (
             <li
               key={index}
-              className="cursor-pointer text-white hover:bg-gray-600 p-2 rounded"
+              className="cursor-pointer"
               onClick={() => handleEpisodeClick(episode)}
             >
-              {episode.title}
+              <div className="flex items-center space-x-4 px-2 py-3 md:px-5">
+                <img
+                  key={index}
+                  src={episode.imageUrl}
+                  alt={episode.title}
+                  className="w-12 h-12 object-cover rounded-full border border-black md:w-16 md:h-16 dark:border-yellow"
+                />
+                <div className="flex flex-col justify-center">
+                  <p className="text-2xl font-BricolageGrotesque font-extrabold leading-none md:text-4xl hover:underline">
+                    {episode.title}
+                  </p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
