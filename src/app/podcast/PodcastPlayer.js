@@ -143,9 +143,11 @@ const PodcastPlayer = () => {
               {currentEpisode.title}
             </h2>
             {/* Progress and Time */}
-            <div className="w-full mb-6">
+            <div className="w-64 mb-6 md:w-96">
               <div className="flex items-center justify-between text-yellow mb-2">
-                <span>{formatTime(currentTime)}</span>
+                <span className="text-xs md:text-base">
+                  {formatTime(currentTime)}
+                </span>
                 <input
                   type="range"
                   className="w-full mx-4 accent-yellow"
@@ -156,7 +158,9 @@ const PodcastPlayer = () => {
                     (audioRef.current.currentTime = e.target.value)
                   }
                 />
-                <span>{formatTime(duration)}</span>
+                <span className="text-xs md:text-base">
+                  {formatTime(duration)}
+                </span>
               </div>
               {/* Default Player HIDE */}
               <audio
@@ -167,7 +171,7 @@ const PodcastPlayer = () => {
               ></audio>
             </div>
             {/* Control Buttons */}
-            <div className="flex justify-around w-full text-yellow text-2xl">
+            <div className="flex justify-around w-64 text-yellow text-2xl md:w-96">
               {/* Speed Control */}
               <button
                 onClick={cyclePlaybackRate}
