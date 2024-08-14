@@ -129,28 +129,28 @@ const PodcastPlayer = () => {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full md:w-1/2 bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:p-12">
+      <div className="w-full md:w-1/2 bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:p-12 dark:bg-yellow">
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
             <img
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
-              className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96"
+              className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black"
             />
             {/* Episode Title */}
-            <h2 className="text-yellow text-2xl font-extrabold mb-4 text-center md:text-4xl">
+            <h2 className="text-yellow text-2xl font-extrabold mb-4 text-center md:text-4xl dark:text-black">
               {currentEpisode.title}
             </h2>
             {/* Progress and Time */}
             <div className="w-64 mb-6 md:w-96">
-              <div className="flex items-center justify-between text-yellow mb-2">
+              <div className="flex items-center justify-between text-yellow mb-2 dark:text-black">
                 <span className="text-xs md:text-base">
                   {formatTime(currentTime)}
                 </span>
                 <input
                   type="range"
-                  className="w-full mx-4 accent-yellow"
+                  className="w-full mx-4 accent-yellow dark:accent-black"
                   min="0"
                   max={duration || 0}
                   value={currentTime}
@@ -171,7 +171,7 @@ const PodcastPlayer = () => {
               ></audio>
             </div>
             {/* Control Buttons */}
-            <div className="flex justify-around w-64 text-yellow text-2xl md:w-96">
+            <div className="flex justify-around w-64 text-yellow text-2xl md:w-96 dark:text-black">
               {/* Speed Control */}
               <button
                 onClick={cyclePlaybackRate}
@@ -189,7 +189,7 @@ const PodcastPlayer = () => {
               {/* Play-Pause */}
               <button
                 onClick={togglePlayPause}
-                className="bg-yellow text-black px-4 py-3.5 rounded-full"
+                className="bg-yellow text-black px-4 py-3.5 rounded-full dark:bg-black dark:text-yellow"
               >
                 {isPlaying ? (
                   <FontAwesomeIcon
@@ -226,7 +226,7 @@ const PodcastPlayer = () => {
                     step="0.01"
                     onChange={(e) => (audioRef.current.volume = e.target.value)}
                     defaultValue="1"
-                    className=" bg-yellow accent-yellow absolute top-20 -right-1 w-60 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7"
+                    className=" bg-yellow accent-yellow absolute top-20 -right-1 w-60 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7 dark:bg-black dark:accent-black"
                   />
                 )}
               </div>
