@@ -31,6 +31,9 @@ export const metadata = {
     images: ["https://creatyum.media/creatyum-default-cover.webp"],
   },
   canonical: "https://creatyum.media",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
