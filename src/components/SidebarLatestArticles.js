@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { getLatestArticles } from "../lib/api";
 
 const SidebarLatestArticles = () => {
@@ -53,6 +55,10 @@ const SidebarLatestArticles = () => {
                       {article.attributes.title}
                     </h3>
                     <p className="text-sm mt-2">
+                      <FontAwesomeIcon
+                        icon={faCalendarDays}
+                        className="mr-1 w-3 h-3 align-baseline"
+                      />
                       {new Intl.DateTimeFormat("es-ES", {
                         year: "numeric",
                         month: "long",

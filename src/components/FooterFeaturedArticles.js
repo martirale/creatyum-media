@@ -63,6 +63,10 @@ function FeaturedArticleList({ article, isMain }) {
                 {article.attributes.title}
               </h3>
               <p className="text-sm mt-2">
+                <FontAwesomeIcon
+                  icon={faCalendarDays}
+                  className="mr-1 w-3 h-3 align-baseline"
+                />
                 {new Intl.DateTimeFormat("es-ES", {
                   year: "numeric",
                   month: "long",
