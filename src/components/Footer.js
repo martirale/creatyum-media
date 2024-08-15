@@ -79,7 +79,7 @@ export default function Footer() {
       )}
 
       <div className="border-t-black border-t-[1px] text-black dark:border-t-yellow dark:border-t-[1px] dark:text-yellow">
-        <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto py-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mt-8 mb-16 md:mt-0 md:mb-0">
             <Link href="/">
               <div className="logo-icon"></div>
