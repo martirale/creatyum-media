@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }) {
           </div>
 
           {/* AUTHOR */}
-          <div className="mb-16 md:mb-0">
+          <div className="mb-16">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
               {profileImageUrl && (
                 <img
