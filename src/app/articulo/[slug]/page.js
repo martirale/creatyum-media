@@ -115,7 +115,7 @@ export default async function ArticlePage({ params }) {
 
         {/* SIDEBAR */}
         <div className="col-span-12 md:col-span-4">
-          <div className="rounded-3xl border border-solid border-black dark:border-yellow">
+          <div>
             <SidebarMain />
           </div>
         </div>
