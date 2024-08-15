@@ -181,8 +181,30 @@ export async function generateMetadata({ params }) {
     return {
       title: `${category.attributes.title} — Creatyum Media`,
       description:
-        category.attributes.description ||
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+      openGraph: {
+        title: `${category.attributes.title} — Creatyum Media`,
+        description:
+          "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+        url: `https://creatyum.media/categoria/${category.attributes.slug}`,
+        type: "article",
+        images: [
+          {
+            url: "https://creatyum.media/creatyum-default-cover.webp",
+            width: 1200,
+            height: 630,
+            alt: "Creatyum Media",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${category.attributes.title} — Creatyum Media`,
+        description:
+          "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+        images: ["https://creatyum.media/creatyum-default-cover.webp"],
+      },
+      canonical: `https://creatyum.media/categoria/${category.attributes.slug}`,
     };
   } catch (error) {
     console.error("Error generating metadata:", error);
