@@ -108,3 +108,29 @@ export const getLatestArticles = async (limit = 5) => {
   );
   return data.data;
 };
+
+// AUTHOR PAGINATION
+export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
+  const authorData = await fetchAPI(
+    `/api/redactions?filters[slug]=${slug}&populate=profile,articles`
+  );
+
+  if (authorData.data.length === 0) {
+    throw new Error("Author not found");
+  }
+
+  const author = authorData.data[0];
+
+  const articlesData = await fetchAPI(
+    `/api/articles?filters[redactions][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,redactions,categories&sort[0]=date:desc`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  return {
+    author: author,
+    articles: articlesData.data,
+    meta: articlesData.meta,
+  };
+};
