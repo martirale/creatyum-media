@@ -4,6 +4,7 @@ import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/SidebarMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faTag } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 async function getArticle(slug) {
   try {
@@ -121,9 +122,11 @@ export default async function ArticlePage({ params }) {
                 />
               )}
               <div className="flex flex-col">
-                <h4 className="text-3xl text-center font-extrabold mt-1 mb-2 md:text-left">
+                <h4 className="text-3xl text-center font-extrabold mt-1 mb-2 hover:underline md:text-left">
                   {article.attributes.redactions.data.map((author, index) => (
-                    <span key={index}>{author.attributes.name}</span>
+                    <Link key={index} href={`/autor/${author.attributes.slug}`}>
+                      {author.attributes.name}
+                    </Link>
                   ))}
                 </h4>
                 <p className="text-center md:text-left">
