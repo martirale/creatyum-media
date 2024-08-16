@@ -117,7 +117,7 @@ export default async function ArticlePage({ params }) {
                 <img
                   src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
                   alt={author?.name || "Author"}
-                  className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
+                  className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start"
                 />
               )}
               <div className="flex flex-col">
