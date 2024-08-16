@@ -14,6 +14,16 @@
   }
 }
 
+::selection {
+  background: #000000;
+  color: #ffe000;
+}
+
+.dark ::selection {
+  background: #ffe000;
+  color: #000000;
+}
+
 html {
   font-size: 18px;
 }
