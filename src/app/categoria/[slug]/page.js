@@ -29,7 +29,7 @@ function ArticleCard({ article }) {
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {new Intl.DateTimeFormat("es-ES", {
               year: "numeric",
-              month: "long",
+              month: "short",
               day: "numeric",
             }).format(new Date(article.attributes.date))}
 
