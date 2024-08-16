@@ -21,6 +21,9 @@ const PodcastPlayer = () => {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [isVolumeVisible, setIsVolumeVisible] = useState(false);
   const [volume, setVolume] = useState(1);
+  const [lastPlayTime, setLastPlayTime] = useState(0);
+  const [hasSent60SecEvent, setHasSent60SecEvent] = useState(false);
+  const [hasSentCompleteEvent, setHasSentCompleteEvent] = useState(false);
 
   const audioRef = useRef(null);
   const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
@@ -70,10 +73,23 @@ const PodcastPlayer = () => {
   const handleEpisodeClick = (episode) => {
     setCurrentEpisode(episode);
     setIsPlaying(false);
+    setHasSent60SecEvent(false);
+    setHasSentCompleteEvent(false);
   };
 
   const handleTimeUpdate = () => {
-    setCurrentTime(audioRef.current.currentTime);
+    const current = audioRef.current.currentTime;
+    setCurrentTime(current);
+
+    if (!hasSent60SecEvent && current >= 60) {
+      send60SecondListenEvent();
+      setHasSent60SecEvent(true);
+    }
+
+    if (!hasSentCompleteEvent && current / duration >= 0.8) {
+      sendCompleteListenEvent();
+      setHasSentCompleteEvent(true);
+    }
   };
 
   const handleLoadedMetadata = () => {
@@ -87,13 +103,18 @@ const PodcastPlayer = () => {
   };
 
   const togglePlayPause = () => {
+    const now = Date.now();
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
         audioRef.current.play();
+        if (now - lastPlayTime >= 3600000) {
+          setHasSent60SecEvent(false); // Reset event if last play was over 60 minutes ago
+        }
       }
       setIsPlaying(!isPlaying);
+      setLastPlayTime(now);
     }
   };
 
@@ -117,6 +138,26 @@ const PodcastPlayer = () => {
 
   const toggleVolumeVisibility = () => {
     setIsVolumeVisible(!isVolumeVisible);
+  };
+
+  const send60SecondListenEvent = () => {
+    if (window.gtag) {
+      window.gtag("event", "listen_60_seconds", {
+        event_category: "Podcast",
+        event_label: currentEpisode?.title,
+        value: 60,
+      });
+    }
+  };
+
+  const sendCompleteListenEvent = () => {
+    if (window.gtag) {
+      window.gtag("event", "complete_listen", {
+        event_category: "Podcast",
+        event_label: currentEpisode?.title,
+        value: 80,
+      });
+    }
   };
 
   const formatTime = (seconds) => {
