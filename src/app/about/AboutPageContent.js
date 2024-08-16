@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import FormatContent from "../../components/FormatContent";
+import AuthorList from "./AuthorList";
 
 const AboutPageContent = () => {
   const [content, setContent] = useState([]);
@@ -73,6 +74,7 @@ const AboutPageContent = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4 md:gap-12">
+      {/* MAIN CONTENT */}
       <div className="col-span-12 md:col-span-8">
         <h2 className="font-extrabold text-7xl pb-16 md:text-9xl">
           Sobre Creatyum
@@ -80,10 +82,16 @@ const AboutPageContent = () => {
         <FormatContent blocks={content} />
       </div>
 
-      <div className="col-span-12 md:col-span-4">
-        <div className="rounded-3xl border border-black bg-black text-yellow p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
+      {/* SIDEBAR */}
+      <div className="col-span-12 mt-8 md:col-span-4 md:mt-0">
+        <div className="rounded-3xl border border-black bg-black text-yellow mb-4 p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
           <h3 className="font-extrabold text-4xl mb-4">Misión</h3>
           {mission}
+        </div>
+
+        <div className="rounded-3xl border border-black bg-black text-yellow p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
+          <h3 className="font-extrabold text-4xl mb-4">Autores</h3>
+          <AuthorList />
         </div>
       </div>
     </div>
