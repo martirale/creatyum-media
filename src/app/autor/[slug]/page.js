@@ -70,10 +70,22 @@ export default async function AuthorPage({ params, searchParams }) {
       <div className="container mx-auto px-4 py-2 md:px-0">
         <div>
           {/* Nombre del Autor */}
-          <div className="mb-5 md:mb-8">
-            <h2 className="font-extrabold text-5xl md:text-9xl">
-              {author.attributes.name}
-            </h2>
+          <div className="pt-2 mx-4 mb-16 md:mx-0">
+            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+              <img
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${author.attributes.profile.data.attributes.url}`}
+                alt="{author.attributes.name}"
+                className="self-center flex-shrink-0 w-48 h-48 border rounded-full md:justify-self-start"
+              />
+              <div className="flex flex-col">
+                <h2 className="text-5xl text-center font-extrabold mt-1 mb-2 md:text-9xl md:text-left">
+                  {author.attributes.name}
+                </h2>
+                <p className="text-center md:text-left">
+                  <span>{author.attributes.description}</span>
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Artículos */}
