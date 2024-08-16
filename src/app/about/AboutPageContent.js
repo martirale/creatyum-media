@@ -81,7 +81,7 @@ const AboutPageContent = () => {
       </div>
 
       <div className="col-span-12 md:col-span-4">
-        <div className="rounded-3xl border border-black p-4 dark:border-yellow md:p-8">
+        <div className="rounded-3xl border border-black bg-black text-yellow p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
           <h3 className="font-extrabold text-4xl mb-4">Misión</h3>
           {mission}
         </div>
