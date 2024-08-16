@@ -23,7 +23,7 @@ const fetchAPI = async (endpoint, options = {}) => {
   return response.json();
 };
 
-// SINGLE ARTICLE
+// SINGLE ARTICLE + AUTHOR
 export const getArticleBySlug = async (slug) => {
   const data = await fetchAPI(
     `/api/articles?filters[slug]=${slug}&populate=*`,
@@ -50,7 +50,7 @@ export const getArticleBySlug = async (slug) => {
   return article;
 };
 
-// HOME INDEX
+// HOME PAGINATION
 export const getArticles = async (page = 1, pageSize = 12) => {
   return fetchAPI(
     `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
@@ -60,7 +60,15 @@ export const getArticles = async (page = 1, pageSize = 12) => {
   );
 };
 
-// CATEGORY INDEX
+// CATEGORIES
+export const getCategory = async (slug) => {
+  const data = await fetchAPI(
+    `/api/categories?filters[slug]=${slug}&populate=*`
+  );
+  return data.data.length > 0 ? data.data[0] : null;
+};
+
+// CATEGORY PAGINATION
 export const getCategoryWithArticles = async (
   slug,
   page = 1,
@@ -99,12 +107,4 @@ export const getLatestArticles = async (limit = 5) => {
     }
   );
   return data.data;
-};
-
-// CATEGORIES
-export const getCategory = async (slug) => {
-  const data = await fetchAPI(
-    `/api/categories?filters[slug]=${slug}&populate=*`
-  );
-  return data.data.length > 0 ? data.data[0] : null;
 };
