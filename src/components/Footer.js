@@ -76,7 +76,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <div className="text-xs p-12 text-center md:flex md:items-center md:p-0">
+          <div className="text-xs p-12 -mt-10 mb-8 text-center md:flex md:items-center md:p-0 md:mt-0 md:mb-0">
             <p>
               <a
                 href="https://alemartir.com"
