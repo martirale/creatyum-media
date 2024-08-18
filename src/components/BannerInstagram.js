@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function BannerInstagram() {
   return (
-    <div className="mb-16">
+    <div className="mb-8 md:mb-16">
       <div className="px-6 py-12 rounded-3xl bg-black text-yellow dark:bg-yellow dark:text-black md:px-12">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">

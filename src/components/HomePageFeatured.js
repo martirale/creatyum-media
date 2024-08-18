@@ -111,7 +111,7 @@ export default function FeaturedArticles() {
   };
 
   return (
-    <div className="mb-16">
+    <div className="mb-8 md:mb-16">
       <div className="mb-5 md:mb-8">
         <h2 className="font-extrabold text-5xl md:text-9xl">
           <FontAwesomeIcon
