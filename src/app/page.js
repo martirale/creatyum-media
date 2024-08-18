@@ -1,5 +1,6 @@
 import HomePageContent from "../components/HomePageContent";
 import HomePageFeatured from "../components/HomePageFeatured";
+import BannerInstagram from "../components/BannerInstagram";
 
 export default function HomePage() {
   return (
@@ -7,6 +8,8 @@ export default function HomePage() {
       <h1>Creatyum Media</h1>
 
       <HomePageFeatured />
+
+      <BannerInstagram />
 
       <HomePageContent />
     </div>
