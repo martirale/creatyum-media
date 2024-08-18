@@ -79,7 +79,7 @@ export default function HomePageContent() {
   return (
     <div>
       <div className="mb-5 md:mb-8">
-        <h2 className="font-extrabold text-5xl md:text-9xl">
+        <h2 className="font-extrabold text-5xl text-center md:text-9xl md:text-left">
           Publicaciones recientes
         </h2>
       </div>
