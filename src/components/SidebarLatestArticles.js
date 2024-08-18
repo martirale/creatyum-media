@@ -27,7 +27,7 @@ const SidebarLatestArticles = () => {
   };
 
   return (
-    <div className="rounded-3xl text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow">
+    <div className="rounded-3xl mb-8 text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow">
       <div className="p-4 -mb-6 md:p-8">
         <h2 className="font-extrabold text-lg mb-8 uppercase">
           Últimos Artículos
