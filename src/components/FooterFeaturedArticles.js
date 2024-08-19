@@ -92,7 +92,7 @@ export default function FeaturedArticles() {
   const fetchFeaturedArticles = async () => {
     setIsLoading(true);
     try {
-      const data = await getArticles(1, 10, {
+      const data = await getArticles(1, 20, {
         sort: ["date:desc"],
       });
 
