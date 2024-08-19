@@ -7,6 +7,7 @@ import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
 const SponsoredPageContent = () => {
   const [content, setContent] = useState([]);
+  const [date, setDate] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const SponsoredPageContent = () => {
 
         const data = await res.json();
         setContent(data.data.attributes.content);
+        setDate(data.data.attributes.date);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
@@ -46,6 +48,14 @@ const SponsoredPageContent = () => {
     );
   }
 
+  const formattedDate = date
+    ? new Intl.DateTimeFormat("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }).format(new Date(date))
+    : "Fecha no disponible";
+
   return (
     <div>
       <h2 className="font-extrabold text-5xl pb-16 md:text-7xl">
@@ -55,6 +65,18 @@ const SponsoredPageContent = () => {
           className="w-11 h-11 ml-4 align-middle md:w-16 md:h-16"
         />
       </h2>
+
+      {/* UPDATE BADGE */}
+      <div
+        href="/patrocinado"
+        target="_blank"
+        className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-3xl border border-black inline-block dark:bg-black dark:text-yellow dark:border-yellow"
+      >
+        <p className="uppercase">
+          Actualizado: <b>{formattedDate}</b>
+        </p>
+      </div>
+
       <FormatContent blocks={content} />
     </div>
   );

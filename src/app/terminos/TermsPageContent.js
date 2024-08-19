@@ -5,10 +5,11 @@ import FormatContent from "../../components/FormatContent";
 
 const TermsPageContent = () => {
   const [content, setContent] = useState([]);
+  const [date, setDate] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPrivacyContent = async () => {
+    const fetchTermsContent = async () => {
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/terms-of-use`,
@@ -26,13 +27,14 @@ const TermsPageContent = () => {
 
         const data = await res.json();
         setContent(data.data.attributes.content);
+        setDate(data.data.attributes.date);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
       }
     };
 
-    fetchPrivacyContent();
+    fetchTermsContent();
   }, []);
 
   if (error) {
@@ -44,11 +46,31 @@ const TermsPageContent = () => {
     );
   }
 
+  const formattedDate = date
+    ? new Intl.DateTimeFormat("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }).format(new Date(date))
+    : "Fecha no disponible";
+
   return (
     <div>
       <h2 className="font-extrabold text-5xl pb-16 md:text-7xl">
         Términos de uso
       </h2>
+
+      {/* UPDATE BADGE */}
+      <div
+        href="/patrocinado"
+        target="_blank"
+        className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-3xl border border-black inline-block dark:bg-black dark:text-yellow dark:border-yellow"
+      >
+        <p className="uppercase">
+          Actualizado: <b>{formattedDate}</b>
+        </p>
+      </div>
+
       <FormatContent blocks={content} />
     </div>
   );
