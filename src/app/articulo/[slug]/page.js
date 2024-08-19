@@ -3,7 +3,11 @@ import { getArticleBySlug } from "../../../lib/api";
 import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/SidebarMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDays, faTag } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDays,
+  faRectangleAd,
+  faTag,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 async function getArticle(slug) {
@@ -104,6 +108,21 @@ export default async function ArticlePage({ params }) {
           <div className="py-8">
             <hr />
           </div>
+
+          {/* SPONSORED BADGE */}
+          {article.attributes.sponsored && (
+            <Link
+              href="/patrocinado"
+              target="_blank"
+              className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-3xl border border-black inline-block hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+            >
+              <FontAwesomeIcon
+                icon={faRectangleAd}
+                className="w-4 h-4 mr-2 align-middle"
+              />
+              CONTENIDO PATROCINADO
+            </Link>
+          )}
 
           <FormatContent blocks={article.attributes.content} />
 
