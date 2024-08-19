@@ -33,7 +33,7 @@ export default function SidebarInstagram() {
                 href="https://www.instagram.com/creatyum_md"
                 rel="noreferrer noopener"
                 target="_blank"
-                className="px-5 mt-4 py-3 rounded-full border block bg-yellow text-black text-xl font-bold dark:bg-black dark:text-yellow"
+                className="px-5 mt-4 py-3 rounded-full font-bold text-xl block border border-yellow bg-yellow text-black hover:bg-black hover:text-yellow dark:border-black dark:bg-black dark:text-yellow dark:hover:bg-yellow dark:hover:text-black"
               >
                 ¡Síguenos!
               </Link>
