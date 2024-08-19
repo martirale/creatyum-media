@@ -81,8 +81,8 @@ export default async function AuthorPage({ params, searchParams }) {
                 <h2 className="text-5xl text-center font-extrabold mt-1 mb-2 md:text-9xl md:text-left">
                   {author.attributes.name}
                 </h2>
-                <p className="text-center md:text-left">
-                  <span>{author.attributes.description}</span>
+                <p className="text-center md:text-left md:text-xl">
+                  {author.attributes.description}
                 </p>
               </div>
             </div>
