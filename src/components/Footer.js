@@ -64,15 +64,21 @@ export default function Footer() {
             <div className="pt-12 md:pt-0">
               <Link
                 href="/privacidad"
-                className="text-2xl mr-4 hover:underline md:text-base md:mr-8"
+                className="text-xl mr-4 hover:underline md:text-base md:mr-8"
               >
                 Privacidad
               </Link>
               <Link
                 href="/terminos"
-                className="text-2xl hover:underline md:text-base"
+                className="text-xl mr-4 hover:underline md:text-base md:mr-8"
               >
                 Términos
+              </Link>
+              <Link
+                href="/patrocinado"
+                className="text-xl hover:underline md:text-base"
+              >
+                Patrocinado
               </Link>
             </div>
           </div>
