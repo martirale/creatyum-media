@@ -64,11 +64,9 @@ const PrivacyPageContent = () => {
       <div
         href="/patrocinado"
         target="_blank"
-        className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-3xl border border-black inline-block dark:bg-black dark:text-yellow dark:border-yellow"
+        className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-full border border-black inline-block dark:bg-black dark:text-yellow dark:border-yellow"
       >
-        <p className="uppercase">
-          Actualizado: <b>{formattedDate}</b>
-        </p>
+        <p className="font-bold uppercase">Actualizado: {formattedDate}</p>
       </div>
 
       <FormatContent blocks={content} />

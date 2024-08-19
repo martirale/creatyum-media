@@ -114,7 +114,7 @@ export default async function ArticlePage({ params }) {
             <Link
               href="/patrocinado"
               target="_blank"
-              className="mb-8 bg-yellow text-black py-1 px-5 text-xs rounded-3xl border border-black inline-block hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+              className="mb-8 bg-yellow font-bold text-black py-1 px-5 text-xs rounded-full border border-black inline-block hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
             >
               <FontAwesomeIcon
                 icon={faRectangleAd}
