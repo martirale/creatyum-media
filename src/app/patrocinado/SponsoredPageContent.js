@@ -52,7 +52,7 @@ const SponsoredPageContent = () => {
         Contenido patrocinado
         <FontAwesomeIcon
           icon={faRectangleAd}
-          className="w-16 h-16 ml-4 align-middle"
+          className="w-11 h-11 ml-4 align-middle md:w-16 md:h-16"
         />
       </h2>
       <FormatContent blocks={content} />
