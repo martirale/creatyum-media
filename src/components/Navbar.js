@@ -44,9 +44,17 @@ export default function Navbar() {
     if (theme === "dark") {
       root.style.setProperty("--logo", "url('/creatyum-logo-y.svg')");
       root.style.setProperty("--logo-icon", "url('/creatyum-icon-y.svg')");
+      root.style.setProperty(
+        "--logo-layered",
+        "url('/creatyum-layered-logo-k.svg')"
+      );
     } else {
       root.style.setProperty("--logo", "url('/creatyum-logo-k.svg')");
       root.style.setProperty("--logo-icon", "url('/creatyum-icon-k.svg')");
+      root.style.setProperty(
+        "--logo-layered",
+        "url('/creatyum-layered-logo-y.svg')"
+      );
     }
   };
 

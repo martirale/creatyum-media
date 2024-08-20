@@ -5,12 +5,14 @@
 :root {
   --logo: url("/creatyum-logo-k.svg");
   --logo-icon: url("/creatyum-icon-k.svg");
+  --logo-layered: url("/creatyum-layered-logo-y.svg");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --logo: url("/creatyum-logo-y.svg");
     --logo-icon: url("/creatyum-icon-y.svg");
+    --logo-layered: url("/creatyum-layered-logo-k.svg");
   }
 }
 
@@ -75,6 +77,24 @@ h1 {
   .logo-icon {
     width: 32px;
     height: 32px;
+  }
+}
+
+/* LOGO LAYERED */
+.logo-layered {
+  background-image: var(--logo-layered);
+  width: 256px;
+  height: 122px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 8px 0;
+}
+
+@media (min-width: 768px) {
+  .logo-layered {
+    width: 512px;
+    height: 244px;
   }
 }
 

@@ -1,6 +1,7 @@
 import HomePageContent from "../components/HomePageContent";
 import HomePageFeatured from "../components/HomePageFeatured";
 import BannerInstagram from "../components/BannerInstagram";
+import BannerComic from "../components/BannerComic";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,8 @@ export default function HomePage() {
       <BannerInstagram />
 
       <HomePageContent />
+
+      <BannerComic />
     </div>
   );
 }
