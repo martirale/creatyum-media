@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { getComics } from "../lib/api";
 
 const TwoColumnLayout = () => {
@@ -31,9 +32,30 @@ const TwoColumnLayout = () => {
   return (
     <div className="mt-8 md:mt-16">
       <div className="rounded-3xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8">
-        <div className="flex flex-wrap w-full items-center">
+        <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
             <div className="logo-layered"></div>
+            <div className="text-center mt-8 md:px-16">
+              <p className="mb-8">
+                <b>Layered</b> es un webcomic que sigue a <b>Cara</b>, una
+                diseñadora gráfica que navega con humor y sarcasmo las
+                situaciones cotidianas y clichés del mundo del diseño.
+              </p>
+              <p>
+                <b>
+                  ¡Nueva viñeta cada semana!
+                  <br />
+                  <Link
+                    href="https://www.instagram.com/explore/tags/creatyumlayered/"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                    className="underline"
+                  >
+                    #creatyumlayered
+                  </Link>
+                </b>
+              </p>
+            </div>
           </div>
 
           <div className="w-full md:w-1/2 p-4">
