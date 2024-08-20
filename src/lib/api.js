@@ -134,3 +134,21 @@ export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
     meta: articlesData.meta,
   };
 };
+
+// LAYERED COMIC
+export const getComics = async () => {
+  const data = await fetchAPI(`/api/comics?sort[0]=id:desc&populate=panel`, {
+    cache: "no-store",
+  });
+
+  return data.data.map((comic) => {
+    const { id, attributes } = comic;
+    const { slug, panel } = attributes;
+
+    return {
+      id,
+      slug,
+      imageUrl: panel?.data?.attributes?.url || null,
+    };
+  });
+};
