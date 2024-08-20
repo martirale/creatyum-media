@@ -1,5 +1,6 @@
 import SidebarLatestArticles from "../components/SidebarLatestArticles";
 import SidebarInstagram from "../components/SidebarInstagram";
+import SidebarComic from "../components/SidebarComic";
 
 export default function SidebarMain() {
   return (
@@ -7,6 +8,8 @@ export default function SidebarMain() {
       <SidebarLatestArticles />
 
       <SidebarInstagram />
+
+      <SidebarComic />
     </div>
   );
 }

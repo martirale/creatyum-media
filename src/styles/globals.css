@@ -91,6 +91,16 @@ h1 {
   margin: 8px 0;
 }
 
+.logo-layered-sidebar {
+  background-image: var(--logo-layered);
+  width: 256px;
+  height: 122px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 8px 0;
+}
+
 @media (min-width: 768px) {
   .logo-layered {
     width: 512px;
