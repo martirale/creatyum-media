@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import FooterFeaturedArticles from "../components/FooterFeaturedArticles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -63,6 +65,16 @@ export default function Footer() {
             </Link>
             <div className="pt-12 md:pt-0">
               <Link
+                href="/patrocinado"
+                className="text-xl mr-4 hover:underline md:text-base md:mr-8"
+              >
+                Patrocinado
+                <FontAwesomeIcon
+                  icon={faRectangleAd}
+                  className="w-4 h-4 align-middle ml-1 md:w-3.5 md:h-3.5"
+                />
+              </Link>
+              <Link
                 href="/privacidad"
                 className="text-xl mr-4 hover:underline md:text-base md:mr-8"
               >
@@ -70,15 +82,9 @@ export default function Footer() {
               </Link>
               <Link
                 href="/terminos"
-                className="text-xl mr-4 hover:underline md:text-base md:mr-8"
-              >
-                Términos
-              </Link>
-              <Link
-                href="/patrocinado"
                 className="text-xl hover:underline md:text-base"
               >
-                Patrocinado
+                Términos
               </Link>
             </div>
           </div>
