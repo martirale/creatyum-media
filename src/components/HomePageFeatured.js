@@ -92,17 +92,34 @@ export default function FeaturedArticles() {
   const fetchFeaturedArticles = async () => {
     setIsLoading(true);
     try {
-      const data = await getArticles(1, 20, {
-        sort: ["date:desc"],
-      });
+      let allFeaturedArticles = [];
+      let page = 1;
+      const pageSize = 100;
 
-      const filteredArticles = data.data.filter(
-        (article) => article.attributes.featured === true
-      );
+      while (allFeaturedArticles.length < 7) {
+        const data = await getArticles(page, pageSize, {
+          sort: ["date:desc"],
+          filters: {
+            featured: {
+              $eq: true,
+            },
+          },
+        });
 
-      const limitedArticles = filteredArticles.slice(0, 7);
+        const featuredArticles = data.data.filter(
+          (article) => article.attributes.featured === true
+        );
 
-      setFeaturedArticles(limitedArticles);
+        allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
+
+        if (data.data.length < pageSize) {
+          break;
+        }
+
+        page++;
+      }
+
+      setFeaturedArticles(allFeaturedArticles.slice(0, 7));
     } catch (error) {
       console.error("Error fetching featured articles:", error);
     } finally {
