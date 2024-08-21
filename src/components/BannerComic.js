@@ -63,7 +63,7 @@ const TwoColumnLayout = () => {
               <img
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${comicImageUrl}`}
                 alt="creatyum-layered-comic"
-                className="w-full h-auto object-cover rounded-3xl"
+                className="w-full h-auto object-cover rounded-3xl border border-yellow dark:border-black"
               />
             )}
           </div>
