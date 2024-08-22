@@ -15,7 +15,7 @@ export default function CookieConsentBanner({ onAccept, onReject }) {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-black text-yellow p-4 text-center dark:bg-yellow">
+    <div className="fixed bottom-0 left-0 w-full z-50 bg-black text-yellow p-4 text-center dark:bg-yellow dark:text-black">
       <p>
         Usamos cookies para mejorar tu experiencia. Acepta o rechaza para
         continuar.
