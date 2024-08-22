@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { getArticleBySlug } from "../../../lib/api";
 import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/SidebarMain";
@@ -78,7 +79,7 @@ export default async function ArticlePage({ params }) {
           {/* COVER */}
           <div className="mb-4 relative w-full aspect-w-1 aspect-h-1 sm:aspect-w-16 sm:aspect-h-9">
             {article.attributes.cover && (
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                 alt={article.attributes.title}
                 className="rounded-3xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow"
@@ -134,7 +135,7 @@ export default async function ArticlePage({ params }) {
           <div className="mb-16">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
               {profileImageUrl && (
-                <img
+                <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
                   alt={author?.name || "Author"}
                   className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start"

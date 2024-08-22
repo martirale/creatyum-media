@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getComics } from "../lib/api";
 
 const TwoColumnLayout = () => {
@@ -60,7 +61,7 @@ const TwoColumnLayout = () => {
 
           <div className="w-full md:w-1/2 p-4">
             {comicImageUrl && (
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${comicImageUrl}`}
                 alt="creatyum-layered-comic"
                 className="w-full h-auto object-cover rounded-3xl border border-yellow dark:border-black"
