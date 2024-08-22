@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 export const metadata = {
   title: "Creatyum Media — Divulgación sobre diseño y creatividad",
