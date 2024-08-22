@@ -29,7 +29,7 @@ export default function CookieConsentBanner({ onAccept, onReject }) {
         </button>
         <button
           onClick={handleReject}
-          className="mt-2 px-4 py-2 text-yellow hover:underline"
+          className="mt-2 px-4 py-2 text-yellow hover:underline dark:text-black"
         >
           Rechazar
         </button>
