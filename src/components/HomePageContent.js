@@ -21,8 +21,8 @@ function ArticleCard({ article }) {
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
               alt={article.attributes.title}
-              width={1920}
-              height={1080}
+              width={960}
+              height={540}
               className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
             />
           )}

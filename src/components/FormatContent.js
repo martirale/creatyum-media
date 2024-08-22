@@ -63,8 +63,8 @@ export function FormatContent({ blocks }) {
       );
     }
     if (block.type === "image") {
-      const width = 800; // Ancho por defecto
-      const height = 600; // Altura por defecto
+      const width = 960; // Ancho por defecto
+      const height = 540; // Altura por defecto
 
       return (
         <figure key={index} className="mt-8 mb-12">
