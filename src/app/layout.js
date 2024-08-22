@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
-import GoogleAnalytics from "../components/GoogleAnalytics";
+import CookieConsentManager from "../components/CookieConsentManager";
 
 export const metadata = {
   title: "Creatyum Media — Divulgación sobre diseño y creatividad",
@@ -56,6 +56,8 @@ export default function RootLayout({ children }) {
 
         <BackToTop />
         <Footer />
+
+        <CookieConsentManager gaId="G-V5TV2RSE21" />
       </body>
     </html>
   );
