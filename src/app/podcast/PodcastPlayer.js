@@ -178,8 +178,8 @@ const PodcastPlayer = () => {
             <Image
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
-              width={1080}
-              height={1080}
+              width={512}
+              height={512}
               className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black"
             />
             {/* Episode Title */}
@@ -293,6 +293,8 @@ const PodcastPlayer = () => {
                   key={index}
                   src={episode.imageUrl}
                   alt={episode.title}
+                  width={360}
+                  height={360}
                   className="w-12 h-12 object-cover rounded-full border border-black md:w-16 md:h-16 dark:border-yellow"
                 />
                 <div className="flex flex-col justify-center">
