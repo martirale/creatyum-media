@@ -9,7 +9,7 @@
 
 </div>
 
-<div align="center"><img src="./public/creatyum-media-homepage-full-2024.webp"><p></p></div>
+<div align="center"><img src="./public/creatyum-media-homepage-full-2024-v1.webp"><p></p></div>
 
 # About
 
