@@ -9,7 +9,7 @@ import {
   faVolumeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Parser from "rss-parser";
 import Image from "next/image";
 
@@ -28,6 +28,25 @@ const PodcastPlayer = () => {
 
   const audioRef = useRef(null);
   const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
+
+  const handleTimeUpdate = useCallback(() => {
+    const current = audioRef.current.currentTime;
+    setCurrentTime(current);
+
+    if (!hasSent60SecEvent && current >= 60) {
+      send60SecondListenEvent();
+      setHasSent60SecEvent(true);
+    }
+
+    if (!hasSentCompleteEvent && current / duration >= 0.8) {
+      sendCompleteListenEvent();
+      setHasSentCompleteEvent(true);
+    }
+  }, [hasSent60SecEvent, hasSentCompleteEvent, duration]);
+
+  const handleLoadedMetadata = () => {
+    setDuration(audioRef.current.duration);
+  };
 
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -69,32 +88,13 @@ const PodcastPlayer = () => {
         );
       }
     };
-  }, [currentEpisode]);
+  }, [currentEpisode, handleTimeUpdate]);
 
   const handleEpisodeClick = (episode) => {
     setCurrentEpisode(episode);
     setIsPlaying(false);
     setHasSent60SecEvent(false);
     setHasSentCompleteEvent(false);
-  };
-
-  const handleTimeUpdate = () => {
-    const current = audioRef.current.currentTime;
-    setCurrentTime(current);
-
-    if (!hasSent60SecEvent && current >= 60) {
-      send60SecondListenEvent();
-      setHasSent60SecEvent(true);
-    }
-
-    if (!hasSentCompleteEvent && current / duration >= 0.8) {
-      sendCompleteListenEvent();
-      setHasSentCompleteEvent(true);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    setDuration(audioRef.current.duration);
   };
 
   const handleSkip = (seconds) => {
