@@ -48,8 +48,8 @@ const SidebarLatestArticles = () => {
                       <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                         alt={article.attributes.title}
-                        width={1920}
-                        height={1080}
+                        width={480}
+                        height={270}
                         className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
                       />
                     )}

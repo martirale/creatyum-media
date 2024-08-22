@@ -18,6 +18,8 @@ function ArticleCard({ article }) {
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
               alt={article.attributes.title}
+              width={960}
+              height={540}
               className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
             />
           )}
@@ -76,8 +78,8 @@ export default async function AuthorPage({ params, searchParams }) {
               <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${author.attributes.profile.data.attributes.url}`}
                 alt="{author.attributes.name}"
-                width={1080}
-                height={1080}
+                width={512}
+                height={512}
                 className="self-center flex-shrink-0 w-48 h-48 border rounded-full md:justify-self-start"
               />
               <div className="flex flex-col">

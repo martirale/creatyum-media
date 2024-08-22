@@ -46,8 +46,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-diseno-cover.webp"
                 alt="creatyum-media-diseno-cover"
-                width={1920}
-                height={1080}
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -67,6 +67,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-industria-cover.webp"
                 alt="creatyum-media-industria-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -84,6 +86,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-radar-cover.webp"
                 alt="creatyum-media-radar-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -103,6 +107,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-entrevistas-cover.webp"
                 alt="creatyum-media-entrevistas-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -120,6 +126,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-marcas-cover.webp"
                 alt="creatyum-media-marcas-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -139,6 +147,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-ilustracion-cover.webp"
                 alt="creatyum-media-ilustracion-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -156,6 +166,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-foto-cover.webp"
                 alt="creatyum-media-foto-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -175,6 +187,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-designer-class-cover.webp"
                 alt="creatyum-media-designer-class-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>
@@ -194,6 +208,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-misc-cover.webp"
                 alt="creatyum-media-misc-cover"
+                width={960}
+                height={540}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>

@@ -140,8 +140,8 @@ export default async function ArticlePage({ params }) {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
                   alt={author?.name || "Author"}
-                  width={1080}
-                  height={1080}
+                  width={256}
+                  height={256}
                   className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start"
                 />
               )}
