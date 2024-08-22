@@ -15,7 +15,7 @@ export default function CookieConsentBanner({ onAccept, onReject }) {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-black text-yellow p-4 text-center">
+    <div className="fixed bottom-0 left-0 w-full z-50 bg-black text-yellow p-4 text-center dark:bg-yellow">
       <p>
         Usamos cookies para mejorar tu experiencia. Acepta o rechaza para
         continuar.
@@ -23,7 +23,7 @@ export default function CookieConsentBanner({ onAccept, onReject }) {
       <div className="mt-2 space-x-4">
         <button
           onClick={handleAccept}
-          className="mt-2 px-4 py-2 bg-black text-yellow rounded-full border border-yellow hover:bg-yellow hover:text-black"
+          className="mt-2 px-4 py-2 bg-black text-yellow rounded-full border border-yellow hover:bg-yellow hover:text-black dark:bg-yellow dark:text-black dark:border-black dark:hover:bg-black dark:hover:text-yellow"
         >
           Aceptar
         </button>
