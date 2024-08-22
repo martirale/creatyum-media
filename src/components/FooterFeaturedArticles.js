@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,
@@ -52,9 +53,11 @@ function FeaturedArticleList({ article, isMain }) {
         <Link href={`/articulo/${article.attributes.slug}`}>
           <div className="flex items-center space-x-4 mb-4">
             {article.attributes.cover && article.attributes.cover.data && (
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                 alt={article.attributes.title}
+                width={1920}
+                height={1080}
                 className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
               />
             )}

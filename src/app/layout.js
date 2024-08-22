@@ -41,11 +41,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
-        {process.env.NODE_ENV === "production" && (
-          <GoogleAnalytics gaId="G-V5TV2RSE21" />
-        )}
-      </head>
       <body
         className={`${Roboto.variable} ${BricolageGrotesque.variable} font-Roboto font-light bg-yellow text-black dark:bg-black dark:text-yellow custom-vh`}
       >

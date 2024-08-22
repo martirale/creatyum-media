@@ -1,5 +1,6 @@
-import { getAuthorWithArticles } from "../../../lib/api"; // Cambia la función de obtención de datos
+import { getAuthorWithArticles } from "../../../lib/api";
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -14,7 +15,7 @@ function ArticleCard({ article }) {
       <Link href={`/articulo/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover?.data?.attributes?.url && (
-            <img
+            <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
               alt={article.attributes.title}
               className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
@@ -72,9 +73,11 @@ export default async function AuthorPage({ params, searchParams }) {
           {/* Nombre del Autor */}
           <div className="pt-2 mx-4 mb-16 md:mx-0">
             <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${author.attributes.profile.data.attributes.url}`}
                 alt="{author.attributes.name}"
+                width={1080}
+                height={1080}
                 className="self-center flex-shrink-0 w-48 h-48 border rounded-full md:justify-self-start"
               />
               <div className="flex flex-col">

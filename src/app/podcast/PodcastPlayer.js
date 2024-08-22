@@ -11,6 +11,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef } from "react";
 import Parser from "rss-parser";
+import Image from "next/image";
 
 const PodcastPlayer = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -174,9 +175,11 @@ const PodcastPlayer = () => {
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
-            <img
+            <Image
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
+              width={1080}
+              height={1080}
               className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black"
             />
             {/* Episode Title */}
@@ -286,7 +289,7 @@ const PodcastPlayer = () => {
               onClick={() => handleEpisodeClick(episode)}
             >
               <div className="flex items-center space-x-4 px-2 py-3 md:px-5">
-                <img
+                <Image
                   key={index}
                   src={episode.imageUrl}
                   alt={episode.title}

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -62,11 +63,16 @@ export function FormatContent({ blocks }) {
       );
     }
     if (block.type === "image") {
+      const width = 800; // Ancho por defecto
+      const height = 600; // Altura por defecto
+
       return (
         <figure key={index} className="mt-8 mb-12">
-          <img
+          <Image
             src={block.image.url}
             alt={block.image.alternativeText || ""}
+            width={width}
+            height={height}
             className="w-full h-auto rounded-3xl mb-2 border border-black dark:border-yellow"
           />
           {block.image.caption && (

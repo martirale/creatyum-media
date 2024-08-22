@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleLeft,
@@ -17,9 +18,11 @@ function ArticleCard({ article }) {
       <Link href={`/articulo/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-1 aspect-h-1">
           {article.attributes.cover && (
-            <img
+            <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
               alt={article.attributes.title}
+              width={1920}
+              height={1080}
               className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
             />
           )}
