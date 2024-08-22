@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }) {
                   alt={author?.name || "Author"}
                   width={256}
                   height={256}
-                  className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start"
+                  className="self-center flex-shrink-0 w-24 h-24 border border-black rounded-full md:justify-self-start dark:border-yellow"
                 />
               )}
               <div className="flex flex-col">

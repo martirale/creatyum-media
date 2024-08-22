@@ -80,7 +80,7 @@ export default async function AuthorPage({ params, searchParams }) {
                 alt="{author.attributes.name}"
                 width={512}
                 height={512}
-                className="self-center flex-shrink-0 w-48 h-48 border rounded-full md:justify-self-start"
+                className="self-center flex-shrink-0 w-48 h-48 border border-black rounded-full md:justify-self-start dark:border-yellow"
               />
               <div className="flex flex-col">
                 <h2 className="text-5xl text-center font-extrabold mt-1 mb-2 md:text-9xl md:text-left">
