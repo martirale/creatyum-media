@@ -64,6 +64,8 @@ const TwoColumnLayout = () => {
               <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${comicImageUrl}`}
                 alt="creatyum-layered-comic"
+                width={1080}
+                height={1080}
                 className="w-full h-auto object-cover rounded-3xl border border-yellow dark:border-black"
               />
             )}

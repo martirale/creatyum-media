@@ -178,6 +178,8 @@ const PodcastPlayer = () => {
             <Image
               src={currentEpisode.imageUrl}
               alt={currentEpisode.title}
+              width={1080}
+              height={1080}
               className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black"
             />
             {/* Episode Title */}

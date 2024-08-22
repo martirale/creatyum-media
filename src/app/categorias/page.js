@@ -46,6 +46,8 @@ export default function CategoriesPage() {
               <Image
                 src="/images/creatyum-media-diseno-cover.webp"
                 alt="creatyum-media-diseno-cover"
+                width={1920}
+                height={1080}
                 className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
               />
             </div>

@@ -76,6 +76,8 @@ export default async function AuthorPage({ params, searchParams }) {
               <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${author.attributes.profile.data.attributes.url}`}
                 alt="{author.attributes.name}"
+                width={1080}
+                height={1080}
                 className="self-center flex-shrink-0 w-48 h-48 border rounded-full md:justify-self-start"
               />
               <div className="flex flex-col">

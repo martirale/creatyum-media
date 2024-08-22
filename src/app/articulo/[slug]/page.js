@@ -82,6 +82,8 @@ export default async function ArticlePage({ params }) {
               <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
                 alt={article.attributes.title}
+                width={1920}
+                height={1080}
                 className="rounded-3xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow"
               />
             )}
@@ -138,6 +140,8 @@ export default async function ArticlePage({ params }) {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
                   alt={author?.name || "Author"}
+                  width={1080}
+                  height={1080}
                   className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start"
                 />
               )}
