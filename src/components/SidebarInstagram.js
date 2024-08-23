@@ -6,7 +6,7 @@ export default function SidebarInstagram() {
   return (
     <div>
       <div className="rounded-3xl mb-8 text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow">
-        <div className="p-4 md:p-8">
+        <div className="p-4">
           <div className="container mx-auto">
             <div className="flex flex-col items-center justify-between">
               <Link

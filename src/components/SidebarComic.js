@@ -33,7 +33,7 @@ const SidebarComic = () => {
   return (
     <div>
       <div className="rounded-3xl text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow">
-        <div className="p-4 md:p-8">
+        <div className="p-4">
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center w-full">
               <div className="w-full p-4 flex flex-col items-center">
