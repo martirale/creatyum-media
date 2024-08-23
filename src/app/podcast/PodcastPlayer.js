@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Parser from "rss-parser";
 import Image from "next/image";
+import ReactAudioPlayer from "react-audio-player";
 
 const PodcastPlayer = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -30,7 +31,7 @@ const PodcastPlayer = () => {
   const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
 
   const handleTimeUpdate = useCallback(() => {
-    const current = audioRef.current.currentTime;
+    const current = audioRef.current?.audioEl.current.currentTime;
     setCurrentTime(current);
 
     if (!hasSent60SecEvent && current >= 60) {
@@ -45,7 +46,7 @@ const PodcastPlayer = () => {
   }, [hasSent60SecEvent, hasSentCompleteEvent, duration]);
 
   const handleLoadedMetadata = () => {
-    setDuration(audioRef.current.duration);
+    setDuration(audioRef.current.audioEl.current.duration);
   };
 
   useEffect(() => {
@@ -72,7 +73,7 @@ const PodcastPlayer = () => {
   }, []);
 
   useEffect(() => {
-    const audioElement = audioRef.current;
+    const audioElement = audioRef.current?.audioEl.current;
 
     if (audioElement) {
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
@@ -99,7 +100,7 @@ const PodcastPlayer = () => {
 
   const handleSkip = (seconds) => {
     if (audioRef.current) {
-      audioRef.current.currentTime += seconds;
+      audioRef.current.audioEl.current.currentTime += seconds;
     }
   };
 
@@ -107,11 +108,11 @@ const PodcastPlayer = () => {
     const now = Date.now();
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.pause();
+        audioRef.current.audioEl.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.audioEl.current.play();
         if (now - lastPlayTime >= 3600000) {
-          setHasSent60SecEvent(false); // Reset event if last play was over 60 minutes ago
+          setHasSent60SecEvent(false);
         }
       }
       setIsPlaying(!isPlaying);
@@ -125,7 +126,7 @@ const PodcastPlayer = () => {
     const nextRate = rates[(currentRateIndex + 1) % rates.length];
     setPlaybackRate(nextRate);
     if (audioRef.current) {
-      audioRef.current.playbackRate = nextRate;
+      audioRef.current.audioEl.current.playbackRate = nextRate;
     }
   };
 
@@ -133,7 +134,7 @@ const PodcastPlayer = () => {
     const volumeValue = e.target.value;
     setVolume(volumeValue);
     if (audioRef.current) {
-      audioRef.current.volume = volumeValue;
+      audioRef.current.audioEl.current.volume = volumeValue;
     }
   };
 
@@ -199,20 +200,32 @@ const PodcastPlayer = () => {
                   max={duration || 0}
                   value={currentTime}
                   onChange={(e) =>
-                    (audioRef.current.currentTime = e.target.value)
+                    (audioRef.current.audioEl.current.currentTime =
+                      e.target.value)
                   }
                 />
                 <span className="text-xs md:text-base">
                   {formatTime(duration)}
                 </span>
               </div>
-              {/* Default Player HIDE */}
-              <audio
-                ref={audioRef}
-                src={currentEpisode.audioUrl}
-                className="w-full"
-                controls={false}
-              ></audio>
+              {/* ReactAudioPlayer (hidden) */}
+              <div style={{ display: "none" }}>
+                <ReactAudioPlayer
+                  ref={audioRef}
+                  src={currentEpisode.audioUrl}
+                  autoPlay={isPlaying}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onLoadedMetadata={(e) => setDuration(e.target.duration)}
+                  onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
+                  onEnded={() => {
+                    setIsPlaying(false);
+                    setCurrentTime(0);
+                  }}
+                  volume={volume}
+                  playbackRate={playbackRate}
+                />
+              </div>
             </div>
             {/* Control Buttons */}
             <div className="flex justify-around w-64 text-yellow text-2xl md:w-96 dark:text-black">
@@ -256,7 +269,7 @@ const PodcastPlayer = () => {
               </button>
               {/* Volume Control */}
               <div className="relative flex items-center">
-                <button onClick={() => setIsVolumeVisible(!isVolumeVisible)}>
+                <button onClick={toggleVolumeVisibility}>
                   <FontAwesomeIcon
                     icon={faVolumeHigh}
                     className="w-6 h-6 align-middle"
@@ -268,9 +281,9 @@ const PodcastPlayer = () => {
                     min="0"
                     max="1"
                     step="0.01"
-                    onChange={(e) => (audioRef.current.volume = e.target.value)}
+                    onChange={handleVolumeChange}
                     defaultValue="1"
-                    className=" bg-yellow accent-yellow absolute top-20 -right-1 w-60 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7 dark:bg-black dark:accent-black"
+                    className="bg-yellow accent-yellow absolute top-20 -right-1 w-60 h-2 md:left-4 md:transform md:-rotate-90 md:w-20 md:top-7 dark:bg-black dark:accent-black"
                   />
                 )}
               </div>
