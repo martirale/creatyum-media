@@ -6,9 +6,9 @@ import { faCircleInfo, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 const headingClasses = {
   1: "text-7xl",
   2: "text-5xl",
-  3: "text-4xl",
-  4: "text-3xl",
-  5: "text-2xl",
+  3: "text-3xl",
+  4: "text-2xl",
+  5: "text-xl",
   6: "text-xl",
 };
 
