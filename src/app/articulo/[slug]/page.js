@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       images: [
         {
-          url: "https://creatyum.media/creatyum-default-cover.webp",
+          url: `https://creatyum.media${article.attributes.cover.data.attributes.url}`,
           width: 1200,
           height: 630,
           alt: "Creatyum Media",
@@ -54,7 +54,9 @@ export async function generateMetadata({ params }) {
       title: `${article.attributes.title} — Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-      images: ["https://creatyum.media/creatyum-default-cover.webp"],
+      images: [
+        `https://creatyum.media${article.attributes.cover.data.attributes.url}`,
+      ],
     },
     canonical: `https://creatyum.media/articulo/${article.attributes.slug}`,
   };
