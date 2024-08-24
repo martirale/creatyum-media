@@ -10,6 +10,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ArticleCard({ article }) {
+  const localDate = new Intl.DateTimeFormat("es-ES", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "America/El_Salvador",
+  }).format(new Date(article.attributes.date));
+
   return (
     <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300">
       <Link href={`/articulo/${article.attributes.slug}`}>
@@ -30,11 +37,7 @@ function ArticleCard({ article }) {
           </h2>
           <p>
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
-            {new Intl.DateTimeFormat("es-ES", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            }).format(new Date(article.attributes.date))}
+            {localDate}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
             {article.attributes.categories.data.map((category, index) => (

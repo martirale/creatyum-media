@@ -32,6 +32,7 @@ function FeaturedArticleList({ article, isMain }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
+                  timeZone: "America/El_Salvador",
                 }).format(new Date(article.attributes.date))}
 
                 <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />

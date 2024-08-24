@@ -70,6 +70,14 @@ export default async function ArticlePage({ params }) {
   const author = article.attributes.redactions.data[0]?.attributes;
   const profileImageUrl = author?.profile?.data?.attributes?.url;
 
+  const localDate = new Date(article.attributes.date);
+  const formattedDate = new Intl.DateTimeFormat("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "America/El_Salvador",
+  }).format(localDate);
+
   return (
     <article className="container mx-auto px-4 py-2 md:px-0">
       <h1>{article.attributes.title}</h1>
@@ -92,11 +100,7 @@ export default async function ArticlePage({ params }) {
           {/* POST INFO */}
           <p className="mb-4">
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
-            {new Intl.DateTimeFormat("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }).format(new Date(article.attributes.date))}
+            {formattedDate}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
             {article.attributes.categories.data.map((category, index) => (

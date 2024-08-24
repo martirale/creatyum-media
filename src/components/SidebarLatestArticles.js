@@ -66,6 +66,7 @@ const SidebarLatestArticles = () => {
                         year: "numeric",
                         month: "long",
                         day: "numeric",
+                        timeZone: "America/El_Salvador",
                       }).format(new Date(article.attributes.date))}
                     </p>
                   </div>
