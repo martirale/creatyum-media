@@ -7,7 +7,7 @@ import FooterFeaturedArticles from "../components/FooterFeaturedArticles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
-export default function Footer({ theme }) {
+export default function Footer() {
   const pathname = usePathname();
   const isArticlePage = pathname.startsWith("/articulo/");
   const isCategoriesPage = pathname.startsWith("/categorias");
@@ -44,7 +44,7 @@ export default function Footer({ theme }) {
           <div className="flex items-center mt-8 mb-16 md:mt-0 md:mb-0">
             <Link href="/">
               <div className="w-20 h-20 md:w-9 md:h-9">
-                <Logo filename="creatyum-icon.svg" theme={theme} />
+                <Logo filename="creatyum-icon.svg" />
               </div>
             </Link>
           </div>

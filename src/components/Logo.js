@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "../context/ThemeContext";
 import Image from "next/image";
 import { height, width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 

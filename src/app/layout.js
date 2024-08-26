@@ -1,4 +1,3 @@
-import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 import { Roboto, BricolageGrotesque } from "../components/CustomFonts";
 import Header from "../components/Header";
@@ -7,6 +6,7 @@ import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import CookieConsentManager from "../components/CookieConsentManager";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export const metadata = {
   title: "Creatyum Media — Divulgación sobre diseño y creatividad",
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${Roboto.variable} ${BricolageGrotesque.variable} font-Roboto font-light bg-yellow text-black dark:bg-black dark:text-yellow custom-vh`}
       >
-        <ThemeProvider attribute="class">
+        <ThemeProvider>
           <ScrollToTop />
           <Header />
 
