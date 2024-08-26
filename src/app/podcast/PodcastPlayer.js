@@ -28,7 +28,7 @@ const PodcastPlayer = () => {
   const [hasSentCompleteEvent, setHasSentCompleteEvent] = useState(false);
 
   const audioRef = useRef(null);
-  const rssUrl = "https://anchor.fm/s/a59b2a8/podcast/rss";
+  const rssUrl = process.env.NEXT_PUBLIC_PODCAST_PROXY;
 
   const handleTimeUpdate = useCallback(() => {
     const current = audioRef.current?.audioEl.current.currentTime;
