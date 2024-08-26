@@ -33,16 +33,20 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleTheme} className="flex items-center">
+    <button
+      onClick={toggleTheme}
+      className="flex items-center font-BricolageGrotesque text-5xl mx-2 md:pl-4"
+    >
+      <span className="mr-2 md:hidden">Modo</span>
       {theme === "dark" ? (
         <FontAwesomeIcon
           icon={faSun}
-          className="text-black w-8 h-8 dark:text-yellow"
+          className="text-black align-baseline w-8 h-8 md:text-yellow"
         />
       ) : (
         <FontAwesomeIcon
           icon={faMoon}
-          className="text-yellow w-8 h-8 dark:text-black"
+          className="text-yellow align-baseline w-8 h-8 md:text-black"
         />
       )}
     </button>
