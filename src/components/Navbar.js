@@ -1,63 +1,13 @@
 "use client";
+
+import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSun,
-  faMoon,
-  faBarsStaggered,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-      setCSSVariables("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      setTheme("light");
-      setCSSVariables("light");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setTheme("light");
-      setCSSVariables("light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
-      setCSSVariables("dark");
-    }
-  };
-
-  const setCSSVariables = (theme) => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.style.setProperty("--logo", "url('/creatyum-logo-y.svg')");
-      root.style.setProperty("--logo-icon", "url('/creatyum-icon-y.svg')");
-      root.style.setProperty(
-        "--logo-layered",
-        "url('/creatyum-layered-logo-k.svg')"
-      );
-    } else {
-      root.style.setProperty("--logo", "url('/creatyum-logo-k.svg')");
-      root.style.setProperty("--logo-icon", "url('/creatyum-icon-k.svg')");
-      root.style.setProperty(
-        "--logo-layered",
-        "url('/creatyum-layered-logo-y.svg')"
-      );
-    }
-  };
-
   const [isOpen, setIsOpen] = useState(false);
 
   function getMenuClasses() {
@@ -89,7 +39,9 @@ export default function Navbar() {
     <nav className="md:p-0 md:flex md:justify-between md:items-center">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <div className="logo"></div>
+          <div className="w-[196px] h-[40px] md:w-[269px] md:h-[55px]">
+            <Logo filename="creatyum-logo.svg" />
+          </div>
         </Link>
 
         <div className={getMenuClasses()}>
@@ -111,23 +63,7 @@ export default function Navbar() {
           >
             Podcast
           </Link>
-          <button
-            onClick={toggleTheme}
-            className="font-BricolageGrotesque text-5xl text-left mx-2 md:pl-4"
-          >
-            <span className="mr-2 md:hidden">Modo</span>
-            {theme === "dark" ? (
-              <FontAwesomeIcon
-                icon={faSun}
-                className="text-black align-baseline w-8 h-8 md:text-yellow"
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faMoon}
-                className="text-yellow align-baseline w-8 h-8 md:text-black"
-              />
-            )}
-          </button>
+          <ThemeToggle />
         </div>
 
         <div className="flex items-center md:hidden">

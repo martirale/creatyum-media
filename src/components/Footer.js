@@ -1,11 +1,13 @@
 "use client";
+
 import Link from "next/link";
+import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import FooterFeaturedArticles from "../components/FooterFeaturedArticles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
-export default function Footer() {
+export default function Footer({ theme }) {
   const pathname = usePathname();
   const isArticlePage = pathname.startsWith("/articulo/");
   const isCategoriesPage = pathname.startsWith("/categorias");
@@ -41,7 +43,9 @@ export default function Footer() {
         <div className="container mx-auto py-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mt-8 mb-16 md:mt-0 md:mb-0">
             <Link href="/">
-              <div className="logo-icon"></div>
+              <div className="w-20 h-20 md:w-9 md:h-9">
+                <Logo filename="creatyum-icon.svg" theme={theme} />
+              </div>
             </Link>
           </div>
           <div className="flex flex-col text-center font-BricolageGrotesque font-extrabold md:flex-row md:items-center md:font-Roboto md:font-normal space-y-5 md:space-y-0 md:space-x-8 mb-4 md:mb-0">
