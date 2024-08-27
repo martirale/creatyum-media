@@ -10,7 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect, useRef, useCallback } from "react";
-import Parser from "rss-parser";
 import Image from "next/image";
 import ReactAudioPlayer from "react-audio-player";
 
@@ -28,7 +27,7 @@ const PodcastPlayer = () => {
   const [hasSentCompleteEvent, setHasSentCompleteEvent] = useState(false);
 
   const audioRef = useRef(null);
-  const rssUrl = process.env.NEXT_PUBLIC_PODCAST_PROXY;
+  const backendUrl = process.env.NEXT_PUBLIC_PODCAST_URL;
 
   const handleTimeUpdate = useCallback(() => {
     const current = audioRef.current?.audioEl.current.currentTime;
@@ -51,10 +50,12 @@ const PodcastPlayer = () => {
 
   useEffect(() => {
     const fetchEpisodes = async () => {
-      const parser = new Parser();
       try {
-        const feed = await parser.parseURL(rssUrl);
-        const episodesData = feed.items.map((item) => ({
+        const response = await fetch(backendUrl);
+        const episodesData = await response.json();
+
+        // Mapeamos los datos correctamente para extraer audioUrl e imageUrl
+        const episodes = episodesData.map((item) => ({
           title: item.title,
           audioUrl: item.enclosure.url,
           imageUrl:
@@ -62,15 +63,15 @@ const PodcastPlayer = () => {
             "https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/1636506/1636506-1713733779208-14b89918f43a.jpg",
         }));
 
-        setEpisodes(episodesData);
-        setCurrentEpisode(episodesData[0]);
+        setEpisodes(episodes);
+        setCurrentEpisode(episodes[0]);
       } catch (error) {
         console.error("Error fetching podcast episodes:", error);
       }
     };
 
     fetchEpisodes();
-  }, []);
+  }, [backendUrl]);
 
   useEffect(() => {
     const audioElement = audioRef.current?.audioEl.current;
