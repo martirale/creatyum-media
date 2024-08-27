@@ -6,6 +6,7 @@ import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import CookieConsentManager from "../components/CookieConsentManager";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export const metadata = {
   title: "Creatyum Media — Divulgación sobre diseño y creatividad",
@@ -50,15 +51,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${Roboto.variable} ${BricolageGrotesque.variable} font-Roboto font-light bg-yellow text-black dark:bg-black dark:text-yellow custom-vh`}
       >
-        <ScrollToTop />
-        <Header />
+        <ThemeProvider>
+          <ScrollToTop />
+          <Header />
 
-        <main className="container mx-auto pt-24 md:pt-28">{children}</main>
+          <main className="container mx-auto pt-24 md:pt-28">{children}</main>
 
-        <BackToTop />
-        <Footer />
+          <BackToTop />
+          <Footer />
 
-        <CookieConsentManager gaId="G-V5TV2RSE21" />
+          <CookieConsentManager gaId="G-V5TV2RSE21" />
+        </ThemeProvider>
       </body>
     </html>
   );
