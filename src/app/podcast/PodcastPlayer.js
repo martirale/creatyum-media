@@ -27,7 +27,7 @@ const PodcastPlayer = () => {
   const [hasSentCompleteEvent, setHasSentCompleteEvent] = useState(false);
 
   const audioRef = useRef(null);
-  const backendUrl = process.env.NEXT_PUBLIC_PODCAST_URL;
+  const backendUrl = "https://anchor.creatyum.media/api/podcast";
 
   const handleTimeUpdate = useCallback(() => {
     const current = audioRef.current?.audioEl.current.currentTime;
