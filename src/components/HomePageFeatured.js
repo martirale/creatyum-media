@@ -15,7 +15,7 @@ function FeaturedArticleCard({ article, isMain }) {
   if (isMain) {
     return (
       <div
-        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-3xl border border-black text-yellow aspect-w-1 aspect-h-1 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-black dark:border-yellow"
+        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-3xl border border-black text-yellow aspect-w-4 aspect-h-5 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-black dark:border-yellow"
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url})`,
         }}
