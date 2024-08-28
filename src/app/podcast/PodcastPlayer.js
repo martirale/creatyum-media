@@ -29,6 +29,41 @@ const PodcastPlayer = () => {
   const audioRef = useRef(null);
   const backendUrl = "https://podcasters.creatyum.com/api/podcast";
 
+  useEffect(() => {
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: currentEpisode?.title,
+        artist: "Café Creativo",
+        album: "Café Creativo",
+        artwork: [
+          {
+            src: currentEpisode?.imageUrl,
+            sizes: "512x512",
+            type: "image/jpeg",
+          },
+        ],
+      });
+
+      navigator.mediaSession.setActionHandler("play", () => {
+        audioRef.current.audioEl.current.play();
+        setIsPlaying(true);
+      });
+
+      navigator.mediaSession.setActionHandler("pause", () => {
+        audioRef.current.audioEl.current.pause();
+        setIsPlaying(false);
+      });
+
+      navigator.mediaSession.setActionHandler("seekbackward", () => {
+        handleSkip(-15);
+      });
+
+      navigator.mediaSession.setActionHandler("seekforward", () => {
+        handleSkip(30);
+      });
+    }
+  }, [currentEpisode]);
+
   const handleTimeUpdate = useCallback(() => {
     const current = audioRef.current?.audioEl.current.currentTime;
     setCurrentTime(current);
