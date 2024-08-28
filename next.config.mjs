@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "dashboard.creatyum.com",
+        hostname: "strapi.creatyum.com",
         port: "",
         pathname: "/uploads/**",
       },
