@@ -21,7 +21,7 @@ function FeaturedArticleCard({ article, isMain }) {
         }}
       >
         <Link href={`/articulo/${article.attributes.slug}`}>
-          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-3xl flex items-center justify-between p-4 text-center hover:bg-opacity-100 md:p-24 dark:hover:bg-yellow duration-300">
+          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-3xl flex items-center justify-between p-4 text-center hover:bg-opacity-100 md:p-24 dark:hover:bg-yellow transition duration-300">
             <div>
               <p>
                 <FontAwesomeIcon
