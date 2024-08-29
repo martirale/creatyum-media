@@ -35,6 +35,22 @@ export default function Navbar() {
     return menuClasses.join(" ");
   }
 
+  // MENU LINKS
+  const buttons = [
+    {
+      name: "Portada",
+      url: "/",
+    },
+    {
+      name: "Categorías",
+      url: "/categorias",
+    },
+    {
+      name: "Podcast",
+      url: "/podcast",
+    },
+  ];
+
   return (
     <nav className="md:p-0 md:flex md:justify-between md:items-center">
       <div className="container mx-auto flex justify-between items-center">
@@ -45,24 +61,16 @@ export default function Navbar() {
         </Link>
 
         <div className={getMenuClasses()}>
-          <Link
-            href="/"
-            className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
-          >
-            Portada
-          </Link>
-          <Link
-            href="/categorias"
-            className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
-          >
-            Categorías
-          </Link>
-          <Link
-            href="/podcast"
-            className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
-          >
-            Podcast
-          </Link>
+          {buttons.map((button) => (
+            <Link
+              key={button.name}
+              href={button.url}
+              className="font-BricolageGrotesque text-5xl mx-2 hover:underline md:pl-4"
+            >
+              <span>{button.name}</span>
+            </Link>
+          ))}
+
           <ThemeToggle />
         </div>
 
