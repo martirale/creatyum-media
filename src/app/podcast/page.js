@@ -1,4 +1,5 @@
 import PodcastPlayer from "./PodcastPlayer";
+import PodcastButtons from "./PodcastButtons";
 
 export const metadata = {
   title: "Café Creativo Podcast — Creatyum Media",
@@ -35,6 +36,8 @@ export default function PodcastPage() {
       <h1>Café Creativo Podcast</h1>
 
       <PodcastPlayer />
+
+      <PodcastButtons />
     </div>
   );
 }
