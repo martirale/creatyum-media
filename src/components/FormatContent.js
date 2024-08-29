@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -39,7 +40,7 @@ export function FormatContent({ blocks }) {
       }
       if (child.type === "link") {
         return (
-          <a
+          <Link
             href={child.url}
             key={index}
             target="_blank"
@@ -47,7 +48,7 @@ export function FormatContent({ blocks }) {
             className="underline"
           >
             {formatText(child.children)}
-          </a>
+          </Link>
         );
       }
       return null;

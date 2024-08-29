@@ -10,7 +10,7 @@ import {
   faCalendarDays,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import { getArticles } from "../lib/api";
+import { getArticles } from "../../lib/api";
 
 function ArticleCard({ article }) {
   return (

@@ -1,7 +1,7 @@
-import HomePageContent from "../components/HomePageContent";
-import HomePageFeatured from "../components/HomePageFeatured";
-import BannerInstagram from "../components/BannerInstagram";
-import BannerComic from "../components/BannerComic";
+import HomePageContent from "../components/home/HomePageContent";
+import HomePageFeatured from "../components/home/HomePageFeatured";
+import BannerInstagram from "../components/home/BannerInstagram";
+import BannerComic from "../components/home/BannerComic";
 
 export default function HomePage() {
   return (

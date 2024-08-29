@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "./Logo";
+import Logo from "../Logo";
 import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";

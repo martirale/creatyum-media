@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import { Roboto, BricolageGrotesque } from "../components/CustomFonts";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
 import GoogleAnalytics from "../components/GoogleAnalytics";

@@ -1,15 +1,15 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { getArticleBySlug } from "../../../lib/api";
 import FormatContent from "../../../components/FormatContent";
-import SidebarMain from "../../../components/SidebarMain";
+import SidebarMain from "../../../components/sidebar/SidebarMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,
   faRectangleAd,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 
 async function getArticle(slug) {
   try {

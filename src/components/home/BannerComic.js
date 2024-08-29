@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "./Logo";
-import { getComics } from "../lib/api";
+import Logo from "../Logo";
+import { getComics } from "../../lib/api";
 
 const TwoColumnLayout = () => {
   const [comicImageUrl, setComicImageUrl] = useState(null);

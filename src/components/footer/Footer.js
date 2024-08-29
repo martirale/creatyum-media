@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { usePathname } from "next/navigation";
-import FooterFeaturedArticles from "../components/FooterFeaturedArticles";
+import FooterFeaturedArticles from "./FooterFeaturedArticles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
