@@ -24,6 +24,10 @@ export default function ArticleReactions({ articleId }) {
 
   useEffect(() => {
     fetchReactionCounts();
+    const savedReaction = localStorage.getItem(`reaction_${articleId}`);
+    if (savedReaction) {
+      setUserReaction(savedReaction);
+    }
   }, [articleId]);
 
   const fetchReactionCounts = async () => {
@@ -42,19 +46,26 @@ export default function ArticleReactions({ articleId }) {
   const handleReaction = async (reaction) => {
     try {
       const method = userReaction === reaction ? "DELETE" : "POST";
+      const oldReaction = userReaction;
       const response = await fetch(`/api/reactions/${articleId}`, {
         method: method,
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ reaction }),
+        body: JSON.stringify({ reaction, oldReaction }),
       });
       if (!response.ok) {
         throw new Error("Failed to update reaction");
       }
       const data = await response.json();
       setReactionCounts(data);
-      setUserReaction(userReaction === reaction ? null : reaction);
+      if (userReaction === reaction) {
+        setUserReaction(null);
+        localStorage.removeItem(`reaction_${articleId}`);
+      } else {
+        setUserReaction(reaction);
+        localStorage.setItem(`reaction_${articleId}`, reaction);
+      }
     } catch (error) {
       console.error("Error updating reaction:", error);
     }
