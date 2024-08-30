@@ -12,7 +12,7 @@ const buttons = [
     name: "Spotify",
     icon: faSpotify,
     color:
-      "hover:bg-[#1db954] dark:hover:text-black dark:hover:bg-[#1db954] dark:hover:border-[#1db954]",
+      "hover:bg-[#1ED760] dark:hover:text-black dark:hover:bg-[#1ED760] dark:hover:border-[#1ED760]",
     url: "https://open.spotify.com/show/63OtmwwXCqFtCW5nUpkeYp",
   },
   {
@@ -26,7 +26,7 @@ const buttons = [
     name: "Amazon Music",
     icon: faAmazon,
     color:
-      "hover:bg-[#0077C1] dark:hover:text-black dark:hover:bg-[#0077C1] dark:hover:border-[#0077C1]",
+      "hover:bg-[#0DBFF5] dark:hover:text-black dark:hover:bg-[#0DBFF5] dark:hover:border-[#0DBFF5]",
     url: "https://music.amazon.com/podcasts/063f9823-7f6b-46d8-a904-15a1dfbb5af6/caf%C3%A9-creativo",
   },
   {
