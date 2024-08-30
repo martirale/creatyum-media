@@ -20,6 +20,7 @@ export default function ArticleReactions({ articleId }) {
     sad: 0,
     angry: 0,
   });
+  const [userReaction, setUserReaction] = useState(null);
 
   useEffect(() => {
     fetchReactionCounts();
@@ -40,8 +41,9 @@ export default function ArticleReactions({ articleId }) {
 
   const handleReaction = async (reaction) => {
     try {
+      const method = userReaction === reaction ? "DELETE" : "POST";
       const response = await fetch(`/api/reactions/${articleId}`, {
-        method: "POST",
+        method: method,
         headers: {
           "Content-Type": "application/json",
         },
@@ -52,6 +54,7 @@ export default function ArticleReactions({ articleId }) {
       }
       const data = await response.json();
       setReactionCounts(data);
+      setUserReaction(userReaction === reaction ? null : reaction);
     } catch (error) {
       console.error("Error updating reaction:", error);
     }
@@ -71,7 +74,11 @@ export default function ArticleReactions({ articleId }) {
       {Object.entries(reactionIcons).map(([key, icon]) => (
         <button
           key={key}
-          className="flex items-center gap-2 px-4 py-2 rounded-full text-l font-bold border border-black dark:border-yellow hover:bg-black hover:text-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
+          className={`flex items-center gap-2 px-4 py-2 rounded-full text-l font-bold border border-black dark:border-yellow transition-colors duration-300 ${
+            userReaction === key
+              ? "bg-black text-yellow dark:bg-yellow dark:text-black"
+              : "bg-yellow text-black dark:bg-black dark:text-yellow hover:bg-black hover:text-yellow dark:hover:bg-yellow dark:hover:text-black"
+          }`}
           onClick={() => handleReaction(key)}
           aria-label={`Reaccionar con ${key}`}
         >
