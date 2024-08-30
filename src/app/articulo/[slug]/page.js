@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getArticleBySlug } from "../../../lib/api";
 import FormatContent from "../../../components/FormatContent";
 import SidebarMain from "../../../components/sidebar/SidebarMain";
+import ArticleReactions from "../../../components/ArticleReactions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,
@@ -135,7 +136,14 @@ export default async function ArticlePage({ params }) {
 
           <FormatContent blocks={article.attributes.content} />
 
-          <div className="py-8">
+          <div className="pt-8 pb-16">
+            <hr />
+
+            {/* REACTIONS */}
+            <div className="my-2">
+              <ArticleReactions />
+            </div>
+
             <hr />
           </div>
 
