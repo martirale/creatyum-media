@@ -141,7 +141,7 @@ export default async function ArticlePage({ params }) {
 
             {/* REACTIONS */}
             <div className="my-2">
-              <ArticleReactions />
+              <ArticleReactions articleId={article.attributes.slug} />
             </div>
 
             <hr />
