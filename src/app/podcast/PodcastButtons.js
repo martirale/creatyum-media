@@ -51,7 +51,7 @@ export default function PodcastButtons() {
             href={button.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center justify-center w-full sm:w-1/4 px-4 py-3 text-black bg-yellow border border-black rounded-3xl transition-colors duration-300 ${button.color} dark:text-yellow dark:bg-black dark:border-yellow`}
+            className={`flex items-center justify-center w-full sm:w-1/4 px-4 py-3 text-black bg-yellow border border-black rounded-full transition-colors duration-300 ${button.color} dark:text-yellow dark:bg-black dark:border-yellow`}
           >
             <FontAwesomeIcon icon={button.icon} className="mr-2" />
             <span>{button.name}</span>

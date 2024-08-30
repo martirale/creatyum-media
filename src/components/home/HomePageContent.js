@@ -14,7 +14,7 @@ import { getArticles } from "../../lib/api";
 
 function ArticleCard({ article }) {
   return (
-    <div className="rounded-3xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300">
+    <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300 md:rounded-3xl">
       <Link href={`/articulo/${article.attributes.slug}`}>
         <div className="relative w-full aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1">
           {article.attributes.cover && (
@@ -23,7 +23,7 @@ function ArticleCard({ article }) {
               alt={article.attributes.title}
               width={960}
               height={540}
-              className="rounded-t-3xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow"
+              className="rounded-t-2xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow md:rounded-t-3xl"
             />
           )}
         </div>

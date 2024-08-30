@@ -213,7 +213,7 @@ const PodcastPlayer = () => {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row gap-4">
       {/* Columna 1: Reproductor */}
-      <div className="w-full bg-black px-4 pt-8 pb-10 rounded-3xl flex flex-col items-center md:w-1/2 md:max-h-[756px] md:p-12 dark:bg-yellow">
+      <div className="w-full bg-black px-4 pt-8 pb-10 rounded-2xl flex flex-col items-center md:w-1/2 md:max-h-[756px] md:p-12 dark:bg-yellow md:rounded-3xl">
         {currentEpisode && (
           <div className="flex flex-col items-center">
             {/* Episode Cover */}
@@ -222,7 +222,7 @@ const PodcastPlayer = () => {
               alt={currentEpisode.title}
               width={512}
               height={512}
-              className="w-48 h-48 object-cover rounded-3xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black"
+              className="w-48 h-48 object-cover rounded-2xl mb-8 border border-yellow md:w-96 md:h-96 dark:border-black md:rounded-3xl"
             />
             {/* Episode Title */}
             <h2 className="text-yellow text-2xl font-extrabold mb-4 text-center md:text-4xl dark:text-black">
@@ -334,7 +334,7 @@ const PodcastPlayer = () => {
       </div>
 
       {/* Columna 2: Lista de episodios */}
-      <div className="w-full md:w-1/2 max-h-96 p-4 rounded-3xl border border-black md:max-h-[756px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] dark:border-yellow">
+      <div className="w-full md:w-1/2 max-h-96 p-4 rounded-2xl border border-black md:max-h-[756px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] dark:border-yellow md:rounded-3xl">
         <ul>
           {episodes.map((episode, index) => (
             <li

@@ -15,13 +15,13 @@ function FeaturedArticleList({ article, isMain }) {
   if (isMain) {
     return (
       <div
-        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-3xl border border-yellow text-yellow hover:text-black aspect-w-1 aspect-h-1 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-yellow dark:border-black"
+        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-2xl border border-yellow text-yellow hover:text-black aspect-w-1 aspect-h-1 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-yellow dark:border-black md:rounded-3xl"
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url})`,
         }}
       >
         <Link href={`/articulo/${article.attributes.slug}`}>
-          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-3xl flex items-center justify-between p-4 text-center hover:bg-yellow hover:bg-opacity-100 md:p-24 dark:hover:bg-black duration-300">
+          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl flex items-center justify-between p-4 text-center hover:bg-yellow hover:bg-opacity-100 md:p-24 dark:hover:bg-black duration-300 md:rounded-3xl">
             <div>
               <p>
                 <FontAwesomeIcon

@@ -33,7 +33,7 @@ const SidebarComic = () => {
 
   return (
     <div>
-      <div className="rounded-3xl text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow">
+      <div className="rounded-2xl text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow md:rounded-3xl">
         <div className="p-4">
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center w-full">
@@ -66,7 +66,7 @@ const SidebarComic = () => {
                     alt="creatyum-layered-comic"
                     width={512}
                     height={512}
-                    className="w-full h-auto object-cover rounded-3xl border border-yellow dark:border-black"
+                    className="w-full h-auto object-cover rounded-2xl border border-yellow dark:border-black md:rounded-3xl"
                   />
                 )}
               </div>

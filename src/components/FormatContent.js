@@ -74,7 +74,7 @@ export function FormatContent({ blocks }) {
             alt={block.image.alternativeText || ""}
             width={width}
             height={height}
-            className="w-full h-auto rounded-3xl mb-2 border border-black dark:border-yellow"
+            className="w-full h-auto rounded-2xl mb-2 border border-black dark:border-yellow md:rounded-3xl"
           />
           {block.image.caption && (
             <figcaption className="text-xs text-center text-black md:px-24 dark:text-yellow">
@@ -101,7 +101,7 @@ export function FormatContent({ blocks }) {
       return (
         <blockquote
           key={index}
-          className="rounded-3xl border border-black text-xl text-center italic p-4 my-8 dark:border-yellow md:p-8"
+          className="rounded-2xl border border-black text-xl text-center italic p-4 my-8 dark:border-yellow md:p-8 md:rounded-3xl"
         >
           <FontAwesomeIcon icon={faQuoteLeft} className="mr-2 w-7 h-7" />
           {formatText(block.children)}

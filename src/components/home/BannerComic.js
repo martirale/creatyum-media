@@ -33,7 +33,7 @@ const TwoColumnLayout = () => {
 
   return (
     <div className="mt-8 md:mt-16">
-      <div className="rounded-3xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8">
+      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
             <div className="w-64 h-[122px] md:w-[512px] md:h-auto">
@@ -69,7 +69,7 @@ const TwoColumnLayout = () => {
                 alt="creatyum-layered-comic"
                 width={1080}
                 height={1080}
-                className="w-full h-auto object-cover rounded-3xl border border-yellow dark:border-black"
+                className="w-full h-auto object-cover rounded-2xl border border-yellow dark:border-black md:rounded-3xl"
               />
             )}
           </div>

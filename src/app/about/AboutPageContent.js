@@ -84,12 +84,12 @@ const AboutPageContent = () => {
 
       {/* SIDEBAR */}
       <div className="col-span-12 mt-8 md:col-span-4 md:mt-0">
-        <div className="rounded-3xl border border-black bg-black text-yellow mb-4 p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
+        <div className="rounded-2xl border border-black bg-black text-yellow mb-4 p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
           <h3 className="font-extrabold text-4xl mb-4">Misión</h3>
           {mission}
         </div>
 
-        <div className="rounded-3xl border border-black bg-black text-yellow p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black">
+        <div className="rounded-2xl border border-black bg-black text-yellow p-4 md:p-8 dark:border-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
           <h3 className="font-extrabold text-4xl mb-4">Autores</h3>
           <AuthorList />
         </div>

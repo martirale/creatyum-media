@@ -95,7 +95,7 @@ export default async function ArticlePage({ params }) {
                 alt={article.attributes.title}
                 width={1920}
                 height={1080}
-                className="rounded-3xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow"
+                className="rounded-2xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow md:rounded-3xl"
               />
             )}
           </div>
