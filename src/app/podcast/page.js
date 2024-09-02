@@ -40,7 +40,9 @@ export default function PodcastPage() {
 
       <PodcastButtons />
 
-      <TestimonialSlider />
+      <div className="mt-10">
+        <TestimonialSlider />
+      </div>
     </div>
   );
 }
