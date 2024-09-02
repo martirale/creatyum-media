@@ -156,6 +156,9 @@ export const getComics = async () => {
 // PODCAST TESTIMONIALS
 export const getTestimonials = async () => {
   const data = await fetchAPI("/api/testimonials?populate=*");
+
+  const sortedTestimonials = data.data.sort((a, b) => b.id - a.id);
+
   return data.data.map((item) => ({
     id: item.id,
     quote: item.attributes.quote,
