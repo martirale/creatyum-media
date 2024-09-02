@@ -1,0 +1,40 @@
+.swiperContainer {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiperSlide {
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .swiperContainer {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiperContainer {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swiperContainer {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .swiperContainer {
+    max-width: 1280px;
+  }
+}
