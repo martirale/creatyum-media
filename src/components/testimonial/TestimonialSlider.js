@@ -3,31 +3,10 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { getTestimonials } from "../../lib/api";
 import TestimonialCard from "./TestimonialCard";
 import styles from "../../styles/TestimonialSlider.module.css";
 import "swiper/css";
-
-async function getTestimonials() {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/testimonials?populate=*`
-    );
-    if (!response.ok) {
-      throw new Error("Failed to fetch testimonials");
-    }
-    const data = await response.json();
-    return data.data.map((item) => ({
-      id: item.id,
-      quote: item.attributes.quote,
-      name: item.attributes.name,
-      episode: item.attributes.episode,
-      // profileImage: item.attributes.image.data.attributes.url,
-    }));
-  } catch (error) {
-    console.error("Error fetching testimonials:", error);
-    return [];
-  }
-}
 
 export default function TestimonialSlider() {
   const [testimonials, setTestimonials] = useState([]);

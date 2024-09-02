@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function TestimonialCard({ testimonial }) {
   const imageUrl = testimonial.profileImage
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${testimonial.profileImage}`
-    : testimonial.profileImage;
+    ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${testimonial.profileImage}`
+    : null;
 
   return (
     <div className="bg-black rounded-2xl px-8 py-12 mx-0 my-4 text-yellow text-center md:rounded-3xl dark:bg-yellow dark:text-black">
