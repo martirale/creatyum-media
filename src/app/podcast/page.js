@@ -1,5 +1,6 @@
 import PodcastPlayer from "./PodcastPlayer";
 import PodcastButtons from "./PodcastButtons";
+import TestimonialSlider from "../../components/testimonial/TestimonialSlider";
 
 export const metadata = {
   title: "Café Creativo Podcast — Creatyum Media",
@@ -38,6 +39,10 @@ export default function PodcastPage() {
       <PodcastPlayer />
 
       <PodcastButtons />
+
+      <div className="mt-10">
+        <TestimonialSlider />
+      </div>
     </div>
   );
 }
