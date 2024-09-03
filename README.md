@@ -1,5 +1,9 @@
 # Creatyum Media
 
+**Creatyum es una revista digital en formato de blog y podcast creada por [Alejandro Martir](https://alemartir.com) en 2014.** Desde su lanzamiento en octubre de ese año, Creatyum busca ser un medio de divulgación sobre diseño e industria creativa. Nuestro objetivo principal es proporcionar contenido de calidad que inspire, eduque y empodere a nuestra audiencia.
+
+Nos dedicamos a explorar diversas áreas del diseño y de las industrias creativas, ofreciendo a nuestros lectores y oyentes una perspectiva amplia sobre estos temas. **Este proyecto es la nueva versión del blog por el décimo aniversario de Creatyum.**
+
 <div align="center">
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -11,9 +15,3 @@
 </div>
 
 <div align="center"><img src="./public/creatyum-media-homepage-full-2024-v1.webp"><p></p></div>
-
-# About
-
-**Creatyum es una revista digital en formato de blog y podcast creada por [Alejandro Martir](https://alemartir.com) en 2014.** Desde su lanzamiento en octubre de ese año, Creatyum busca ser un medio de divulgación sobre diseño e industria creativa. Nuestro objetivo principal es proporcionar contenido de calidad que inspire, eduque y empodere a nuestra audiencia.
-
-Nos dedicamos a explorar diversas áreas del diseño y de las industrias creativas, ofreciendo a nuestros lectores y oyentes una perspectiva amplia sobre estos temas. **Este proyecto es la nueva versión del blog por el décimo aniversario de Creatyum.**
