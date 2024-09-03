@@ -18,7 +18,9 @@ export default function TestimonialCard({ testimonial }) {
       <p className="text-lg mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
       <div className="flex flex-col items-center">
         <h4 className="uppercase font-extrabold">
-          {testimonial.name} - {testimonial.episode}
+          {testimonial.name}
+          <br />
+          {testimonial.episode}
         </h4>
       </div>
     </div>
