@@ -22,7 +22,7 @@ export default function TestimonialSlider() {
         spaceBetween={30}
         slidesPerView={1}
         autoplay={{
-          delay: 5000,
+          delay: 5500,
           disableOnInteraction: false,
         }}
         breakpoints={{
