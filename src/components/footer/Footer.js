@@ -99,7 +99,7 @@ export default function Footer() {
                 target="_blank"
                 className="hover:underline"
               >
-                &copy; 2024 AM
+                Creatyum &copy; 2024 AM
               </Link>
             </p>
           </div>
