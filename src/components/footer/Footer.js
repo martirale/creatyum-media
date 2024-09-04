@@ -97,9 +97,10 @@ export default function Footer() {
               <Link
                 href="https://alemartir.com"
                 target="_blank"
+                rel="noopener"
                 className="hover:underline"
               >
-                Creatyum &copy; 2024 AM
+                CREATYUM &copy; 2024 AM
               </Link>
             </p>
           </div>
