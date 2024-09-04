@@ -1,6 +1,4 @@
-# License
-
-## Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+# Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
 
 **Copyright © 2024 Jose Alejandro Martir**
 
