@@ -1,6 +1,8 @@
 import PodcastPlayer from "./PodcastPlayer";
 import PodcastButtons from "./PodcastButtons";
 import TestimonialSlider from "../../components/testimonial/TestimonialSlider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata = {
   title: "Café Creativo Podcast — Creatyum Media",
@@ -38,11 +40,18 @@ export default function PodcastPage() {
 
       <PodcastPlayer />
 
-      <PodcastButtons />
-
-      <div className="mt-10">
+      <div className="mt-16">
+        <h2 className="text-4xl text-center font-extrabold md:text-7xl">
+          <FontAwesomeIcon
+            icon={faMugHot}
+            className="w-8 h-8 align-baseline md:w-16 md:h-16"
+          />{" "}
+          Podcast Highlights
+        </h2>
         <TestimonialSlider />
       </div>
+
+      <PodcastButtons />
     </div>
   );
 }
