@@ -34,7 +34,7 @@ const BackToTopButton = () => {
     isVisible && (
       <button
         onClick={scrollToTop}
-        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-3 bg-black text-yellow bg-opacity-90 border border-yellow dark:bg-yellow dark:text-black dark:border-black dark:bg-opacity-90 rounded-full md:left-auto md:right-4 md:translate-x-0"
+        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-3 bg-black text-yellow bg-opacity-90 border border-yellow dark:bg-yellow dark:text-black dark:border-black dark:bg-opacity-90 rounded-full md:left-auto md:right-4 md:translate-x-0 z-[1000]"
       >
         <FontAwesomeIcon icon={faArrowUp} className="w-4 h-4 align-middle" />
       </button>
