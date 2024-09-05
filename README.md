@@ -4,6 +4,8 @@
 
 Nos dedicamos a explorar diversas áreas del diseño y de las industrias creativas, ofreciendo a nuestros lectores y oyentes una perspectiva amplia sobre estos temas. **Este proyecto es la nueva versión del blog por el décimo aniversario de Creatyum.**
 
+<hr>
+
 <div align="center">
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
