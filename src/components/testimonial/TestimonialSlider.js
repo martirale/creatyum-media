@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { getTestimonials } from "../../lib/api";
@@ -10,21 +10,30 @@ import "swiper/css";
 
 export default function TestimonialSlider() {
   const [testimonials, setTestimonials] = useState([]);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     getTestimonials().then(setTestimonials);
   }, []);
 
   return (
-    <div className={styles.swiperContainer}>
+    <div
+      className={styles.swiperContainer}
+      onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
+      onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
+    >
       <Swiper
+        ref={swiperRef}
         modules={[Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
         autoplay={{
-          delay: 7000,
+          delay: 0,
           disableOnInteraction: false,
         }}
+        speed={7000}
+        loop={true}
+        loopedSlides={testimonials.length}
         breakpoints={{
           640: {
             slidesPerView: 2,
