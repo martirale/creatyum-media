@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../Logo";
+import IconCreatyum from "../IconCreatyum";
 import { usePathname } from "next/navigation";
 import FooterFeaturedArticles from "./FooterFeaturedArticles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,9 +43,7 @@ export default function Footer() {
         <div className="container mx-auto py-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mt-8 mb-16 md:mt-0 md:mb-0">
             <Link href="/">
-              <div className="w-20 h-20 md:w-9 md:h-9">
-                <Logo filename="creatyum-icon.svg" />
-              </div>
+              <IconCreatyum className="fill-black w-20 h-20 md:w-9 md:h-9 dark:fill-yellow" />
             </Link>
           </div>
           <div className="flex flex-col text-center font-BricolageGrotesque font-extrabold md:flex-row md:items-center md:font-Roboto md:font-normal space-y-5 md:space-y-0 md:space-x-8 mb-4 md:mb-0">

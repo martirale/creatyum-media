@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../Logo";
+import LogoLayered from "../LogoLayered";
 import { getComics } from "../../lib/api";
 
 const SidebarComic = () => {
@@ -38,9 +38,7 @@ const SidebarComic = () => {
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center w-full">
               <div className="w-full p-4 flex flex-col items-center">
-                <div className="w-64 h-[122px]">
-                  <Logo filename="creatyum-layered-logo.svg" />
-                </div>
+                <LogoLayered className="fill-yellow w-64 h-[122px] dark:fill-black" />
                 <div className="text-center mt-8">
                   <p className="mb-8">
                     <b>

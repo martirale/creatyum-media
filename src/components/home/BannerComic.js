@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../Logo";
+import LogoLayered from "../LogoLayered";
 import { getComics } from "../../lib/api";
 
 const TwoColumnLayout = () => {
@@ -36,9 +36,7 @@ const TwoColumnLayout = () => {
       <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
-            <div className="w-64 h-[122px] md:w-[512px] md:h-auto">
-              <Logo filename="creatyum-layered-logo.svg" />
-            </div>
+            <LogoLayered className="fill-yellow w-64 h-[122px] md:w-[512px] md:h-auto dark:fill-black" />
             <div className="text-center mt-8 md:px-16">
               <p className="mb-8">
                 <b>Layered</b> es un webcomic que sigue a <b>Cara</b>, una

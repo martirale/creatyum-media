@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "../Logo";
+import LogoCreatyum from "../LogoCreatyum";
 import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -61,9 +61,7 @@ export default function Navbar() {
     <nav className="md:p-0 md:flex md:justify-between md:items-center">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <div className="w-[196px] h-[40px] md:w-[269px] md:h-[55px]">
-            <Logo filename="creatyum-logo.svg" />
-          </div>
+          <LogoCreatyum className="fill-black w-[196px] h-[40px] md:w-[273px] md:h-[55px] dark:fill-yellow" />
         </Link>
 
         <div className={getMenuClasses()}>
