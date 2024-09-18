@@ -1,18 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import FormatContent from "../../components/FormatContent";
+import FormatContent from "../../../components/FormatContent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
-const TermsPageContent = () => {
+const SponsoredPageContent = () => {
   const [content, setContent] = useState([]);
   const [date, setDate] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTermsContent = async () => {
+    const fetchSponsoredContent = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/terms-of-use`,
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/sponsored`,
           {
             headers: {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
@@ -34,7 +36,7 @@ const TermsPageContent = () => {
       }
     };
 
-    fetchTermsContent();
+    fetchSponsoredContent();
   }, []);
 
   if (error) {
@@ -57,7 +59,11 @@ const TermsPageContent = () => {
   return (
     <div>
       <h2 className="font-extrabold text-5xl pb-16 md:text-7xl">
-        Términos de uso
+        Contenido patrocinado
+        <FontAwesomeIcon
+          icon={faRectangleAd}
+          className="w-11 h-11 ml-4 align-middle md:w-16 md:h-16"
+        />
       </h2>
 
       {/* UPDATE BADGE */}
@@ -74,4 +80,4 @@ const TermsPageContent = () => {
   );
 };
 
-export default TermsPageContent;
+export default SponsoredPageContent;

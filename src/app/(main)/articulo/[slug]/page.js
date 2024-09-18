@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getArticleBySlug } from "../../../lib/api";
-import FormatContent from "../../../components/FormatContent";
-import SidebarMain from "../../../components/sidebar/SidebarMain";
-import ArticleReactions from "../../../components/ArticleReactions";
+import { getArticleBySlug } from "../../../../lib/api";
+import FormatContent from "../../../../components/FormatContent";
+import SidebarMain from "../../../../components/sidebar/SidebarMain";
+import ArticleReactions from "../../../../components/ArticleReactions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,

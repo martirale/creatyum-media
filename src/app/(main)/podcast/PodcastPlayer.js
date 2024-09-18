@@ -1,6 +1,6 @@
 "use client";
 
-import "../../styles/page.module.css";
+import "../../../styles/page.module.css";
 import {
   faPause,
   faPlay,

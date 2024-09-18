@@ -29,7 +29,7 @@ export const metadata = {
   canonical: "https://creatyum.media/patrocinado",
 };
 
-export default function PrivacyPage() {
+export default function SponsoredyPage() {
   return (
     <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Contenido patrocinado</h1>
