@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "./globals.css";
 import { Roboto, BricolageGrotesque } from "../components/CustomFonts";
 import ScrollToTop from "../components/ScrollToTop";
 import BackToTop from "../components/BackToTop";
