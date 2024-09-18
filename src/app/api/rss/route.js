@@ -25,7 +25,7 @@ export async function GET() {
       feed.item({
         title: article.attributes.title,
         description: article.attributes.description,
-        url: `https://creatyum.media/articles/${article.attributes.slug}`,
+        url: `https://creatyum.media/articulo/${article.attributes.slug}`,
         date: article.attributes.date,
         enclosure: coverImageUrl
           ? { url: coverImageUrl, type: "image/jpeg" }
