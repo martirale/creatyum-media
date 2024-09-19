@@ -36,7 +36,7 @@ export const metadata = {
 export default function LandingLayout({ children }) {
   return (
     <>
-      <main className="mx-auto pt-4">{children}</main>
+      <main className="mx-auto pt-4 md:pt-8">{children}</main>
       <Footer />
     </>
   );
