@@ -60,7 +60,7 @@ const TwoColumnLayout = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 p-4">
+          <div className="w-full md:w-1/2 p-4 md:p-0">
             {comicImageUrl && (
               <Image
                 src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${comicImageUrl}`}
