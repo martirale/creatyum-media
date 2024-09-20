@@ -1,3 +1,4 @@
+import React from "react";
 import PrivacyPageContent from "./PrivacyPageContent";
 
 export const metadata = {
