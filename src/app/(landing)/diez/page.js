@@ -1,6 +1,4 @@
 import HeroDiez from "./HeroDiez";
-import BannerComic from "../../../components/home/BannerComic";
-import BannerInstagram from "../../../components/home/BannerInstagram";
 
 export const metadata = {
   title: "Décimo aniversario — Creatyum Media",
