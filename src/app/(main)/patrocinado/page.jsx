@@ -1,3 +1,4 @@
+import React from "react";
 import SponsoredPageContent from "./SponsoredPageContent";
 
 export const metadata = {

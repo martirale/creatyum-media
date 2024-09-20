@@ -1,4 +1,5 @@
-import { getAuthorWithArticles } from "../../../../lib/api";
+import React from "react";
+import { getCategoryWithArticles } from "../../../../lib/api";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,13 +41,9 @@ function ArticleCard({ article }) {
             {localDate}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
-            {article.attributes.categories?.data?.length > 0 ? (
-              article.attributes.categories.data.map((category, index) => (
-                <span key={index}>{category.attributes.title}</span>
-              ))
-            ) : (
-              <span>No hay categorías</span>
-            )}
+            {article.attributes.categories.data.map((category, index) => (
+              <span key={index}>{category.attributes.title}</span>
+            ))}
           </p>
         </div>
       </Link>
@@ -54,20 +51,20 @@ function ArticleCard({ article }) {
   );
 }
 
-export default async function AuthorPage({ params, searchParams }) {
+export default async function CategoryPage({ params, searchParams }) {
   const { slug } = params;
   const page = parseInt(searchParams.page || "1", 10);
   const pageSize = 20;
 
   try {
-    const { author, articles, meta } = await getAuthorWithArticles(
+    const { category, articles, meta } = await getCategoryWithArticles(
       slug,
       page,
       pageSize
     );
 
-    if (!author) {
-      return <div>Autor no encontrado</div>;
+    if (!category) {
+      return <div>Categoría no encontrada</div>;
     }
 
     const totalPages = meta?.pagination?.pageCount || 1;
@@ -75,31 +72,23 @@ export default async function AuthorPage({ params, searchParams }) {
     return (
       <div className="container mx-auto px-4 py-2 md:px-0">
         <div>
-          {/* Nombre del Autor */}
-          <div className="pt-2 mx-4 mb-16 md:mx-0">
-            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${author.attributes.profile.data.attributes.url}`}
-                alt="{author.attributes.name}"
-                width={512}
-                height={512}
-                className="self-center flex-shrink-0 w-48 h-48 border border-black rounded-full md:justify-self-start dark:border-yellow"
-              />
-              <div className="flex flex-col">
-                <h2 className="text-5xl text-center font-extrabold mt-1 mb-2 md:text-9xl md:text-left">
-                  {author.attributes.name}
-                </h2>
-                <p className="text-center md:text-left md:text-xl">
-                  {author.attributes.description}
-                </p>
-              </div>
-            </div>
+          {/* Título de la Categoría */}
+          <div className="mb-5 md:mb-8">
+            <h2 className="font-extrabold text-5xl md:text-9xl">
+              <FontAwesomeIcon
+                icon={faTag}
+                className="w-8 h-8 align-baseline md:w-24 md:h-24 md:align-middle"
+              />{" "}
+              {category.attributes.title}
+            </h2>
           </div>
 
           {/* Artículos */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {articles.length === 0 ? (
-              <p className="text-center">No hay artículos para este autor.</p>
+              <p className="text-center">
+                No hay artículos para esta categoría.
+              </p>
             ) : (
               articles.map((article) => (
                 <ArticleCard key={article.id} article={article} />
@@ -112,7 +101,7 @@ export default async function AuthorPage({ params, searchParams }) {
             <div className="inline-flex -space-x-px rounded-md">
               {page > 1 ? (
                 <Link
-                  href={`/autor/${slug}?page=${page - 1}`}
+                  href={`/categoria/${slug}?page=${page - 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
@@ -134,7 +123,7 @@ export default async function AuthorPage({ params, searchParams }) {
                     return (
                       <Link
                         key={pageNum}
-                        href={`/autor/${slug}?page=${pageNum}`}
+                        href={`/categoria/${slug}?page=${pageNum}`}
                         passHref
                         className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                           page === pageNum
@@ -164,7 +153,7 @@ export default async function AuthorPage({ params, searchParams }) {
 
               {page < totalPages ? (
                 <Link
-                  href={`/autor/${slug}?page=${page + 1}`}
+                  href={`/categoria/${slug}?page=${page + 1}`}
                   passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
                 >
@@ -181,30 +170,30 @@ export default async function AuthorPage({ params, searchParams }) {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching author data:", error);
-    return <div>Error al cargar el autor y los artículos.</div>;
+    console.error("Error fetching category data:", error);
+    return <div>Error al cargar la categoría y los artículos.</div>;
   }
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
   try {
-    const { author } = await getAuthorWithArticles(slug, 1, 1);
-    if (!author) {
+    const { category } = await getCategoryWithArticles(slug, 1, 1);
+    if (!category) {
       return {
-        title: "Autor no encontrado — Creatyum Media",
-        description: "El autor que buscas no existe.",
+        title: "Categoría no encontrada — Creatyum Media",
+        description: "La categoría que buscas no existe.",
       };
     }
     return {
-      title: `${author.attributes.name} — Creatyum Media`,
+      title: `${category.attributes.title} — Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
       openGraph: {
-        title: `${author.attributes.name} — Creatyum Media`,
+        title: `${category.attributes.title} — Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-        url: `https://creatyum.media/autor/${author.attributes.slug}`,
+        url: `https://creatyum.media/categoria/${category.attributes.slug}`,
         type: "article",
         images: [
           {
@@ -217,18 +206,18 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: "summary_large_image",
-        title: `${author.attributes.name} — Creatyum Media`,
+        title: `${category.attributes.title} — Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
         images: ["https://creatyum.media/creatyum-default-cover.webp"],
       },
-      canonical: `https://creatyum.media/autor/${author.attributes.slug}`,
+      canonical: `https://creatyum.media/categoria/${category.attributes.slug}`,
     };
   } catch (error) {
     console.error("Error generating metadata:", error);
     return {
       title: "Error — Creatyum Media",
-      description: "Ha ocurrido un error al generar los metadatos.",
+      description: "Ha ocurrido un error al cargar la categoría.",
     };
   }
 }
