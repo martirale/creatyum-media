@@ -1,4 +1,6 @@
+import React from "react";
 import HeroDiez from "./HeroDiez";
+import TimeLine from "./TimeLine";
 
 export const metadata = {
   title: "Décimo aniversario — Creatyum Media",
@@ -35,6 +37,8 @@ export default function AniversaryLanding() {
       <h1>Décimo aniversario</h1>
 
       <HeroDiez />
+
+      <TimeLine />
     </div>
   );
 }
