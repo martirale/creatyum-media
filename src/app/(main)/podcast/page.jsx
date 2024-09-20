@@ -1,3 +1,4 @@
+import React from "react";
 import PodcastPlayer from "./PodcastPlayer";
 import PodcastButtons from "./PodcastButtons";
 import TestimonialSlider from "../../../components/testimonial/TestimonialSlider";
