@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import LogoCreatyum from "../LogoCreatyum";
 import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

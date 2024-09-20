@@ -1,3 +1,4 @@
+import React from "react";
 import SidebarLatestArticles from "./SidebarLatestArticles";
 import SidebarInstagram from "./SidebarInstagram";
 import SidebarComic from "./SidebarComic";

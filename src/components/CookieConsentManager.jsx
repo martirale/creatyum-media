@@ -1,17 +1,17 @@
 "use client";
 
+import React from "react";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import dynamic from "next/dynamic";
 
-const GoogleAnalytics = dynamic(() => import("../components/GoogleAnalytics"), {
+const GoogleAnalytics = dynamic(() => import("./GoogleAnalytics"), {
   ssr: false,
 });
 
-const CookieConsentBanner = dynamic(
-  () => import("../components/CookieConsentBanner"),
-  { ssr: false }
-);
+const CookieConsentBanner = dynamic(() => import("./CookieConsentBanner"), {
+  ssr: false,
+});
 
 export default function CookieConsentManager({ gaId }) {
   const [cookiesAccepted, setCookiesAccepted] = useState(false);
