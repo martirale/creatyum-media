@@ -9,7 +9,7 @@ const TimelineItem = ({ date, title, description, isEven }) => (
       <div className="w-4 h-4 bg-black rounded-full dark:bg-yellow z-10"></div>
     </div>
     <div className="w-5/12">
-      <div className="p-4 border border-black rounded-2xl">
+      <div className="p-4 border border-black rounded-2xl dark:border-yellow">
         <span className="font-bold text-sm uppercase">{date}</span>
         <h3 className="text-xl md:text-2xl font-extrabold my-1 uppercase">
           {title}
