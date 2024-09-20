@@ -21,7 +21,7 @@ const HeroDiez = () => {
           </div>
 
           <div className="w-full flex flex-col items-center mt-16 mb-4 md:mb-0">
-            <LogoCreatyum className="fill-yellow w-24 h-auto dark:fill-black" />
+            <LogoCreatyum className="fill-yellow w-32 h-auto dark:fill-black" />
           </div>
         </div>
       </div>
