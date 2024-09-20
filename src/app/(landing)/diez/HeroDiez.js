@@ -16,7 +16,7 @@ const HeroDiez = () => {
                 ¡Diez años divulgando sobre diseño!
               </h2>
 
-              <div className="px-8 md:px-24">
+              <div className="px-8 md:px-24 2xl:px-32">
                 <div className="mt-5 md:mt-8 px-3 py-1 rounded-full border border-yellow dark:border-black">
                   <p className="md:text-xl uppercase">Octubre 2024</p>
                 </div>
