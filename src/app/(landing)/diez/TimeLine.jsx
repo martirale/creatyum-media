@@ -6,13 +6,15 @@ const TimelineItem = ({ date, title, description, isEven }) => (
   >
     <div className="w-5/12"></div>
     <div className="w-2/12 flex justify-center">
-      <div className="w-4 h-4 bg-primary rounded-full z-10"></div>
+      <div className="w-4 h-4 bg-black rounded-full dark:bg-yellow z-10"></div>
     </div>
     <div className="w-5/12">
-      <div className="p-4 bg-white shadow-md rounded-lg">
-        <span className="font-bold text-primary">{date}</span>
-        <h3 className="font-semibold mt-1">{title}</h3>
-        <p className="text-muted-foreground mt-1">{description}</p>
+      <div className="p-4 border border-black rounded-2xl">
+        <span className="font-bold">{date}</span>
+        <h3 className="text-xl md:text-2xl font-extrabold my-1 uppercase">
+          {title}
+        </h3>
+        <p>{description}</p>
       </div>
     </div>
   </div>
@@ -21,11 +23,11 @@ const TimelineItem = ({ date, title, description, isEven }) => (
 const Timeline = ({ items }) => (
   <section className="py-12 px-4 md:px-6 lg:px-8">
     <div className="max-w-3xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-8">
         Nuestra Trayectoria
       </h2>
       <div className="relative">
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-black dark:bg-yellow"></div>
         {items.map((item, index) => (
           <TimelineItem
             key={index}
@@ -42,24 +44,14 @@ const Timeline = ({ items }) => (
 
 const timelineItems = [
   {
-    date: "2020",
-    title: "Fundación",
-    description: "Comenzamos nuestra aventura con una visión clara.",
+    date: "MMM.20XX",
+    title: "Lorem ipsum",
+    description: "Lorem ipsum dolor sit amet",
   },
   {
-    date: "2021",
-    title: "Expansión",
-    description: "Duplicamos nuestro equipo y alcance en el mercado.",
-  },
-  {
-    date: "2022",
-    title: "Innovación",
-    description: "Lanzamos nuestro producto revolucionario.",
-  },
-  {
-    date: "2023",
-    title: "Reconocimiento",
-    description: "Ganamos premios de la industria por nuestra excelencia.",
+    date: "MMM.20XX",
+    title: "Lorem ipsum",
+    description: "Lorem ipsum dolor sit amet",
   },
 ];
 
