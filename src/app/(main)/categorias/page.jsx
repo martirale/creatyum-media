@@ -43,7 +43,7 @@ export default function CategoriesPage() {
       <div className="grid grid-cols-12 gap-4 md:gap-12">
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/diseno`}>
+            <Link href="/categoria/diseno">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-diseno-cover.webp"
@@ -64,9 +64,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/industria`}
-            >
+            <Link href="/categoria/industria">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-industria-cover.webp"
@@ -87,7 +85,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/radar`}>
+            <Link href="/categoria/radar">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-radar-cover.webp"
@@ -108,9 +106,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/entrevistas`}
-            >
+            <Link href="/categoria/entrevistas">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-entrevistas-cover.webp"
@@ -131,7 +127,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/marcas`}>
+            <Link href="/categoria/marcas">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-marcas-cover.webp"
@@ -152,9 +148,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/ilustracion`}
-            >
+            <Link href="/categoria/ilustracion">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-ilustracion-cover.webp"
@@ -175,7 +169,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/foto`}>
+            <Link href="/categoria/foto">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-foto-cover.webp"
@@ -196,9 +190,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/designer-class`}
-            >
+            <Link href="/categoria/designer-class">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-designer-class-cover.webp"
@@ -219,9 +211,7 @@ export default function CategoriesPage() {
 
         <div className="col-span-12 md:col-span-4">
           <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-            <Link
-              href={`${process.env.NEXT_PUBLIC_BASE_URL}/categoria/miscelaneo`}
-            >
+            <Link href="/categoria/miscelaneo">
               <div className="relative w-full aspect-w-1 aspect-h-1">
                 <Image
                   src="/images/creatyum-media-misc-cover.webp"
