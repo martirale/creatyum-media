@@ -48,10 +48,10 @@ export default function Navbar() {
       name: "Portada",
       url: "/",
     },
-    {
-      name: "Categorías",
-      url: "/categorias",
-    },
+    // {
+    //   name: "Categorías",
+    //   url: "/categorias",
+    // },
     {
       name: "Podcast",
       url: "/podcast",
