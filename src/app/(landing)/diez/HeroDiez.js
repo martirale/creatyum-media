@@ -1,26 +1,25 @@
 import LogoCreatyum from "../../../components/LogoCreatyum";
-import Image from "next/image";
+import CafeCreativoIllustration from "../../../components/CafeCreativoIllustration";
 
 const HeroDiez = () => {
   return (
     <section className="mb-8">
       <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl">
         <div className="flex flex-wrap items-center w-full">
+          <div className="w-full md:w-1/2 p-4 md:p-0">
+            <CafeCreativoIllustration className="fill-yellow w-full h-auto mt-8" />
+          </div>
+
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
-            <LogoCreatyum className="fill-yellow w-64 h-auto md:w-[512px] md:h-auto dark:fill-black" />
-            <div className="text-center mt-8 md:px-16">
-              <p className="mb-8">Lorem ipsum dolor sit amet.</p>
+            <div className="text-center mt-8 md:px-2">
+              <h2 className="font-BricolageGrotesque font-extrabold text-4xl md:text-7xl">
+                ¡Diez años divulgando sobre diseño!
+              </h2>
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 p-4 md:p-0">
-            <Image
-              src="/placeholder.svg"
-              alt="creatyum-layered-comic"
-              width={1080}
-              height={1080}
-              className="w-full h-auto object-cover rounded-2xl border border-yellow dark:border-black md:rounded-3xl"
-            />
+          <div className="w-full flex flex-col items-center mt-16 mb-4 md:mb-0">
+            <LogoCreatyum className="fill-yellow w-24 h-auto dark:fill-black" />
           </div>
         </div>
       </div>
