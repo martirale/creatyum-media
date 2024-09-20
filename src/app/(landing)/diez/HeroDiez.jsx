@@ -1,3 +1,4 @@
+import React from "react";
 import LogoCreatyum from "../../../components/LogoCreatyum";
 import CafeCreativoIllustration from "../../../components/CafeCreativoIllustration";
 
