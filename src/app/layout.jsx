@@ -1,3 +1,4 @@
+import React from "react";
 import "./globals.css";
 import { Roboto, BricolageGrotesque } from "../components/CustomFonts";
 import ScrollToTop from "../components/ScrollToTop";

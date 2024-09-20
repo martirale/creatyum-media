@@ -1,3 +1,4 @@
+import React from "react";
 import HomePageContent from "../../components/home/HomePageContent";
 import HomePageFeatured from "../../components/home/HomePageFeatured";
 import BannerInstagram from "../../components/home/BannerInstagram";
