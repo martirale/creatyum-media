@@ -22,10 +22,11 @@ const TimelineItem = ({ date, title, description, isEven }) => (
 
 const Timeline = ({ items }) => (
   <section className="py-12 px-0 md:px-6 lg:px-8">
-    <div className="max-w-3xl mx-auto">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-8">
+    <div className="max-w-3xl mx-auto text-center">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
         Nuestra Trayectoria
       </h2>
+      <p className="mb-8">(Tratamos de resumir diez años de recorrido)</p>
       <div className="relative">
         <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-black dark:bg-yellow"></div>
         {items.map((item, index) => (
@@ -46,12 +47,14 @@ const timelineItems = [
   {
     date: "Oct28-2014",
     title: "Lanzamiento de Creatyum",
-    description: "Lanzamos nuestro primer número de la revista en Issuu",
+    description:
+      "Lanzamos nuestro primer número de la revista tras empezar con la idea en el mes de julio",
   },
   {
     date: "Nov30-2014",
     title: "La primera entrevista",
-    description: "Realizamos nuestra primera entrevista (a Virginia Cortez)",
+    description:
+      "Realizamos nuestra primera entrevista (a la ilustradora Virginia Cortez) para nuestro segundo número",
   },
   {
     date: "Ene10-2015",
@@ -63,22 +66,24 @@ const timelineItems = [
     date: "Feb13-2015",
     title: "Portafolio UJMD",
     description:
-      "Nos invitaron por primera vez a cubrir un evento relacionado con diseño",
+      "Nos invitaron por primera vez a cubrir un evento de portafolio de diseño",
   },
   {
     date: "Mar28-2015",
-    title: "La última en formato revista",
-    description: "Dejamos este formato en nuestra sexta entrega de la revista",
+    title: "Bye, formato epaper",
+    description:
+      "Dejamos el formato tipo epaper en nuestra sexta entrega de la revista",
   },
   {
     date: "Jun01-2015",
-    title: "Los primeros cambios..",
-    description: "Probamos algunas soluciones web estáticas para la revista",
+    title: "Los primeros cambios...",
+    description: "Probamos algunas soluciones de web estática para la revista",
   },
   {
     date: "Sep30-2015",
     title: "El cambio definitivo",
-    description: "Tras algunos meses de prueba nos pasamos por completo a blog",
+    description:
+      "Tras algunos meses de prueba nos pasamos por completo a formato blog",
   },
   {
     date: "Oct17-2015",
@@ -94,13 +99,13 @@ const timelineItems = [
   {
     date: "May15-2019",
     title: "Café Creativo Podcast",
-    description: "Iniciamos formalmente nuestro podcast",
+    description: "Iniciamos formalmente nuestro podcast con ocho episodios",
   },
   {
     date: "Oct28-2024",
     title: "Nuestro décimo aniversario",
     description:
-      "Como si nada llegamos a diez años con este increíble proyecto",
+      "Como si nada, cumplimos diez años con este increíble proyecto, ¡gracias!",
   },
 ];
 
