@@ -68,12 +68,12 @@ const timelineItems = [
   {
     date: "Mar28-2015",
     title: "La última en formato revista",
-    description: "Dejamos este formato en nuestro número sexto número",
+    description: "Dejamos este formato en nuestra sexta entrega de la revista",
   },
   {
     date: "Jun01-2015",
     title: "Los primeros cambios..",
-    description: "Experimentamos con algunas soluciones web estáticas",
+    description: "Probamos algunas soluciones web estáticas para la revista",
   },
   {
     date: "Sep30-2015",
