@@ -26,7 +26,7 @@ const Timeline = ({ items }) => (
       <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
         Nuestra Trayectoria
       </h2>
-      <p className="mb-8">(Tratamos de resumir diez años de recorrido)</p>
+      <p className="mb-8">(Resumimos diez años, OMG)</p>
       <div className="relative">
         <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-black dark:bg-yellow"></div>
         {items.map((item, index) => (
@@ -71,13 +71,13 @@ const timelineItems = [
   {
     date: "Mar28-2015",
     title: "Bye, formato epaper",
-    description:
-      "Dejamos el formato tipo epaper en nuestra sexta entrega de la revista",
+    description: "Dejamos el formato tipo epaper en nuestra sexta entrega",
   },
   {
     date: "Jun01-2015",
     title: "Los primeros cambios...",
-    description: "Probamos algunas soluciones de web estática para la revista",
+    description:
+      "Probamos algunas soluciones de web estática para seguir presentando la revista cada mes",
   },
   {
     date: "Sep30-2015",
