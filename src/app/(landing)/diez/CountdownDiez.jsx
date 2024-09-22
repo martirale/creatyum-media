@@ -34,24 +34,34 @@ export default function CountdownDiez() {
   }, []);
 
   return (
-    <div className="w-full">
-      <h1 className="text-center mb-4">Cuenta Regresiva</h1>
+    <div className="w-full mb-8">
+      <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-4">
+        Cuenta Regresiva
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="text-center">
-          <span className="block">{timeLeft.days}</span>
-          <span className="block">Días</span>
+        <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
+          <span className="block font-BricolageGrotesque text-5xl">
+            {timeLeft.days}
+          </span>
+          <span className="block uppercase font-bold">Días</span>
         </div>
-        <div className="text-center">
-          <span className="block">{timeLeft.hours}</span>
-          <span className="block">Horas</span>
+        <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
+          <span className="block font-BricolageGrotesque text-5xl">
+            {timeLeft.hours}
+          </span>
+          <span className="block uppercase font-bold">Horas</span>
         </div>
-        <div className="text-center">
-          <span className="block">{timeLeft.minutes}</span>
-          <span className="block">Minutos</span>
+        <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
+          <span className="block font-BricolageGrotesque text-5xl">
+            {timeLeft.minutes}
+          </span>
+          <span className="block uppercase font-bold">Minutos</span>
         </div>
-        <div className="text-center">
-          <span className="block">{timeLeft.seconds}</span>
-          <span className="block">Segundos</span>
+        <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
+          <span className="block font-BricolageGrotesque text-5xl">
+            {timeLeft.seconds}
+          </span>
+          <span className="block uppercase font-bold">Segundos</span>
         </div>
       </div>
     </div>
