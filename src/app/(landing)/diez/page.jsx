@@ -42,6 +42,13 @@ export default function AniversaryLanding() {
       <CountdownDiez />
 
       <TimeLine />
+
+      <div className="text-center mb-8">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
+          Pronto más contenido
+        </h2>
+        <p>(Esta página se irá actualizando)</p>
+      </div>
     </div>
   );
 }
