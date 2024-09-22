@@ -27,7 +27,7 @@ const buttons = [
     name: "Amazon Music",
     icon: faAmazon,
     color:
-      "hover:bg-[#0DBFF5] dark:hover:text-black dark:hover:bg-[#0DBFF5] dark:hover:border-[#0DBFF5]",
+      "hover:bg-[#25d1da] dark:hover:text-black dark:hover:bg-[#25d1da] dark:hover:border-[#25d1da]",
     url: "https://music.amazon.com/podcasts/063f9823-7f6b-46d8-a904-15a1dfbb5af6/caf%C3%A9-creativo",
   },
   {
