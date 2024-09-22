@@ -35,9 +35,6 @@ export default function CountdownDiez() {
 
   return (
     <div className="w-full mb-8">
-      <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-4">
-        Cuenta Regresiva
-      </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
           <span className="block font-BricolageGrotesque text-5xl">
