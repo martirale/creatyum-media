@@ -19,7 +19,9 @@ const HeroDiez = () => {
 
               <div className="px-8 md:px-24 2xl:px-32">
                 <div className="mt-5 md:mt-8 px-3 py-1 rounded-full border border-yellow dark:border-black">
-                  <p className="md:text-md uppercase">Octubre 2024</p>
+                  <p className="md:text-md uppercase font-bold">
+                    28 de octubre de 2024
+                  </p>
                 </div>
               </div>
             </div>
