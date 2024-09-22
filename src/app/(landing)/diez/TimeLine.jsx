@@ -54,7 +54,7 @@ const timelineItems = [
     date: "Nov30-2014",
     title: "La primera entrevista",
     description:
-      "Realizamos nuestra primera entrevista (a la ilustradora Virginia Cortez) para nuestro segundo número",
+      "Realizamos nuestra primera entrevista a la ilustradora Virginia Cortez para nuestro segundo número",
   },
   {
     date: "Ene10-2015",
@@ -94,7 +94,7 @@ const timelineItems = [
     date: "Feb05-2017",
     title: "Podcast piloto",
     description:
-      "Incursionamos en el mundo del audio con algnos episodios piloto",
+      "Incursionamos en el mundo del audio con algunos episodios piloto",
   },
   {
     date: "May15-2019",
