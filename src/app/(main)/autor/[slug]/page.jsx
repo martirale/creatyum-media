@@ -21,7 +21,7 @@ function ArticleCard({ article }) {
   return (
     <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
       <Link href={`/articulo/${article.attributes.slug}`}>
-        <div className="relative w-full aspect-w-1 aspect-h-1">
+        <div className="relative w-full aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1">
           {article.attributes.cover?.data?.attributes?.url && (
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
