@@ -45,7 +45,9 @@ function CategoryCard({ category }) {
           />
         </div>
         <div className="p-4">
-          <h2 className="text-3xl font-extrabold mb-2">{category.name}</h2>
+          <h2 className="text-5xl text-center font-extrabold mb-2">
+            {category.name}
+          </h2>
         </div>
       </Link>
     </div>
@@ -118,7 +120,7 @@ export default function CategoriesPage() {
         Categorías
       </h2>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />
         ))}
