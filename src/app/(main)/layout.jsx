@@ -39,7 +39,9 @@ export default function MainLayout({ children }) {
   return (
     <>
       <Header />
-      <main className="mx-auto pt-24 md:pt-28">{children}</main>
+      <main className="w-full max-w-xl md:max-w-3xl lg:max-w-screen-2xl mx-auto pt-24 md:pt-28">
+        {children}
+      </main>
       <Footer />
     </>
   );
