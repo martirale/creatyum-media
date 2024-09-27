@@ -35,7 +35,7 @@ function CategoryCard({ category }) {
   return (
     <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300 md:rounded-3xl">
       <Link href={category.url}>
-        <div className="relative w-full aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1">
+        <div className="relative w-full aspect-w-5 aspect-h-4 md:aspect-w-1 md:aspect-h-1">
           <Image
             src={category.img}
             alt={category.name}
@@ -44,8 +44,8 @@ function CategoryCard({ category }) {
             className="rounded-t-2xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow md:rounded-t-3xl"
           />
         </div>
-        <div className="p-4">
-          <h2 className="text-5xl text-center font-extrabold mb-2">
+        <div className="p-2 md:p-4">
+          <h2 className="text-4xl text-center font-extrabold md:text-5xl">
             {category.name}
           </h2>
         </div>
