@@ -103,12 +103,12 @@ export default async function CategoryPage({ params, searchParams }) {
                 <Link
                   href={`/categoria/${slug}?page=${page - 1}`}
                   passHref
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
                 >
                   <FontAwesomeIcon icon={faAngleLeft} />
                 </Link>
               ) : (
-                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl opacity-50 dark:border-yellow">
+                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl opacity-50 dark:border-yellow transition duration-300">
                   <FontAwesomeIcon icon={faAngleLeft} />
                 </span>
               )}
@@ -127,8 +127,8 @@ export default async function CategoryPage({ params, searchParams }) {
                         passHref
                         className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                           page === pageNum
-                            ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
-                            : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                            ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
+                            : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
                         }`}
                       >
                         {pageNum}
@@ -141,7 +141,7 @@ export default async function CategoryPage({ params, searchParams }) {
                     return (
                       <span
                         key={pageNum}
-                        className="inline-flex items-center px-3 py-2 text-sm border border-black dark:border-yellow"
+                        className="inline-flex items-center px-3 py-2 text-sm border border-black dark:border-yellow transition"
                       >
                         ...
                       </span>
@@ -155,12 +155,12 @@ export default async function CategoryPage({ params, searchParams }) {
                 <Link
                   href={`/categoria/${slug}?page=${page + 1}`}
                   passHref
-                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black"
+                  className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
                 >
                   <FontAwesomeIcon icon={faAngleRight} />
                 </Link>
               ) : (
-                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl opacity-50 dark:border-yellow">
+                <span className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl opacity-50 dark:border-yellow transition duration-300">
                   <FontAwesomeIcon icon={faAngleRight} />
                 </span>
               )}
