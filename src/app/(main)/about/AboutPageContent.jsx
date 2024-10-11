@@ -80,6 +80,12 @@ const AboutPageContent = () => {
         <h2 className="font-extrabold text-7xl pb-16 md:text-9xl">
           Sobre Creatyum
         </h2>
+
+        <p className="text-2xl mb-8">
+          Creatyum es una revista digital en formato de blog y podcast sobre
+          divulgación de diseño creada por Alejandro Mártir en 2014.
+        </p>
+
         <FormatContent blocks={content} />
       </div>
 
