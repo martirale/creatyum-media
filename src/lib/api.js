@@ -135,6 +135,12 @@ export const getLatestArticles = async (limit = 5) => {
   return data.data;
 };
 
+// ABOUT PAGE DESCRIPTION
+export const getDescriptionContent = async () => {
+  const data = await fetchAPI("/api/about");
+  return data.data.attributes.description;
+};
+
 // ABOUT PAGE CONTENT
 export const getAboutContent = async () => {
   const data = await fetchAPI("/api/about");
