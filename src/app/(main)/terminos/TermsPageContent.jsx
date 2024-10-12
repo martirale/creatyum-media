@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import FormatContent from "../../../components/FormatContent";
+import { getTermsContent } from "../../../lib/api";
 
 const TermsPageContent = () => {
   const [content, setContent] = useState([]);
@@ -12,23 +12,9 @@ const TermsPageContent = () => {
   useEffect(() => {
     const fetchTermsContent = async () => {
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/terms-of-use`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-            },
-          }
-        );
-
-        if (!res.ok) {
-          console.error("Failed to fetch data:", res.status, res.statusText);
-          throw new Error("Failed to fetch data");
-        }
-
-        const data = await res.json();
-        setContent(data.data.attributes.content);
-        setDate(data.data.attributes.date);
+        const data = await getTermsContent();
+        setContent(data.content);
+        setDate(data.date);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);

@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import FormatContent from "../../../components/FormatContent";
 import AuthorList from "./AuthorList";
+import { getAboutContent, getMissionContent } from "../../../lib/api";
 
 const AboutPageContent = () => {
   const [content, setContent] = useState([]);
@@ -11,57 +11,20 @@ const AboutPageContent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAboutContent = async () => {
+    const fetchAboutPageData = async () => {
       try {
-        const resContent = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/about`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-            },
-          }
-        );
+        const aboutContent = await getAboutContent();
+        setContent(aboutContent);
 
-        if (!resContent.ok) {
-          console.error(
-            "Failed to fetch content:",
-            resContent.status,
-            resContent.statusText
-          );
-          throw new Error("Failed to fetch content");
-        }
-
-        const dataContent = await resContent.json();
-        setContent(dataContent.data.attributes.content);
-
-        // Fetch Mission
-        const resMission = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/mission`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-            },
-          }
-        );
-
-        if (!resMission.ok) {
-          console.error(
-            "Failed to fetch sidebar content:",
-            resMission.status,
-            resMission.statusText
-          );
-          throw new Error("Failed to fetch sidebar content");
-        }
-
-        const dataMission = await resMission.json();
-        setMission(dataMission.data.attributes.content);
+        const missionContent = await getMissionContent();
+        setMission(missionContent);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
       }
     };
 
-    fetchAboutContent();
+    fetchAboutPageData();
   }, []);
 
   if (error) {

@@ -23,6 +23,16 @@ const fetchAPI = async (endpoint, options = {}) => {
   return response.json();
 };
 
+// HOME PAGINATION
+export const getArticles = async (page = 1, pageSize = 12) => {
+  return fetchAPI(
+    `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
+    {
+      cache: "no-store",
+    }
+  );
+};
+
 // SINGLE ARTICLE + AUTHOR
 export const getArticleBySlug = async (slug) => {
   const data = await fetchAPI(
@@ -50,14 +60,30 @@ export const getArticleBySlug = async (slug) => {
   return article;
 };
 
-// HOME PAGINATION
-export const getArticles = async (page = 1, pageSize = 12) => {
-  return fetchAPI(
-    `/api/articles?sort[0]=date:desc&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=*`,
+// AUTHOR PAGINATION
+export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
+  const authorData = await fetchAPI(
+    `/api/redactions?filters[slug]=${slug}&populate=profile,articles`
+  );
+
+  if (authorData.data.length === 0) {
+    throw new Error("Author not found");
+  }
+
+  const author = authorData.data[0];
+
+  const articlesData = await fetchAPI(
+    `/api/articles?filters[redactions][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,redactions,categories&sort[0]=date:desc`,
     {
       cache: "no-store",
     }
   );
+
+  return {
+    author: author,
+    articles: articlesData.data,
+    meta: articlesData.meta,
+  };
 };
 
 // CATEGORIES
@@ -109,30 +135,40 @@ export const getLatestArticles = async (limit = 5) => {
   return data.data;
 };
 
-// AUTHOR PAGINATION
-export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
-  const authorData = await fetchAPI(
-    `/api/redactions?filters[slug]=${slug}&populate=profile,articles`
-  );
+// ABOUT PAGE CONTENT
+export const getAboutContent = async () => {
+  const data = await fetchAPI("/api/about");
+  return data.data.attributes.content;
+};
 
-  if (authorData.data.length === 0) {
-    throw new Error("Author not found");
-  }
+// MISSION
+export const getMissionContent = async () => {
+  const data = await fetchAPI("/api/mission");
+  return data.data.attributes.content;
+};
 
-  const author = authorData.data[0];
+// PRIVACY POLICY
+export const getPrivacyPolicy = async () => {
+  const data = await fetchAPI("/api/privacy");
+  return data.data.attributes;
+};
 
-  const articlesData = await fetchAPI(
-    `/api/articles?filters[redactions][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,redactions,categories&sort[0]=date:desc`,
-    {
-      cache: "no-store",
-    }
-  );
+// TERMS AND CONDITIONS
+export const getTermsContent = async () => {
+  const data = await fetchAPI("/api/terms-of-use");
+  return data.data.attributes;
+};
 
-  return {
-    author: author,
-    articles: articlesData.data,
-    meta: articlesData.meta,
-  };
+// SPONSORED CONTENT
+export const getSponsoredContent = async () => {
+  const data = await fetchAPI("/api/sponsored");
+  return data.data.attributes;
+};
+
+// TRANSPARENCY CONTENT
+export const getTransparencyContent = async () => {
+  const data = await fetchAPI("/api/transparency");
+  return data.data.attributes;
 };
 
 // LAYERED COMIC

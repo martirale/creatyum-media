@@ -3,6 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import FormatContent from "../../../components/FormatContent";
+import { getSponsoredContent } from "../../../lib/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,23 +15,9 @@ const SponsoredPageContent = () => {
   useEffect(() => {
     const fetchSponsoredContent = async () => {
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/sponsored`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-            },
-          }
-        );
-
-        if (!res.ok) {
-          console.error("Failed to fetch data:", res.status, res.statusText);
-          throw new Error("Failed to fetch data");
-        }
-
-        const data = await res.json();
-        setContent(data.data.attributes.content);
-        setDate(data.data.attributes.date);
+        const data = await getSponsoredContent();
+        setContent(data.content);
+        setDate(data.date);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);
