@@ -78,6 +78,12 @@ export default function Footer() {
                 />
               </Link>
               <Link
+                href="/transparencia"
+                className="text-xl mr-4 hover:underline md:text-base md:mr-8"
+              >
+                Transparencia
+              </Link>
+              <Link
                 href="/privacidad"
                 className="text-xl mr-4 hover:underline md:text-base md:mr-8"
               >
