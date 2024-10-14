@@ -70,10 +70,10 @@ export const getAuthorById = async (authorId) => {
   return author;
 };
 
-// AUTHOR PAGINATION
+// AUTHOR PAGE
 export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
   const authorData = await fetchAPI(
-    `/api/redactions?filters[slug]=${slug}&populate=profile,articles`
+    `/api/redactions?filters[slug][$eq]=${slug}&populate=profile`
   );
 
   if (authorData.data.length === 0) {
@@ -83,7 +83,7 @@ export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
   const author = authorData.data[0];
 
   const articlesData = await fetchAPI(
-    `/api/articles?filters[redactions][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,redactions,categories&sort[0]=date:desc`,
+    `/api/articles?filters[redactions][slug][$eq]=${slug}&fields[0]=title&fields[1]=slug&populate[cover]=*&populate[categories]=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
     {
       cache: "no-store",
     }
