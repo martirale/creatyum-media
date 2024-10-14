@@ -87,21 +87,13 @@ export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
 };
 
 // CATEGORIES
-export const getCategory = async (slug) => {
-  const data = await fetchAPI(
-    `/api/categories?filters[slug]=${slug}&populate=*`
-  );
-  return data.data.length > 0 ? data.data[0] : null;
-};
-
-// CATEGORY PAGINATION
 export const getCategoryWithArticles = async (
   slug,
   page = 1,
   pageSize = 18
 ) => {
   const categoryData = await fetchAPI(
-    `/api/categories?filters[slug]=${slug}&populate=*`
+    `/api/categories?filters[slug][$eq]=${slug}&populate=*`
   );
 
   if (categoryData.data.length === 0) {
@@ -111,7 +103,7 @@ export const getCategoryWithArticles = async (
   const category = categoryData.data[0];
 
   const articlesData = await fetchAPI(
-    `/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=cover,categories&sort[0]=date:desc`,
+    `/api/articles?filters[categories][slug][$eq]=${slug}&pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate[cover]=*&populate[categories]=*&sort[0]=date:desc`,
     {
       cache: "no-store",
     }

@@ -16,16 +16,16 @@ function ArticleCard({ article }) {
     month: "short",
     day: "numeric",
     timeZone: "America/El_Salvador",
-  }).format(new Date(article.attributes.date));
+  }).format(new Date(article.date));
 
   return (
     <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black duration-300 md:rounded-3xl">
-      <Link href={`/articulo/${article.attributes.slug}`}>
+      <Link href={`/articulo/${article.slug}`}>
         <div className="relative w-full aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1">
-          {article.attributes.cover?.data?.attributes?.url && (
+          {article.cover.url && (
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
-              alt={article.attributes.title}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+              alt={article.title}
               width={960}
               height={540}
               className="rounded-t-2xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow md:rounded-t-3xl"
@@ -33,16 +33,14 @@ function ArticleCard({ article }) {
           )}
         </div>
         <div className="p-4">
-          <h2 className="text-3xl font-extrabold mb-2">
-            {article.attributes.title}
-          </h2>
+          <h2 className="text-3xl font-extrabold mb-2">{article.title}</h2>
           <p>
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {localDate}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
-            {article.attributes.categories.data.map((category, index) => (
-              <span key={index}>{category.attributes.title}</span>
+            {article.categories.map((category, index) => (
+              <span key={index}>{category.title}</span>
             ))}
           </p>
         </div>
@@ -79,7 +77,7 @@ export default async function CategoryPage({ params, searchParams }) {
                 icon={faTag}
                 className="w-8 h-8 align-baseline md:w-24 md:h-24 md:align-middle"
               />{" "}
-              {category.attributes.title}
+              {category.title}
             </h2>
           </div>
 
@@ -186,14 +184,14 @@ export async function generateMetadata({ params }) {
       };
     }
     return {
-      title: `${category.attributes.title} — Creatyum Media`,
+      title: `${category.title} — Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
       openGraph: {
-        title: `${category.attributes.title} — Creatyum Media`,
+        title: `${category.title} — Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-        url: `https://creatyum.media/categoria/${category.attributes.slug}`,
+        url: `https://creatyum.media/categoria/${category.slug}`,
         type: "article",
         images: [
           {
@@ -206,12 +204,12 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: "summary_large_image",
-        title: `${category.attributes.title} — Creatyum Media`,
+        title: `${category.title} — Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
         images: ["https://creatyum.media/creatyum-default-cover.webp"],
       },
-      canonical: `https://creatyum.media/categoria/${category.attributes.slug}`,
+      canonical: `https://creatyum.media/categoria/${category.slug}`,
     };
   } catch (error) {
     console.error("Error generating metadata:", error);
