@@ -16,12 +16,12 @@ import { getArticles } from "../../lib/api";
 function ArticleCard({ article }) {
   return (
     <div className="rounded-2xl bg-yellow text-black border border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300 md:rounded-3xl">
-      <Link href={`/articulo/${article.attributes.slug}`}>
+      <Link href={`/articulo/${article.slug}`}>
         <div className="relative w-full aspect-w-3 aspect-h-2 md:aspect-w-1 md:aspect-h-1">
-          {article.attributes.cover && (
+          {article.cover && (
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
-              alt={article.attributes.title}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+              alt={article.title}
               width={960}
               height={540}
               className="rounded-t-2xl absolute inset-0 w-full h-full object-cover border border-t-0 border-l-0 border-r-0 border-b-black dark:border-b-yellow md:rounded-t-3xl"
@@ -29,9 +29,7 @@ function ArticleCard({ article }) {
           )}
         </div>
         <div className="p-4">
-          <h2 className="text-3xl font-extrabold mb-2">
-            {article.attributes.title}
-          </h2>
+          <h2 className="text-3xl font-extrabold mb-2">{article.title}</h2>
           <p>
             <FontAwesomeIcon icon={faCalendarDays} className="mr-1 w-4 h-4" />
             {new Intl.DateTimeFormat("es-ES", {
@@ -39,11 +37,11 @@ function ArticleCard({ article }) {
               month: "short",
               day: "numeric",
               timeZone: "America/El_Salvador",
-            }).format(new Date(article.attributes.date))}
+            }).format(new Date(article.date))}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
-            {article.attributes.categories.data.map((category, index) => (
-              <span key={index}>{category.attributes.title}</span>
+            {article.categories.map((category, index) => (
+              <span key={index}>{category.title}</span>
             ))}
           </p>
         </div>

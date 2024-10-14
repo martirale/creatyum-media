@@ -137,44 +137,44 @@ export const getLatestArticles = async (limit = 5) => {
 
 // ABOUT PAGE DESCRIPTION
 export const getDescriptionContent = async () => {
-  const data = await fetchAPI("/api/about");
-  return data.data.attributes.description;
+  const dataAbout = await fetchAPI("/api/about");
+  return dataAbout.data.description;
 };
 
 // ABOUT PAGE CONTENT
 export const getAboutContent = async () => {
-  const data = await fetchAPI("/api/about");
-  return data.data.attributes.content;
+  const dataAbout = await fetchAPI("/api/about");
+  return dataAbout.data.content;
 };
 
 // MISSION
 export const getMissionContent = async () => {
-  const data = await fetchAPI("/api/mission");
-  return data.data.attributes.content;
+  const dataMission = await fetchAPI("/api/mission");
+  return dataMission.data.content;
 };
 
 // PRIVACY POLICY
 export const getPrivacyPolicy = async () => {
-  const data = await fetchAPI("/api/privacy");
-  return data.data.attributes;
+  const dataPrivacy = await fetchAPI("/api/privacy");
+  return dataPrivacy.data;
 };
 
 // TERMS AND CONDITIONS
 export const getTermsContent = async () => {
-  const data = await fetchAPI("/api/terms-of-use");
-  return data.data.attributes;
+  const dataTerms = await fetchAPI("/api/terms-of-use");
+  return dataTerms.data;
 };
 
 // SPONSORED CONTENT
 export const getSponsoredContent = async () => {
-  const data = await fetchAPI("/api/sponsored");
-  return data.data.attributes;
+  const dataSponsored = await fetchAPI("/api/sponsored");
+  return dataSponsored.data;
 };
 
 // TRANSPARENCY CONTENT
 export const getTransparencyContent = async () => {
-  const data = await fetchAPI("/api/transparency");
-  return data.data.attributes;
+  const dataTransparency = await fetchAPI("/api/transparency");
+  return dataTransparency.data;
 };
 
 // LAYERED COMIC
@@ -197,15 +197,15 @@ export const getComics = async () => {
 
 // PODCAST TESTIMONIALS
 export const getTestimonials = async () => {
-  const data = await fetchAPI("/api/testimonials?populate=*");
+  const dataTestimonial = await fetchAPI("/api/testimonials?populate=image");
 
-  const sortedTestimonials = data.data.sort((a, b) => b.id - a.id);
+  const sortedTestimonials = dataTestimonial.data.sort((a, b) => b.id - a.id);
 
-  return data.data.map((item) => ({
+  return dataTestimonial.data.map((item) => ({
     id: item.id,
-    quote: item.attributes.quote,
-    name: item.attributes.name,
-    episode: item.attributes.episode,
-    profileImage: item.attributes.image?.data?.attributes?.url || null,
+    quote: item.quote,
+    name: item.name,
+    episode: item.episode,
+    profileImage: item.image.url || null,
   }));
 };

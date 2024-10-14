@@ -18,10 +18,10 @@ function FeaturedArticleCard({ article, isMain }) {
       <div
         className="col-span-12 row-span-12 relative bg-cover bg-center rounded-2xl border border-black text-yellow aspect-w-4 aspect-h-5 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-black dark:border-yellow md:rounded-3xl"
         style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url})`,
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url})`,
         }}
       >
-        <Link href={`/articulo/${article.attributes.slug}`}>
+        <Link href={`/articulo/${article.slug}`}>
           <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl flex items-center justify-between p-4 text-center hover:bg-opacity-100 md:p-24 dark:hover:bg-yellow transition duration-300 md:rounded-3xl">
             <div>
               <p>
@@ -33,15 +33,15 @@ function FeaturedArticleCard({ article, isMain }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                }).format(new Date(article.attributes.date))}
+                }).format(new Date(article.date))}
 
                 <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
-                {article.attributes.categories.data.map((category, index) => (
-                  <span key={index}>{category.attributes.title}</span>
+                {article.categories.map((category, index) => (
+                  <span key={index}>{category.title}</span>
                 ))}
               </p>
               <h2 className="text-5xl font-extrabold mt-2 md:text-7xl">
-                {article.attributes.title}
+                {article.title}
               </h2>
             </div>
           </div>
@@ -51,12 +51,12 @@ function FeaturedArticleCard({ article, isMain }) {
   } else {
     return (
       <div>
-        <Link href={`/articulo/${article.attributes.slug}`}>
+        <Link href={`/articulo/${article.slug}`}>
           <div className="flex items-center space-x-4 mb-4">
-            {article.attributes.cover && article.attributes.cover.data && (
+            {article.cover && article.cover && (
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
-                alt={article.attributes.title}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+                alt={article.title}
                 width={480}
                 height={270}
                 className="w-16 h-16 object-cover rounded-full border border-black md:w-20 md:h-20 dark:border-yellow"
@@ -64,7 +64,7 @@ function FeaturedArticleCard({ article, isMain }) {
             )}
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-extrabold md:text-3xl hover:underline">
-                {article.attributes.title}
+                {article.title}
               </h3>
               <p className="text-sm mt-2">
                 <FontAwesomeIcon
@@ -76,7 +76,7 @@ function FeaturedArticleCard({ article, isMain }) {
                   month: "long",
                   day: "numeric",
                   timeZone: "America/El_Salvador",
-                }).format(new Date(article.attributes.date))}
+                }).format(new Date(article.date))}
               </p>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function FeaturedArticles() {
         });
 
         const featuredArticles = data.data.filter(
-          (article) => article.attributes.featured === true
+          (article) => article.featured === true
         );
 
         allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
