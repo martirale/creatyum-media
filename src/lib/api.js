@@ -33,7 +33,7 @@ export const getArticles = async (page = 1, pageSize = 12) => {
   );
 };
 
-// SINGLE ARTICLE + AUTHOR
+// SINGLE ARTICLE
 export const getArticleBySlug = async (slug) => {
   const data = await fetchAPI(
     `/api/articles?filters[slug]=${slug}&populate=*`,
@@ -48,16 +48,26 @@ export const getArticleBySlug = async (slug) => {
 
   const article = data.data[0];
 
-  if (article.attributes.redactions?.data?.[0]?.id) {
-    const authorId = article.attributes.redactions.data[0].id;
-    const authorData = await fetchAPI(
-      `/api/redactions/${authorId}?populate=profile`
-    );
-    article.attributes.redactions.data[0].attributes.profile =
-      authorData.data.attributes.profile;
+  return article;
+};
+
+// AUTHOR POST
+export const getAuthorById = async (authorId) => {
+  const data = await fetchAPI(`/api/redactions?populate=profile`, {
+    cache: "no-store",
+  });
+
+  if (!data || !data.data) {
+    throw new Error("Authors not found");
   }
 
-  return article;
+  const author = data.data.find((author) => author.id === authorId);
+
+  if (!author) {
+    throw new Error("Author not found");
+  }
+
+  return author;
 };
 
 // AUTHOR PAGINATION

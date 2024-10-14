@@ -38,24 +38,20 @@ const SidebarLatestArticles = () => {
         ) : (
           <ul className="list-none p-0">
             {articles.map((article) => (
-              <Link
-                href={`/articulo/${article.attributes.slug}`}
-                key={article.id}
-              >
+              <Link href={`/articulo/${article.slug}`} key={article.id}>
                 <li className="flex items-center space-x-4 mb-8">
-                  {article.attributes.cover &&
-                    article.attributes.cover.data && (
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
-                        alt={article.attributes.title}
-                        width={480}
-                        height={270}
-                        className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
-                      />
-                    )}
+                  {article.cover && article.cover && (
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+                      alt={article.title}
+                      width={480}
+                      height={270}
+                      className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
+                    />
+                  )}
                   <div className="flex flex-col justify-center">
                     <h3 className="text-2xl font-extrabold hover:underline">
-                      {article.attributes.title}
+                      {article.title}
                     </h3>
                     <p className="text-sm mt-2">
                       <FontAwesomeIcon
@@ -67,7 +63,7 @@ const SidebarLatestArticles = () => {
                         month: "long",
                         day: "numeric",
                         timeZone: "America/El_Salvador",
-                      }).format(new Date(article.attributes.date))}
+                      }).format(new Date(article.date))}
                     </p>
                   </div>
                 </li>

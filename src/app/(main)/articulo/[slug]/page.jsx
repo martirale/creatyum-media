@@ -2,10 +2,11 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getArticleBySlug } from "../../../../lib/api";
+import { getArticleBySlug, getAuthorById } from "../../../../lib/api";
 import FormatContent from "../../../../components/FormatContent";
 import SidebarMain from "../../../../components/sidebar/SidebarMain";
 import ArticleReactions from "../../../../components/ArticleReactions";
+import AuthorPost from "../../../../components/AuthorPost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,
@@ -33,18 +34,18 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${article.attributes.title} — Creatyum Media`,
+    title: `${article.title} — Creatyum Media`,
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     openGraph: {
-      title: `${article.attributes.title} — Creatyum Media`,
+      title: `${article.title} — Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-      url: `https://creatyum.media/articulo/${article.attributes.slug}`,
+      url: `https://creatyum.media/articulo/${article.slug}`,
       type: "article",
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`,
+          url: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`,
           width: 1200,
           height: 630,
           alt: "Creatyum Media",
@@ -53,14 +54,12 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.attributes.title} — Creatyum Media`,
+      title: `${article.title} — Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-      images: [
-        `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`,
-      ],
+      images: [`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`],
     },
-    canonical: `https://creatyum.media/articulo/${article.attributes.slug}`,
+    canonical: `https://creatyum.media/articulo/${article.slug}`,
   };
 }
 
@@ -71,10 +70,18 @@ export default async function ArticlePage({ params }) {
     notFound();
   }
 
-  const author = article.attributes.redactions.data[0]?.attributes;
-  const profileImageUrl = author?.profile?.data?.attributes?.url;
+  const authorId = article.redactions[0]?.id;
+  let author = null;
 
-  const localDate = new Date(article.attributes.date);
+  if (authorId) {
+    try {
+      author = await getAuthorById(authorId);
+    } catch (error) {
+      console.error("Error fetching author:", error);
+    }
+  }
+
+  const localDate = new Date(article.date);
   const formattedDate = new Intl.DateTimeFormat("es-ES", {
     year: "numeric",
     month: "long",
@@ -84,16 +91,16 @@ export default async function ArticlePage({ params }) {
 
   return (
     <article className="container mx-auto px-4 py-2 md:px-0">
-      <h1>{article.attributes.title}</h1>
+      <h1>{article.title}</h1>
 
       <div className="grid grid-cols-12 gap-4 md:gap-12">
         <div className="col-span-12 md:col-span-8">
           {/* COVER */}
           <div className="mb-4 relative w-full aspect-w-1 aspect-h-1 sm:aspect-w-16 sm:aspect-h-9">
-            {article.attributes.cover && (
+            {article.cover && (
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.cover.data.attributes.url}`}
-                alt={article.attributes.title}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+                alt={article.title}
                 width={1920}
                 height={1080}
                 className="rounded-2xl absolute inset-0 w-full h-full object-cover border border-black bg-black text-yellow dark:border-yellow md:rounded-3xl"
@@ -107,13 +114,13 @@ export default async function ArticlePage({ params }) {
             {formattedDate}
 
             <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
-            {article.attributes.categories.data.map((category, index) => (
-              <span key={index}>{category.attributes.title}</span>
+            {article.categories.map((category, index) => (
+              <span key={index}>{category.title}</span>
             ))}
           </p>
 
           <h2 className="font-extrabold text-5xl md:text-7xl">
-            {article.attributes.title}
+            {article.title}
           </h2>
 
           <div className="py-8">
@@ -121,7 +128,7 @@ export default async function ArticlePage({ params }) {
           </div>
 
           {/* SPONSORED BADGE */}
-          {article.attributes.sponsored && (
+          {article.sponsored && (
             <Link
               href="/patrocinado"
               target="_blank"
@@ -135,47 +142,21 @@ export default async function ArticlePage({ params }) {
             </Link>
           )}
 
-          <FormatContent blocks={article.attributes.content} />
+          <FormatContent blocks={article.content} />
 
           <div className="pt-8 pb-16">
             <hr />
 
             {/* REACTIONS */}
             <div className="my-2">
-              <ArticleReactions articleId={article.attributes.slug} />
+              <ArticleReactions articleId={article.slug} />
             </div>
 
             <hr />
           </div>
 
           {/* AUTHOR */}
-          <div className="mb-16">
-            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-              {profileImageUrl && (
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${profileImageUrl}`}
-                  alt={author?.name || "Author"}
-                  width={256}
-                  height={256}
-                  className="self-center flex-shrink-0 w-24 h-24 border border-black rounded-full md:justify-self-start dark:border-yellow"
-                />
-              )}
-              <div className="flex flex-col">
-                <h4 className="text-3xl text-center font-extrabold mt-1 mb-2 hover:underline md:text-left">
-                  {article.attributes.redactions.data.map((author, index) => (
-                    <Link key={index} href={`/autor/${author.attributes.slug}`}>
-                      {author.attributes.name}
-                    </Link>
-                  ))}
-                </h4>
-                <p className="text-center md:text-left">
-                  {article.attributes.redactions.data.map((author, index) => (
-                    <span key={index}>{author.attributes.description}</span>
-                  ))}
-                </p>
-              </div>
-            </div>
-          </div>
+          {author && <AuthorPost author={author} />}
         </div>
 
         {/* SIDEBAR */}
