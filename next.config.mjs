@@ -3,6 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "http",
+        hostname: process.env.NEXT_PUBLIC_LOCALHOST_HOSTNAME,
+        port: process.env.NEXT_PUBLIC_LOCALHOST_PORT,
+        pathname: "/uploads/**",
+      },
+      {
         protocol: "https",
         hostname: "strapi.creatyum.com",
         port: "",
