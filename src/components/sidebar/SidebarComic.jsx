@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import LogoLayered from "../LogoLayered";
-import { getComics } from "../../lib/api";
+import { getLatestComicImage } from "../../lib/api";
 
 const SidebarComic = () => {
   const [comicImageUrl, setComicImageUrl] = useState(null);
@@ -14,11 +14,11 @@ const SidebarComic = () => {
   useEffect(() => {
     const fetchComic = async () => {
       try {
-        const comics = await getComics();
-        if (comics.length > 0) {
-          setComicImageUrl(comics[0].imageUrl);
+        const imageUrl = await getLatestComicImage();
+        if (imageUrl) {
+          setComicImageUrl(imageUrl);
         } else {
-          setError("No comics found");
+          setError("No comic image found");
         }
       } catch (err) {
         console.error("Error fetching comic:", err);
@@ -58,6 +58,8 @@ const SidebarComic = () => {
               </div>
 
               <div className="w-full">
+                {loading && <p>Cargando imagen...</p>}
+                {error && <p>{error}</p>}
                 {comicImageUrl && (
                   <Image
                     src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${comicImageUrl}`}

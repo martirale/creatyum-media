@@ -178,21 +178,24 @@ export const getTransparencyContent = async () => {
 };
 
 // LAYERED COMIC
-export const getComics = async () => {
-  const data = await fetchAPI(`/api/comics?sort[0]=id:desc&populate=panel`, {
-    cache: "no-store",
-  });
+export const getLatestComicImage = async () => {
+  const response = await fetchAPI(
+    `/api/comics?sort[0]=id:desc&populate=panel`,
+    {
+      cache: "no-store",
+    }
+  );
 
-  return data.data.map((comic) => {
-    const { id, attributes } = comic;
-    const { slug, panel } = attributes;
+  const data = response.data;
 
-    return {
-      id,
-      slug,
-      imageUrl: panel?.data?.attributes?.url || null,
-    };
-  });
+  if (data && data.length > 0) {
+    const latestComic = data[0];
+    const imageUrl = latestComic?.panel?.url || null;
+
+    return imageUrl;
+  }
+
+  return null;
 };
 
 // PODCAST TESTIMONIALS
