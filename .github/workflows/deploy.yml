@@ -25,5 +25,5 @@ jobs:
             git pull origin main
             pnpm install
             pnpm run build
-            pm2 restart crtym-media
+            pm2 restart creatyum-frontend
           EOF
