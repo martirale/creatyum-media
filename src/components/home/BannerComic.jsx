@@ -39,7 +39,7 @@ const TwoColumnLayout = () => {
             <LogoLayered className="fill-yellow w-64 h-[122px] md:w-[512px] md:h-auto dark:fill-black" />
             <div className="text-center mt-8 md:px-16">
               <p className="mb-8">
-                <b>Layered</b> es un webcomic que sigue a <b>Cara</b>, una
+                <b>Layered</b> es un webcomic que sigue a <b>Kara</b>, una
                 diseñadora gráfica que navega con humor y sarcasmo las
                 situaciones cotidianas y clichés del mundo del diseño.
               </p>
