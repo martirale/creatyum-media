@@ -1,11 +1,11 @@
 import TermsPageContent from "./TermsPageContent";
 
 export const metadata = {
-  title: "Términos de uso — Creatyum Media",
+  title: "Términos de uso | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Términos de uso — Creatyum Media",
+    title: "Términos de uso | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/terminos",
@@ -21,7 +21,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Términos de uso — Creatyum Media",
+    title: "Términos de uso | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

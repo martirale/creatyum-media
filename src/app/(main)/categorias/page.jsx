@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Categorías — Creatyum Media",
+  title: "Categorías | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Categorías — Creatyum Media",
+    title: "Categorías | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/categorias",
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Categorías — Creatyum Media",
+    title: "Categorías | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

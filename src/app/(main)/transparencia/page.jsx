@@ -2,11 +2,11 @@ import React from "react";
 import TransparencyPageContent from "./TransparencyPageContent";
 
 export const metadata = {
-  title: "Aviso de transparencia — Creatyum Media",
+  title: "Aviso de transparencia | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Aviso de transparencia — Creatyum Media",
+    title: "Aviso de transparencia | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/transparencia",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aviso de transparencia — Creatyum Media",
+    title: "Aviso de transparencia | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

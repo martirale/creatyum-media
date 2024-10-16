@@ -2,11 +2,11 @@ import React from "react";
 import SponsoredPageContent from "./SponsoredPageContent";
 
 export const metadata = {
-  title: "Contenido patrocinado — Creatyum Media",
+  title: "Contenido patrocinado | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Contenido patrocinado — Creatyum Media",
+    title: "Contenido patrocinado | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/patrocinado",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contenido patrocinado — Creatyum Media",
+    title: "Contenido patrocinado | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

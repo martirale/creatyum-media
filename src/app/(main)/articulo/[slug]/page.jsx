@@ -28,17 +28,17 @@ export async function generateMetadata({ params }) {
 
   if (!article) {
     return {
-      title: "Artículo no encontrado — Creatyum Media",
+      title: "Artículo no encontrado | Creatyum Media",
       description: "El artículo que buscas no existe.",
     };
   }
 
   return {
-    title: `${article.title} — Creatyum Media`,
+    title: `${article.title} | Creatyum Media`,
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     openGraph: {
-      title: `${article.title} — Creatyum Media`,
+      title: `${article.title} | Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
       url: `https://creatyum.media/articulo/${article.slug}`,
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.title} — Creatyum Media`,
+      title: `${article.title} | Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
       images: [`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`],

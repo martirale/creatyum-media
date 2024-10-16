@@ -4,11 +4,11 @@ import TimeLine from "./TimeLine";
 import CountdownDiez from "./CountdownDiez";
 
 export const metadata = {
-  title: "Décimo aniversario — Creatyum Media",
+  title: "Décimo aniversario | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Décimo aniversario — Creatyum Media",
+    title: "Décimo aniversario | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/diez",
@@ -24,7 +24,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Décimo aniversario — Creatyum Media",
+    title: "Décimo aniversario | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

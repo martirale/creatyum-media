@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata = {
-  title: "Café Creativo Podcast — Creatyum Media",
+  title: "Café Creativo Podcast | Creatyum Media",
   description:
     "Café Creativo es el podcast de Creatyum donde conversamos sobre temas relacionados a la industria creativa.",
   openGraph: {
-    title: "Café Creativo Podcast — Creatyum Media",
+    title: "Café Creativo Podcast | Creatyum Media",
     description:
       "Café Creativo es el podcast de Creatyum donde conversamos sobre temas relacionados a la industria creativa.",
     url: "https://creatyum.media/podcast",
@@ -26,7 +26,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Café Creativo Podcast — Creatyum Media",
+    title: "Café Creativo Podcast | Creatyum Media",
     description:
       "Café Creativo es el podcast de Creatyum donde conversamos sobre temas relacionados a la industria creativa.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

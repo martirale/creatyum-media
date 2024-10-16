@@ -179,16 +179,16 @@ export async function generateMetadata({ params }) {
     const { category } = await getCategoryWithArticles(slug, 1, 1);
     if (!category) {
       return {
-        title: "Categoría no encontrada — Creatyum Media",
+        title: "Categoría no encontrada | Creatyum Media",
         description: "La categoría que buscas no existe.",
       };
     }
     return {
-      title: `${category.title} — Creatyum Media`,
+      title: `${category.title} | Creatyum Media`,
       description:
         "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
       openGraph: {
-        title: `${category.title} — Creatyum Media`,
+        title: `${category.title} | Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
         url: `https://creatyum.media/categoria/${category.slug}`,
@@ -204,7 +204,7 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: "summary_large_image",
-        title: `${category.title} — Creatyum Media`,
+        title: `${category.title} | Creatyum Media`,
         description:
           "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
         images: ["https://creatyum.media/creatyum-default-cover.webp"],
@@ -214,7 +214,7 @@ export async function generateMetadata({ params }) {
   } catch (error) {
     console.error("Error generating metadata:", error);
     return {
-      title: "Error — Creatyum Media",
+      title: "Error | Creatyum Media",
       description: "Ha ocurrido un error al cargar la categoría.",
     };
   }

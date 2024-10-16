@@ -2,11 +2,11 @@ import React from "react";
 import AboutPageContent from "./AboutPageContent";
 
 export const metadata = {
-  title: "Sobre Creatyum — Creatyum Media",
+  title: "Sobre Creatyum | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Sobre Creatyum — Creatyum Media",
+    title: "Sobre Creatyum | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/about",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sobre Creatyum — Creatyum Media",
+    title: "Sobre Creatyum | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],

@@ -2,11 +2,11 @@ import React from "react";
 import PrivacyPageContent from "./PrivacyPageContent";
 
 export const metadata = {
-  title: "Política de privacidad — Creatyum Media",
+  title: "Política de privacidad | Creatyum Media",
   description:
     "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
   openGraph: {
-    title: "Política de privacidad — Creatyum Media",
+    title: "Política de privacidad | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     url: "https://creatyum.media/privacidad",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Política de privacidad — Creatyum Media",
+    title: "Política de privacidad | Creatyum Media",
     description:
       "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
     images: ["https://creatyum.media/creatyum-default-cover.webp"],
