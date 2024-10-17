@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { handleForm } from "../../../utils/ContactAction";
-import DOMPurify from "dompurify";
+import { handleSubscription } from "../../../utils/NewsletterAction";
 
-export default function ContactForm() {
+export default function NewsletterForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false);
 
@@ -16,14 +15,10 @@ export default function ContactForm() {
 
     const name = formData.get("name");
     const email = formData.get("email");
-    const company = formData.get("company");
-    const content = formData.get("content");
-    const sanitizedContent = DOMPurify.sanitize(content);
+
     const data = {
       name,
       email,
-      company,
-      content: sanitizedContent,
     };
 
     if (!acceptPrivacyPolicy) {
@@ -34,14 +29,19 @@ export default function ContactForm() {
       return;
     }
 
-    const result = await handleForm(data);
+    const result = await handleSubscription(data);
 
     if (result) {
-      setSuccessMessage("¡Correo enviado!");
+      setSuccessMessage("¡Suscripción exitosa!");
 
       event.target.reset();
       setAcceptPrivacyPolicy(false);
 
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    } else {
+      setSuccessMessage("Hubo un error al suscribirte.");
       setTimeout(() => {
         setSuccessMessage("");
       }, 3000);
@@ -58,7 +58,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4">
         <input
           type="text"
-          placeholder="Nombre y apellido"
+          placeholder="Nombre"
           name="name"
           maxLength="50"
           required
@@ -71,20 +71,6 @@ export default function ContactForm() {
           maxLength="100"
           required
           className="px-5 py-3 rounded-full block bg-yellow text-black border border-black dark:bg-black dark:text-yellow dark:border-yellow"
-        />
-        <input
-          type="text"
-          placeholder="Empresa (opcional)"
-          name="company"
-          maxLength="50"
-          className="px-5 py-3 rounded-full block bg-yellow text-black border border-black dark:bg-black dark:text-yellow dark:border-yellow"
-        />
-        <textarea
-          placeholder="¿En qué podemos ayudarte?"
-          name="content"
-          maxLength="500"
-          required
-          className="px-5 py-3 rounded-3xl h-32 block bg-yellow text-black border border-black dark:bg-black dark:text-yellow dark:border-yellow"
         />
 
         <div className="flex items-center mb-4">
@@ -112,7 +98,7 @@ export default function ContactForm() {
         </div>
 
         <button className="px-5 py-3 rounded-full font-BricolageGrotesque font-bold text-2xl uppercase bg-black text-yellow border border-black hover:bg-yellow hover:text-black dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-black dark:hover:text-yellow">
-          Enviar
+          Suscribirme
         </button>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from "./ContactForm";
+import NewsletterForm from "./NewsletterForm";
 
 export const metadata = {
   title: "Newsletter | Creatyum Media",
@@ -44,7 +44,7 @@ export default function ContactPage() {
         </div>
 
         <div className="w-full md:w-1/2">
-          <ContactForm />
+          <NewsletterForm />
         </div>
       </div>
     </div>
