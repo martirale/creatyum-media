@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "dompurify": "^3.1.7",
     "js-cookie": "^3.0.5",
     "mysql2": "^3.11.0",
     "next": "^14.2.13",
