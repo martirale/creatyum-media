@@ -36,7 +36,7 @@ export const getArticles = async (page = 1, pageSize = 12) => {
 // SINGLE ARTICLE
 export const getArticleBySlug = async (slug) => {
   const data = await fetchAPI(
-    `/api/articles?filters[slug]=${slug}&fields[0]=title&fields[1]=date&fields[2]=featured&fields[3]=sponsored&fields[4]=content&populate[cover]=*&populate[categories]=*&populate[redactions]=*`,
+    `/api/articles?filters[slug]=${slug}&fields[0]=title&fields[1]=date&fields[2]=featured&fields[3]=sponsored&fields[4]=content&fields[5]=slug&populate[cover]=*&populate[categories]=*&populate[redactions]=*`,
     {
       cache: "no-store",
     }
