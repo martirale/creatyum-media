@@ -5,7 +5,7 @@ import Link from "next/link";
 import { handleSubscription } from "../../../utils/NewsletterAction";
 
 export default function NewsletterForm() {
-  const [successMessage, setSuccessMessage] = useState("");
+  const [message, setMessage] = useState({ text: "", type: "" });
   const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -22,9 +22,12 @@ export default function NewsletterForm() {
     };
 
     if (!acceptPrivacyPolicy) {
-      setSuccessMessage("Debes aceptar la política de privacidad.");
+      setMessage({
+        text: "Debes aceptar la política de privacidad.",
+        type: "error",
+      });
       setTimeout(() => {
-        setSuccessMessage("");
+        setMessage({ text: "", type: "" });
       }, 3000);
       return;
     }
@@ -32,27 +35,25 @@ export default function NewsletterForm() {
     const result = await handleSubscription(data);
 
     if (result) {
-      setSuccessMessage("¡Suscripción exitosa!");
-
+      setMessage({ text: "¡Suscripción exitosa!", type: "success" });
       event.target.reset();
       setAcceptPrivacyPolicy(false);
-
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 3000);
     } else {
-      setSuccessMessage("Hubo un error al suscribirte.");
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 3000);
+      setMessage({ text: "Hubo un error al suscribirte.", type: "error" });
     }
+
+    setTimeout(() => {
+      setMessage({ text: "", type: "" });
+    }, 3000);
   };
 
   return (
     <div className="flex flex-col items-center">
-      {successMessage && (
-        <div className="mb-4 p-3 w-full rounded-full font-bold text-center text-[#2F855A] bg-[#B2F5EA]">
-          {successMessage}
+      {message.text && (
+        <div
+          className={`mb-4 p-3 w-full rounded-full font-bold text-center ${message.type === "success" ? "text-[#2F855A] bg-[#B2F5EA]" : "text-[#F56565] bg-[#FED7D7]"}`}
+        >
+          {message.text}
         </div>
       )}
       <form onSubmit={handleSubmit} className="flex flex-col w-full gap-4">
