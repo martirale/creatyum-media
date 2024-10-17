@@ -24,6 +24,6 @@ jobs:
             cd ${{ secrets.PROJECT_PATH }}
             git pull origin main
             pnpm install
-            pnpm run build
+            pnpm build
             pm2 restart creatyum-frontend
           EOF
