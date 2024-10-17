@@ -64,3 +64,21 @@ h1 {
   background-repeat: no-repeat;
   margin-top: -8px;
 }
+
+/* FORMS */
+::placeholder {
+  @apply text-black;
+}
+
+textarea::placeholder,
+input::placeholder {
+  @apply text-black;
+}
+
+.dark ::placeholder {
+  @apply text-yellow;
+}
+.dark textarea::placeholder,
+.dark input::placeholder {
+  @apply text-yellow;
+}
