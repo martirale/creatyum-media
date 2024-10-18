@@ -6,7 +6,7 @@ export const handleSubscription = async (data) => {
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.NEXT_PUBLIC_BREVO_API_KEY,
+      "api-key": process.env.NEXT_PUBLIC_BREVO_API_KEY_NEWS,
     },
     body: JSON.stringify({
       email: email,
