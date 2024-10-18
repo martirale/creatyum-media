@@ -10,12 +10,12 @@ apiInstance.setApiKey(
 export async function sendEmail({ to, htmlContent, sender }) {
   try {
     const smtpEmail = new brevo.SendSmtpEmail();
-    smtpEmail.subject = "Nuevo mensaje de Creatyum Studio";
+    smtpEmail.subject = "Nuevo mensaje de Creatyum Media";
     smtpEmail.to = to;
     smtpEmail.htmlContent = `<html><body>${htmlContent}</body></html>`;
     smtpEmail.sender = {
-      name: "Creatyum Studio",
-      email: "studio@creatyum.com",
+      name: "Creatyum Media",
+      email: "hola@creatyum.com",
     };
 
     if (sender) {
