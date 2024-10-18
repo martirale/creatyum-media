@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import Header from "../../components/ui/header/Header";
+import Footer from "../../components/ui/footer/Footer";
 
 export const metadata = {
   title: "Creatyum Media | Divulgación sobre diseño y creatividad",

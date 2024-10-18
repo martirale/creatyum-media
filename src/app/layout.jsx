@@ -1,8 +1,8 @@
 import React from "react";
 import "./globals.css";
-import { Roboto, BricolageGrotesque } from "../components/CustomFonts";
-import ScrollToTop from "../components/ScrollToTop";
-import BackToTop from "../components/BackToTop";
+import { Roboto, BricolageGrotesque } from "../components/ui/CustomFonts";
+import ScrollToTop from "../components/ui/ScrollToTop";
+import BackToTop from "../components/ui/BackToTop";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import CookieConsentManager from "../components/CookieConsentManager";
 import { ThemeProvider } from "../context/ThemeContext";

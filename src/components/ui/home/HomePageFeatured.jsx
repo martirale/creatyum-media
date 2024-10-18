@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,19 +9,19 @@ import {
   faFire,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import { getArticles } from "../../lib/api";
+import { getArticles } from "../../../lib/api";
 
-function FeaturedArticleList({ article, isMain }) {
+function FeaturedArticleCard({ article, isMain }) {
   if (isMain) {
     return (
       <div
-        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-2xl border border-yellow text-yellow hover:text-black aspect-w-1 aspect-h-1 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-yellow dark:border-black md:rounded-3xl"
+        className="col-span-12 row-span-12 relative bg-cover bg-center rounded-2xl border border-black text-yellow aspect-w-4 aspect-h-5 md:col-span-2 md:row-span-2 md:aspect-w-5 md:aspect-h-4 dark:hover:text-black dark:border-yellow md:rounded-3xl"
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url})`,
         }}
       >
         <Link href={`/articulo/${article.slug}`}>
-          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl flex items-center justify-between p-4 text-center hover:bg-yellow hover:bg-opacity-100 md:p-24 dark:hover:bg-black duration-300 md:rounded-3xl">
+          <div className="absolute inset-0 bg-black bg-opacity-10 rounded-2xl flex items-center justify-between p-4 text-center hover:bg-opacity-100 md:p-24 dark:hover:bg-yellow transition duration-300 md:rounded-3xl">
             <div>
               <p>
                 <FontAwesomeIcon
@@ -33,7 +32,6 @@ function FeaturedArticleList({ article, isMain }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
-                  timeZone: "America/El_Salvador",
                 }).format(new Date(article.date))}
 
                 <FontAwesomeIcon icon={faTag} className="ml-4 mr-1 w-4 h-4" />
@@ -60,7 +58,7 @@ function FeaturedArticleList({ article, isMain }) {
                 alt={article.title}
                 width={480}
                 height={270}
-                className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
+                className="w-16 h-16 object-cover rounded-full border border-black md:w-20 md:h-20 dark:border-yellow"
               />
             )}
             <div className="flex flex-col justify-center">
@@ -76,6 +74,7 @@ function FeaturedArticleList({ article, isMain }) {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
+                  timeZone: "America/El_Salvador",
                 }).format(new Date(article.date))}
               </p>
             </div>
@@ -133,12 +132,12 @@ export default function FeaturedArticles() {
   };
 
   return (
-    <div className="text-yellow dark:text-black">
-      <div className="mb-5 md:mb-7">
-        <h2 className="font-extrabold text-lg uppercase md:text-2xl">
+    <div className="mb-8 md:mb-16">
+      <div className="mb-5 md:mb-8">
+        <h2 className="font-extrabold text-5xl text-center md:text-9xl md:text-left">
           <FontAwesomeIcon
             icon={faFire}
-            className="w-3.5 h-3.5 align-baseline md:w-4 md:h-4"
+            className="w-8 h-8 align-baseline md:w-24 md:h-24"
           />{" "}
           Destacados
         </h2>
@@ -154,14 +153,14 @@ export default function FeaturedArticles() {
             {featuredArticles.length > 0 && (
               <>
                 {/* Artículo más reciente */}
-                <FeaturedArticleList
+                <FeaturedArticleCard
                   article={featuredArticles[0]}
                   isMain={true}
                 />
                 <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
                   {/* Siguientes 4 artículos destacados */}
                   {featuredArticles.slice(1, 7).map((article) => (
-                    <FeaturedArticleList
+                    <FeaturedArticleCard
                       key={article.id}
                       article={article}
                       isMain={false}

@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
-import LogoCreatyum from "../LogoCreatyum";
+import React, { useState, useEffect } from "react";
+import LogoCreatyum from "../logos/LogoCreatyum";
 import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {

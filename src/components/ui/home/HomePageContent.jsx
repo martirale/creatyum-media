@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +10,7 @@ import {
   faCalendarDays,
   faTag,
 } from "@fortawesome/free-solid-svg-icons";
-import { getArticles } from "../../lib/api";
+import { getArticles } from "../../../lib/api";
 
 function ArticleCard({ article }) {
   return (

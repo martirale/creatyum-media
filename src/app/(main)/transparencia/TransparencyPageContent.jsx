@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import FormatContent from "../../../components/FormatContent";
+import FormatContent from "../../../components/ui/FormatContent";
 import { getTransparencyContent } from "../../../lib/api";
 
 const TransparencyPageContent = () => {
