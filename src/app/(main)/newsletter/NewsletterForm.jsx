@@ -12,23 +12,17 @@ export default function NewsletterForm() {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-
     const name = formData.get("name");
     const email = formData.get("email");
 
-    const data = {
-      name,
-      email,
-    };
+    const data = { name, email };
 
     if (!acceptPrivacyPolicy) {
       setMessage({
         text: "Debes aceptar la política de privacidad.",
         type: "error",
       });
-      setTimeout(() => {
-        setMessage({ text: "", type: "" });
-      }, 3000);
+      setTimeout(() => setMessage({ text: "", type: "" }), 3000);
       return;
     }
 
@@ -42,16 +36,18 @@ export default function NewsletterForm() {
       setMessage({ text: "Hubo un error al suscribirte.", type: "error" });
     }
 
-    setTimeout(() => {
-      setMessage({ text: "", type: "" });
-    }, 3000);
+    setTimeout(() => setMessage({ text: "", type: "" }), 3000);
   };
 
   return (
     <div className="flex flex-col items-center">
       {message.text && (
         <div
-          className={`mb-4 p-3 w-full rounded-full font-bold text-center ${message.type === "success" ? "text-[#2F855A] bg-[#B2F5EA]" : "text-[#F56565] bg-[#FED7D7]"}`}
+          className={`mb-4 p-3 w-full rounded-full font-bold text-center ${
+            message.type === "success"
+              ? "text-[#2F855A] bg-[#B2F5EA]"
+              : "text-[#F56565] bg-[#FED7D7]"
+          }`}
         >
           {message.text}
         </div>

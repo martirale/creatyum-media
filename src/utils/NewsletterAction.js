@@ -1,25 +1,33 @@
 export const handleSubscription = async (data) => {
   const { name, email } = data;
 
-  try {
-    const response = await fetch("https://api.brevo.com/v3/contacts", {
-      method: "POST",
-      headers: {
-        "api-key": process.env.BREVO_API_KEY,
-        "Content-Type": "application/json",
+  const options = {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      "api-key": process.env.NEXT_PUBLIC_BREVO_API_KEY,
+    },
+    body: JSON.stringify({
+      email: email,
+      attributes: {
+        FIRSTNAME: name,
       },
-      body: JSON.stringify({
-        email: email,
-        attributes: { FIRSTNAME: name },
-        listIds: [3],
-        updateEnabled: false,
-      }),
-    });
+      listIds: [3],
+      updateEnabled: false,
+    }),
+  };
+
+  try {
+    const response = await fetch("https://api.brevo.com/v3/contacts", options);
 
     if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log("Suscripción exitosa:", jsonResponse);
       return true;
     } else {
-      console.error("Error al suscribir:", response.statusText);
+      const errorResponse = await response.json();
+      console.error("Error al suscribir:", errorResponse);
       return false;
     }
   } catch (error) {
