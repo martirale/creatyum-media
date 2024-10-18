@@ -1,14 +1,14 @@
 import React from "react";
 import SidebarLatestArticles from "./SidebarLatestArticles";
-import SidebarInstagram from "./SidebarInstagram";
 import SidebarComic from "./SidebarComic";
+import SidebarNewsletter from "./SidebarNewsletter";
 
 export default function SidebarMain() {
   return (
     <div>
-      <SidebarLatestArticles />
+      <SidebarNewsletter />
 
-      <SidebarInstagram />
+      <SidebarLatestArticles />
 
       <SidebarComic />
     </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import HomePageContent from "../../components/home/HomePageContent";
 import HomePageFeatured from "../../components/home/HomePageFeatured";
-import BannerInstagram from "../../components/home/BannerInstagram";
 import BannerComic from "../../components/home/BannerComic";
+import BannerNewsletter from "../../components/BannerNewsletter";
 
 export default function MainHomePage() {
   return (
@@ -11,7 +11,7 @@ export default function MainHomePage() {
 
       <HomePageFeatured />
 
-      <BannerInstagram />
+      <BannerNewsletter />
 
       <HomePageContent />
 
