@@ -9,6 +9,9 @@
       "@ui/*": [
         "src/components/ui/*"
       ],
+      "@logos/*": [
+        "src/components/ui/logos/*"
+      ],
       "@context/*": [
         "src/context/*"
       ],
