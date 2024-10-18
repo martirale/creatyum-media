@@ -11,7 +11,7 @@ export const handleSubscription = async (data) => {
     body: JSON.stringify({
       email: email,
       attributes: {
-        FIRSTNAME: name,
+        NOMBRE: name,
       },
       listIds: [3],
       updateEnabled: false,
