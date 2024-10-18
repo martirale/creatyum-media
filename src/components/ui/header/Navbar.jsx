@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import LogoCreatyum from "../logos/LogoCreatyum";
+import LogoCreatyum from "@logos/LogoCreatyum";
 import ThemeToggle from "./ThemeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarsStaggered, faXmark } from "@fortawesome/free-solid-svg-icons";

@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { getTestimonials } from "../../../lib/api";
+import { getTestimonials } from "@lib/api";
 import TestimonialCard from "./TestimonialCard";
 import styles from "./TestimonialSlider.module.css";
 import "swiper/css";

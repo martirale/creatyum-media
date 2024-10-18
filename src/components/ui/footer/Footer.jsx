@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import IconCreatyum from "../logos/IconCreatyum";
+import IconCreatyum from "@logos/IconCreatyum";
 import { usePathname } from "next/navigation";
 import FooterFeaturedArticles from "./FooterFeaturedArticles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

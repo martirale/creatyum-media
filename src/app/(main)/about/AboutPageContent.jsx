@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import FormatContent from "../../../components/ui/FormatContent";
+import FormatContent from "@ui/FormatContent";
 import AuthorList from "./AuthorList";
 import {
   getAboutContent,
   getDescriptionContent,
   getMissionContent,
-} from "../../../lib/api";
+} from "@lib/api";
 
 const AboutPageContent = () => {
   const [description, setDescription] = useState([]);

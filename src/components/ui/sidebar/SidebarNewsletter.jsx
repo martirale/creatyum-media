@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { handleSubscription } from "../../../utils/NewsletterAction";
+import { handleSubscription } from "@utils/NewsletterAction";
 
 export default function SidebarNewsletter() {
   const [message, setMessage] = useState({ text: "", type: "" });

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import { getLatestArticles } from "../../../lib/api";
+import { getLatestArticles } from "@lib/api";
 
 const SidebarLatestArticles = () => {
   const [articles, setArticles] = useState([]);

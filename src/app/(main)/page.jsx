@@ -1,8 +1,8 @@
 import React from "react";
-import HomePageContent from "../../components/ui/home/HomePageContent";
-import HomePageFeatured from "../../components/ui/home/HomePageFeatured";
-import BannerComic from "../../components/ui/banner/BannerComic";
-import BannerNewsletter from "../../components/ui/banner/BannerNewsletter";
+import HomePageContent from "@ui/home/HomePageContent";
+import HomePageFeatured from "@ui/home/HomePageFeatured";
+import BannerComic from "@ui/banner/BannerComic";
+import BannerNewsletter from "@ui/banner/BannerNewsletter";
 
 export default function MainHomePage() {
   return (

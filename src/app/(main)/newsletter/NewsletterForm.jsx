@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { handleSubscription } from "../../../utils/NewsletterAction";
+import { handleSubscription } from "@utils/NewsletterAction";
 
 export default function NewsletterForm() {
   const [message, setMessage] = useState({ text: "", type: "" });

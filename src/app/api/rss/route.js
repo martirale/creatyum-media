@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import RSS from "rss";
-import { getArticles } from "../../../lib/api";
+import { getArticles } from "@lib/api";
 
 export async function GET() {
   try {

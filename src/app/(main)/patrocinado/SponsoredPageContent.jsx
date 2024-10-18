@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import FormatContent from "../../../components/ui/FormatContent";
-import { getSponsoredContent } from "../../../lib/api";
+import FormatContent from "@ui/FormatContent";
+import { getSponsoredContent } from "@lib/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRectangleAd } from "@fortawesome/free-solid-svg-icons";
 

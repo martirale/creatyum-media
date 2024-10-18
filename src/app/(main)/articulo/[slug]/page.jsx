@@ -2,11 +2,11 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getArticleBySlug, getAuthorById } from "../../../../lib/api";
-import FormatContent from "../../../../components/ui/FormatContent";
-import SidebarMain from "../../../../components/ui/sidebar/SidebarMain";
-import ArticleReactions from "../../../../components/ui/articles/ArticleReactions";
-import AuthorPost from "../../../../components/ui/articles/AuthorPost";
+import { getArticleBySlug, getAuthorById } from "@lib/api";
+import FormatContent from "@ui/FormatContent";
+import SidebarMain from "@ui/sidebar/SidebarMain";
+import ArticleReactions from "@ui/articles/ArticleReactions";
+import AuthorPost from "@ui/articles/AuthorPost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,

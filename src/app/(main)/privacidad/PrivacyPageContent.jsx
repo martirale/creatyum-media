@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import FormatContent from "../../../components/ui/FormatContent";
-import { getPrivacyPolicy } from "../../../lib/api";
+import FormatContent from "@ui/FormatContent";
+import { getPrivacyPolicy } from "@lib/api";
 
 const PrivacyPageContent = () => {
   const [content, setContent] = useState([]);
