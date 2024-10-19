@@ -94,7 +94,8 @@ export default function SidebarNewsletter() {
                     </div>
                   </div>
 
-                  <div className="w-full mt-4 mb-0">
+                  {/* TERMS */}
+                  <div className="w-full mt-4 mb-0 lg:px-8">
                     <input
                       type="checkbox"
                       id="privacyPolicy"

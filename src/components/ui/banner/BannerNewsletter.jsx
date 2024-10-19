@@ -95,7 +95,8 @@ export default function BannerNewsletter() {
                   </div>
                 </div>
 
-                <div className="w-full mt-4 mb-0 md:mt-2">
+                {/* TERMS */}
+                <div className="w-full mt-4 mb-0 px-4 md:mt-2 md:px-0">
                   <input
                     type="checkbox"
                     id="privacyPolicy"
