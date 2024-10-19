@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { handleSubscription } from "@utils/NewsletterAction";
 
 export default function SidebarNewsletter() {
@@ -46,13 +44,14 @@ export default function SidebarNewsletter() {
       <div className="rounded-2xl mb-8 text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow md:rounded-3xl">
         <div className="p-4">
           <div className="container mx-auto">
-            <div className="flex flex-col items-center justify-between">
-              <h2 className="text-center text-5xl font-BricolageGrotesque font-extrabold">
-                Newsletter{" "}
-                <FontAwesomeIcon icon={faEnvelope} className="w-11 h-11" />
-              </h2>
+            <div class="grid grid-cols-1 gap-4">
+              {/* COL TITLE */}
+              <div className="col-span-1">
+                <h2 className="font-extrabold text-lg uppercase">Newsletter</h2>
+              </div>
 
-              <div className="text-center mt-8">
+              {/* COL FORM */}
+              <div className="col-span-1 text-center py-2">
                 {message.text && (
                   <div
                     className={`mb-4 p-3 w-full rounded-full font-bold text-center ${
@@ -64,55 +63,70 @@ export default function SidebarNewsletter() {
                     {message.text}
                   </div>
                 )}
-                <form onSubmit={handleSubmit} className="flex w-full gap-4">
-                  <div className="flex flex-col w-full items-center">
-                    <div className="flex flex-col w-full gap-4">
+
+                {/* NEWSLETTER FORM */}
+                <form onSubmit={handleSubmit} className="flex flex-col">
+                  <div className="flex flex-col gap-4">
+                    <div className="w-full">
                       <input
                         type="text"
                         placeholder="Nombre"
                         name="name"
                         maxLength="50"
                         required
-                        className="px-5 py-3 rounded-full block bg-black text-yellow placeholder:text-yellow border border-yellow dark:bg-yellow dark:text-black dark:placeholder:text-black dark:border-black"
+                        className="px-5 py-3 w-full rounded-full block bg-black text-yellow placeholder:text-yellow border border-yellow dark:bg-yellow dark:text-black dark:placeholder:text-black dark:border-black"
                       />
+                    </div>
+                    <div className="w-full">
                       <input
                         type="email"
                         placeholder="Correo electrónico"
                         name="email"
                         maxLength="100"
                         required
-                        className="px-5 py-3 rounded-full block bg-black text-yellow placeholder:text-yellow border border-yellow dark:bg-yellow dark:text-black dark:placeholder:text-black dark:border-black"
+                        className="px-5 py-3 w-full rounded-full block bg-black text-yellow placeholder:text-yellow border border-yellow dark:bg-yellow dark:text-black dark:placeholder:text-black dark:border-black"
                       />
-                      <button className="px-5 py-3 rounded-full font-bold uppercase bg-yellow text-black border border-yellow hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-black dark:hover:bg-yellow dark:hover:text-black">
+                    </div>
+                    <div className="w-full">
+                      <button className="px-5 py-3 w-full rounded-full font-bold uppercase bg-yellow text-black border border-yellow hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-black dark:hover:bg-yellow dark:hover:text-black">
                         Suscribirme
                       </button>
                     </div>
+                  </div>
 
-                    <div className="flex items-center mt-4 mb-0">
-                      <input
-                        type="checkbox"
-                        id="privacyPolicy"
-                        name="privacyPolicy"
-                        checked={acceptPrivacyPolicy}
-                        onChange={() =>
-                          setAcceptPrivacyPolicy(!acceptPrivacyPolicy)
-                        }
-                        className="mr-2"
-                        required
-                      />
-                      <label htmlFor="privacyPolicy" className="text-sm">
-                        Acepto la{" "}
-                        <Link
-                          href="/privacidad"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline"
-                        >
-                          política de privacidad
-                        </Link>
-                        .
-                      </label>
-                    </div>
+                  <div className="w-full mt-4 mb-0">
+                    <input
+                      type="checkbox"
+                      id="privacyPolicy"
+                      name="privacyPolicy"
+                      checked={acceptPrivacyPolicy}
+                      onChange={() =>
+                        setAcceptPrivacyPolicy(!acceptPrivacyPolicy)
+                      }
+                      className="mr-2"
+                      required
+                    />
+                    <label htmlFor="privacyPolicy" className="text-sm">
+                      Acepto la{" "}
+                      <Link
+                        href="/privacidad"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                      >
+                        política de privacidad
+                      </Link>{" "}
+                      así como nuestros{" "}
+                      <Link
+                        href="/privacidad"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                      >
+                        términos de uso
+                      </Link>
+                      .
+                    </label>
                   </div>
                 </form>
               </div>
