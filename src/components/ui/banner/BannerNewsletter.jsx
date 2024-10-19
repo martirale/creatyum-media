@@ -118,7 +118,7 @@ export default function BannerNewsletter() {
                     >
                       política de privacidad
                     </Link>{" "}
-                    así como nuestros{" "}
+                    así como los{" "}
                     <Link
                       href="/privacidad"
                       target="_blank"

@@ -117,7 +117,7 @@ export default function SidebarNewsletter() {
                       >
                         política de privacidad
                       </Link>{" "}
-                      así como nuestros{" "}
+                      así como los{" "}
                       <Link
                         href="/privacidad"
                         target="_blank"
