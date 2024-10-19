@@ -13,7 +13,7 @@ export const handleSubscription = async (data) => {
       attributes: {
         NOMBRE: name,
       },
-      listIds: [3],
+      listIds: [4],
       updateEnabled: false,
     }),
   };
