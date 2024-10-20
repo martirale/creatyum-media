@@ -43,7 +43,7 @@ export default function BannerNewsletter() {
     <div className="mb-8 md:mb-16">
       <div className="p-4 rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-12 md:rounded-3xl">
         <div className="container mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* COL TITLE */}
             <div className="md:col-span-4">
               <h2 className="font-extrabold text-lg uppercase md:text-center md:text-7xl md:normal-case">
