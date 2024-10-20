@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { getLatestArticles } from "@lib/api";
+import SidebarContainer from "@ui/sidebar/SidebarContainer";
 
 const SidebarLatestArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -28,8 +29,8 @@ const SidebarLatestArticles = () => {
   };
 
   return (
-    <div className="rounded-2xl mb-8 text-yellow bg-black border border-black dark:text-black dark:bg-yellow dark:border-yellow md:rounded-3xl">
-      <div className="p-4 -mb-6">
+    <SidebarContainer>
+      <div className="-mb-6">
         <h2 className="font-extrabold text-lg mb-8 uppercase">
           Últimos Artículos
         </h2>
@@ -72,7 +73,7 @@ const SidebarLatestArticles = () => {
           </ul>
         )}
       </div>
-    </div>
+    </SidebarContainer>
   );
 };
 

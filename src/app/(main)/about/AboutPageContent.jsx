@@ -8,6 +8,7 @@ import {
   getDescriptionContent,
   getMissionContent,
 } from "@lib/api";
+import SidebarContainer from "@ui/sidebar/SidebarContainer";
 
 const AboutPageContent = () => {
   const [description, setDescription] = useState([]);
@@ -59,15 +60,15 @@ const AboutPageContent = () => {
 
       {/* SIDEBAR */}
       <div className="col-span-12 mt-8 md:col-span-4 md:mt-0">
-        <div className="rounded-2xl border border-black bg-black text-yellow mb-4 p-4 dark:border-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
+        <SidebarContainer>
           <h3 className="font-extrabold text-4xl mb-4">Misión</h3>
           <p>{mission}</p>
-        </div>
+        </SidebarContainer>
 
-        <div className="rounded-2xl border border-black bg-black text-yellow p-4 dark:border-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
+        <SidebarContainer>
           <h3 className="font-extrabold text-4xl mb-4">Autores</h3>
           <AuthorList />
-        </div>
+        </SidebarContainer>
       </div>
     </div>
   );
