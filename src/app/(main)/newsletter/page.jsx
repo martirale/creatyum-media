@@ -1,5 +1,5 @@
 import React from "react";
-import BannerNewsletter from "@ui/banner/BannerNewsletter";
+import BannerNewsletter from "@components/banner/BannerNewsletter";
 
 export const metadata = {
   title: "Newsletter | Creatyum Media",
