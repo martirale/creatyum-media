@@ -8,7 +8,7 @@ const HeroNewsletter = () => {
       <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2">
-            <CafeCreativoIllustration className="fill-yellow w-full h-auto pt-8 px-8 dark:fill-black" />
+            <CafeCreativoIllustration className="fill-yellow w-full h-auto pt-8 px-10 2xl:pt-10 2xl:px-12 dark:fill-black" />
           </div>
 
           <div className="w-full md:w-1/2 p-4 md:p-8 flex flex-col items-center">
