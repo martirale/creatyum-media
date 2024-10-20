@@ -1,5 +1,6 @@
 import React from "react";
 import BannerNewsletter from "@components/banner/BannerNewsletter";
+import HeroNewsletter from "@components/hero/HeroNewsletter";
 
 export const metadata = {
   title: "Newsletter | Creatyum Media",
@@ -34,6 +35,8 @@ export default function NewsletterPage() {
   return (
     <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Newsletter</h1>
+
+      <HeroNewsletter />
 
       <BannerNewsletter />
     </div>
