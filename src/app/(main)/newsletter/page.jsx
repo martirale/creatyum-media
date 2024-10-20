@@ -1,5 +1,5 @@
 import React from "react";
-import NewsletterForm from "./NewsletterForm";
+import BannerNewsletter from "@ui/banner/BannerNewsletter";
 
 export const metadata = {
   title: "Newsletter | Creatyum Media",
@@ -35,18 +35,7 @@ export default function NewsletterPage() {
     <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Newsletter</h1>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12">
-        <div className="w-full md:w-1/2">
-          <h2 className="text-6xl md:text-7xl font-extrabold mb-8">
-            Newsletter
-          </h2>
-          <p className="mb-16 md:mb-0">Lorem ipsum dolor sit amet.</p>
-        </div>
-
-        <div className="w-full md:w-1/2">
-          <NewsletterForm />
-        </div>
-      </div>
+      <BannerNewsletter />
     </div>
   );
 }
