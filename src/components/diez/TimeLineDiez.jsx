@@ -20,7 +20,7 @@ const TimelineItem = ({ date, title, description, isEven }) => (
   </div>
 );
 
-const Timeline = ({ items }) => (
+const TimelineDiez = ({ items }) => (
   <section className="py-12 px-0 md:px-6 lg:px-8">
     <div className="max-w-3xl mx-auto text-center">
       <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
@@ -109,6 +109,6 @@ const timelineItems = [
   },
 ];
 
-const TimelinePage = () => <Timeline items={timelineItems} />;
+const TimelineDiezPage = () => <TimelineDiez items={timelineItems} />;
 
-export default TimelinePage;
+export default TimelineDiezPage;

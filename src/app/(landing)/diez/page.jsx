@@ -1,7 +1,7 @@
 import React from "react";
-import HeroDiez from "./HeroDiez";
-import TimeLine from "./TimeLine";
-import CountdownDiez from "./CountdownDiez";
+import HeroDiez from "@components/hero/HeroDiez";
+import TimeLineDiez from "@components/diez/TimeLineDiez";
+import CountdownDiez from "@components/diez/CountdownDiez";
 
 export const metadata = {
   title: "Décimo aniversario | Creatyum Media",
@@ -41,7 +41,7 @@ export default function AniversaryLanding() {
 
       <CountdownDiez />
 
-      <TimeLine />
+      <TimeLineDiez />
 
       <div className="text-center mb-8">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-2">

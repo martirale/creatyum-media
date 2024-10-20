@@ -1,6 +1,6 @@
 import React from "react";
-import HomePageContent from "@ui/home/HomePageContent";
-import HomePageFeatured from "@ui/home/HomePageFeatured";
+import HomePageContent from "@components/home/HomePageContent";
+import HomePageFeatured from "@components/home/HomePageFeatured";
 import BannerComic from "@components/banner/BannerComic";
 import BannerNewsletter from "@components/banner/BannerNewsletter";
 

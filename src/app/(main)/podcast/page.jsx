@@ -1,6 +1,6 @@
 import React from "react";
-import PodcastPlayer from "./PodcastPlayer";
-import PodcastButtons from "./PodcastButtons";
+import PodcastPlayer from "@components/podcast/PodcastPlayer";
+import PodcastButtons from "@components/podcast/PodcastButtons";
 import TestimonialSlider from "@ui/testimonial/TestimonialSlider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMugHot } from "@fortawesome/free-solid-svg-icons";

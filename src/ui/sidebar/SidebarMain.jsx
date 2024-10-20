@@ -1,7 +1,7 @@
 import React from "react";
-import SidebarLatestArticles from "./SidebarLatestArticles";
-import SidebarComic from "./SidebarComic";
-import SidebarNewsletter from "./SidebarNewsletter";
+import SidebarLatestArticles from "@components/sidebar/SidebarLatestArticles";
+import SidebarComic from "@components/sidebar/SidebarComic";
+import SidebarNewsletter from "@components/sidebar/SidebarNewsletter";
 
 export default function SidebarMain() {
   return (
