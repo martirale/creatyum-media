@@ -7,10 +7,10 @@
         "src/components/*"
       ],
       "@ui/*": [
-        "src/components/ui/*"
+        "src/ui/*"
       ],
       "@logos/*": [
-        "src/components/ui/logos/*"
+        "src/logos/*"
       ],
       "@context/*": [
         "src/context/*"
