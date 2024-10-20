@@ -1,6 +1,6 @@
 import React from "react";
 import LogoCreatyum from "@logos/LogoCreatyum";
-import CafeCreativoIllustration from "@components/CafeCreativoIllustration";
+import CafeCreativoIllustration from "@components/illustrations/CafeCreativoIllustration";
 
 const HeroDiez = () => {
   return (
