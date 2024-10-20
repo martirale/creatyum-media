@@ -119,7 +119,7 @@ export default function SidebarNewsletter() {
                       </Link>{" "}
                       así como los{" "}
                       <Link
-                        href="/privacidad"
+                        href="/terminos"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline"
