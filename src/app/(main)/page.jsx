@@ -9,11 +9,11 @@ export default function MainHomePage() {
     <div className="container mx-auto px-4 py-2 md:px-0">
       <h1>Creatyum Media</h1>
 
-      <HomePageFeatured />
+      <HomePageFeatured className="mb-8" />
 
-      <BannerNewsletter />
+      <BannerNewsletter className="mb-8 md:mb-16" />
 
-      <HomePageContent />
+      <HomePageContent className="mb-8 md:mb-16" />
 
       <BannerComic />
     </div>

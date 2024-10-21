@@ -1,6 +1,7 @@
 import React from "react";
 import BannerNewsletter from "@components/banner/BannerNewsletter";
 import HeroNewsletter from "@components/hero/HeroNewsletter";
+import ValuesBadges from "@components/newsletter/ValuesBadges";
 
 export const metadata = {
   title: "Newsletter | Creatyum Media",
@@ -36,9 +37,11 @@ export default function NewsletterPage() {
     <div className="container mx-auto px-4 md:px-0">
       <h1>Newsletter</h1>
 
-      <HeroNewsletter />
+      <HeroNewsletter className="mb-8" />
 
-      <BannerNewsletter />
+      <BannerNewsletter className="mb-8" />
+
+      <ValuesBadges />
     </div>
   );
 }

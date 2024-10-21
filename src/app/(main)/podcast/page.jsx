@@ -52,7 +52,7 @@ export default function PodcastPage() {
         <TestimonialSlider />
       </div>
 
-      <PodcastButtons />
+      <PodcastButtons className="mt-16" />
     </div>
   );
 }

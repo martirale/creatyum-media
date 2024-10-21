@@ -85,7 +85,7 @@ function FeaturedArticleCard({ article, isMain }) {
   }
 }
 
-export default function FeaturedArticles() {
+export default function FeaturedArticles({ className = "" }) {
   const [featuredArticles, setFeaturedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -132,8 +132,8 @@ export default function FeaturedArticles() {
   };
 
   return (
-    <div className="mb-8 md:mb-16">
-      <div className="mb-5 md:mb-8">
+    <section className={`${className}`}>
+      <div className="mb-4">
         <h2 className="font-extrabold text-5xl text-center md:text-9xl md:text-left">
           <FontAwesomeIcon
             icon={faFire}
@@ -172,6 +172,6 @@ export default function FeaturedArticles() {
           </>
         )}
       </div>
-    </div>
+    </section>
   );
 }

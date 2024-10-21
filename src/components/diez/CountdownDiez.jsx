@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function CountdownDiez() {
+export default function CountdownDiez({ className = "" }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -34,7 +34,7 @@ export default function CountdownDiez() {
   }, []);
 
   return (
-    <div className="w-full mb-8">
+    <section className={`w-full ${className}`}>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="text-center p-4 border border-black rounded-2xl dark:border-yellow">
           <span className="block font-BricolageGrotesque text-5xl">
@@ -61,6 +61,6 @@ export default function CountdownDiez() {
           <span className="block uppercase font-bold">Segundos</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

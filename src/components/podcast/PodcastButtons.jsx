@@ -39,9 +39,9 @@ const buttons = [
   },
 ];
 
-export default function PodcastButtons() {
+export default function PodcastButtons({ className = "" }) {
   return (
-    <div className="mt-16">
+    <div className={`${className}`}>
       <h3 className="text-center text-3xl font-extrabold mb-4">
         También disponible en:
       </h3>

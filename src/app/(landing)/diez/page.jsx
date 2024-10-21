@@ -37,13 +37,13 @@ export default function AniversaryLanding() {
     <div className="container mx-auto px-4 md:px-0">
       <h1>Décimo aniversario</h1>
 
-      <HeroDiez />
+      <HeroDiez className="mb-8" />
 
       <CountdownDiez />
 
       <TimeLineDiez />
 
-      <div className="text-center mb-8">
+      <div className="text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
           Pronto más contenido
         </h2>

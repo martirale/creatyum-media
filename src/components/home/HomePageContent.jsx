@@ -49,7 +49,7 @@ function ArticleCard({ article }) {
   );
 }
 
-export default function HomePageContent() {
+export default function HomePageContent({ className = "" }) {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -79,7 +79,7 @@ export default function HomePageContent() {
   };
 
   return (
-    <div>
+    <section className={`${className}`}>
       <div className="mb-5 md:mb-8">
         <h2 className="font-extrabold text-5xl text-center md:text-9xl md:text-left">
           Publicaciones recientes
@@ -151,6 +151,6 @@ export default function HomePageContent() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
