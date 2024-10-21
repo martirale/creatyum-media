@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
@@ -12,6 +14,7 @@ const HeroNewsletter = () => {
               alt="Newsletter illustration."
               width="1080"
               height="1050"
+              onContextMenu={(e) => e.preventDefault()}
               className="pt-8 px-8 border border-b-yellow md:border-b-0 dark:border-b-black"
             />
           </div>
