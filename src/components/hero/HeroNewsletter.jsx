@@ -8,7 +8,7 @@ const HeroNewsletter = () => {
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2">
             <Image
-              src="/NewsletterIllustration.svg"
+              src="/illustrations/KaraNewsletter.svg"
               alt="Newsletter illustration."
               width="1080"
               height="1050"
