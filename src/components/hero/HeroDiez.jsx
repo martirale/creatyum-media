@@ -14,7 +14,7 @@ const HeroDiez = ({ className = "" }) => {
 
         <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
           <div className="text-center md:px-2">
-            <h2 className="font-BricolageGrotesque font-extrabold text-4xl md:text-7xl">
+            <h2 className="font-BricolageGrotesque font-extrabold text-4xl md:text-7xl 2xl:text-8xl">
               ¡Diez años divulgando sobre diseño!
             </h2>
 
