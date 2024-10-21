@@ -33,7 +33,7 @@ const TwoColumnLayout = () => {
 
   return (
     <div className="mt-8 md:mt-16">
-      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl">
+      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl inverse-select">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2 p-4 flex flex-col items-center">
             <LogoLayered className="fill-yellow w-64 h-[122px] md:w-[512px] md:h-auto dark:fill-black" />

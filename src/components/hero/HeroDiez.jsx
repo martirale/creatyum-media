@@ -5,7 +5,7 @@ import CafeCreativoIllustration from "@components/illustrations/CafeCreativoIllu
 const HeroDiez = () => {
   return (
     <section className="mb-8">
-      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl">
+      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-8 md:rounded-3xl inverse-select">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2 p-4 md:p-0">
             <CafeCreativoIllustration className="fill-yellow w-full h-auto my-8 2xl:my-16 dark:fill-black" />

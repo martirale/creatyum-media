@@ -22,6 +22,16 @@
   color: #000000;
 }
 
+.inverse-select ::selection {
+  background: #ffe000;
+  color: #000000;
+}
+
+.dark .inverse-select ::selection {
+  background: #000000;
+  color: #ffe000;
+}
+
 html {
   font-size: 18px;
 }

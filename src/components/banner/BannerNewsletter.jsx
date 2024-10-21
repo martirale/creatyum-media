@@ -41,7 +41,7 @@ export default function BannerNewsletter() {
 
   return (
     <div className="mb-8 md:mb-16">
-      <div className="p-4 rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-12 md:rounded-3xl">
+      <div className="p-4 rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:p-12 md:rounded-3xl inverse-select">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* COL TITLE */}

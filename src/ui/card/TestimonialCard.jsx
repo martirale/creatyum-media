@@ -7,7 +7,7 @@ export default function TestimonialCard({ testimonial }) {
     : null;
 
   return (
-    <div className="bg-black rounded-2xl px-8 py-12 mx-0 my-4 text-yellow text-center md:rounded-3xl dark:bg-yellow dark:text-black flex flex-col h-full">
+    <div className="bg-black rounded-2xl px-8 py-12 mx-0 my-4 text-yellow text-center md:rounded-3xl dark:bg-yellow dark:text-black flex flex-col h-full inverse-select">
       <div className="w-24 h-24 mx-auto mb-8 relative flex-shrink-0">
         <Image
           src={imageUrl}

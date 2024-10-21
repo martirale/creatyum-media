@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function BannerInstagram() {
   return (
     <div className="mb-8 md:mb-16">
-      <div className="px-6 py-12 rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:px-12 md:rounded-3xl">
+      <div className="px-6 py-12 rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:px-12 md:rounded-3xl inverse-select">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <Link

@@ -6,7 +6,7 @@ import Image from "next/image";
 const HeroNewsletter = () => {
   return (
     <section className="mb-8">
-      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:rounded-3xl">
+      <div className="rounded-2xl bg-black text-yellow dark:bg-yellow dark:text-black md:rounded-3xl inverse-select">
         <div className="flex flex-wrap items-center w-full">
           <div className="w-full md:w-1/2">
             <Image

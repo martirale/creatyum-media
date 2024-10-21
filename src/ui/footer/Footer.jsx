@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="mt-8">
       {isArticlePage && (
-        <div className="bg-black dark:bg-yellow">
+        <div className="bg-black dark:bg-yellow inverse-select">
           <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
             <FooterFeaturedArticles />
           </div>
@@ -25,7 +25,7 @@ export default function Footer() {
       )}
 
       {isCategoriesPage && (
-        <div className="bg-black dark:bg-yellow">
+        <div className="bg-black dark:bg-yellow inverse-select">
           <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
             <FooterFeaturedArticles />
           </div>
@@ -33,7 +33,7 @@ export default function Footer() {
       )}
 
       {isCategoryPage && (
-        <div className="bg-black dark:bg-yellow">
+        <div className="bg-black dark:bg-yellow inverse-select">
           <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
             <FooterFeaturedArticles />
           </div>
