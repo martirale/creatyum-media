@@ -31,8 +31,9 @@ export default function Navbar() {
         "flex-col",
         "top-[81px]",
         "left-0",
-        "p-8",
-        "gap-7",
+        "px-2",
+        "py-5",
+        "gap-5",
       ];
     } else {
       menuClasses = ["hidden", "md:flex"];
