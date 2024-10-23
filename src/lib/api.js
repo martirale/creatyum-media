@@ -157,7 +157,7 @@ export const getMissionContent = async () => {
 // PRIVACY POLICY
 export const getPrivacyPolicy = async () => {
   const dataPrivacy = await fetchAPI(
-    "/api/privacy?fields[0]=date&fields[1]=content"
+    "/api/privacy?fields[0]=title&fields[1]date&fields[2]=content"
   );
   return dataPrivacy.data;
 };
@@ -165,7 +165,7 @@ export const getPrivacyPolicy = async () => {
 // TERMS AND CONDITIONS
 export const getTermsContent = async () => {
   const dataTerms = await fetchAPI(
-    "/api/terms-of-use?fields[0]=date&fields[1]=content"
+    "/api/terms-of-use?fields[0]=title&fields[1]date&fields[2]=content"
   );
   return dataTerms.data;
 };
@@ -173,7 +173,7 @@ export const getTermsContent = async () => {
 // SPONSORED CONTENT
 export const getSponsoredContent = async () => {
   const dataSponsored = await fetchAPI(
-    "/api/sponsored?fields[0]=date&fields[1]=content"
+    "/api/sponsored?fields[0]=title&fields[1]date&fields[2]=content"
   );
   return dataSponsored.data;
 };
@@ -181,7 +181,7 @@ export const getSponsoredContent = async () => {
 // TRANSPARENCY CONTENT
 export const getTransparencyContent = async () => {
   const dataTransparency = await fetchAPI(
-    "/api/transparency?fields[0]=date&fields[1]=content"
+    "/api/transparency?fields[0]=title&fields[1]date&fields[2]=content"
   );
   return dataTransparency.data;
 };
