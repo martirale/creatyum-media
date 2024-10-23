@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { getArticles } from "@lib/api";
 
-function FeaturedArticleCard({ article, isMain }) {
+function FeaturedArticleList({ article, isMain }) {
   if (isMain) {
     return (
       <div
@@ -82,35 +84,51 @@ function FeaturedArticleCard({ article, isMain }) {
   }
 }
 
-export default async function FooterFeaturedArticles() {
-  let allFeaturedArticles = [];
-  let page = 1;
-  const pageSize = 100;
+export default function FeaturedArticles() {
+  const [featuredArticles, setFeaturedArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  while (allFeaturedArticles.length < 7) {
-    const data = await getArticles(page, pageSize, {
-      sort: ["date:desc"],
-      filters: {
-        featured: {
-          $eq: true,
-        },
-      },
-    });
+  useEffect(() => {
+    fetchFeaturedArticles();
+  }, []);
 
-    const featuredArticles = data.data.filter(
-      (article) => article.featured === true
-    );
+  const fetchFeaturedArticles = async () => {
+    setIsLoading(true);
+    try {
+      let allFeaturedArticles = [];
+      let page = 1;
+      const pageSize = 100;
 
-    allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
+      while (allFeaturedArticles.length < 7) {
+        const data = await getArticles(page, pageSize, {
+          sort: ["date:desc"],
+          filters: {
+            featured: {
+              $eq: true,
+            },
+          },
+        });
 
-    if (data.data.length < pageSize) {
-      break;
+        const featuredArticles = data.data.filter(
+          (article) => article.featured === true
+        );
+
+        allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
+
+        if (data.data.length < pageSize) {
+          break;
+        }
+
+        page++;
+      }
+
+      setFeaturedArticles(allFeaturedArticles.slice(0, 7));
+    } catch (error) {
+      console.error("Error fetching featured articles:", error);
+    } finally {
+      setIsLoading(false);
     }
-
-    page++;
-  }
-
-  const featuredArticles = allFeaturedArticles.slice(0, 7);
+  };
 
   return (
     <div className="text-yellow dark:text-black">
@@ -125,20 +143,31 @@ export default async function FooterFeaturedArticles() {
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        {featuredArticles.length > 0 && (
+        {isLoading ? (
+          <p className="text-center col-span-3 text-white">
+            Cargando artículos destacados...
+          </p>
+        ) : (
           <>
-            {/* Artículo más reciente */}
-            <FeaturedArticleCard article={featuredArticles[0]} isMain={true} />
-            <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
-              {/* Siguientes 4 artículos destacados */}
-              {featuredArticles.slice(1, 7).map((article) => (
-                <FeaturedArticleCard
-                  key={article.id}
-                  article={article}
-                  isMain={false}
+            {featuredArticles.length > 0 && (
+              <>
+                {/* Artículo más reciente */}
+                <FeaturedArticleList
+                  article={featuredArticles[0]}
+                  isMain={true}
                 />
-              ))}
-            </div>
+                <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
+                  {/* Siguientes 4 artículos destacados */}
+                  {featuredArticles.slice(1, 7).map((article) => (
+                    <FeaturedArticleList
+                      key={article.id}
+                      article={article}
+                      isMain={false}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </>
         )}
       </div>
