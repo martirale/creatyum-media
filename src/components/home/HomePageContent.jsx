@@ -63,6 +63,15 @@ export default async function HomePageContent({ className = "" }) {
           ))
         )}
       </div>
+
+      <div className="py-8 text-center md:pb-0">
+        <Link
+          href="/archivo"
+          className="px-5 py-3 w-full rounded-full font-bold uppercase bg-black text-yellow border border-black hover:bg-yellow hover:text-black dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-black dark:hover:text-yellow"
+        >
+          Todos los artículos
+        </Link>
+      </div>
     </section>
   );
 }
