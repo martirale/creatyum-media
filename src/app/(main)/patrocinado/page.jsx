@@ -42,7 +42,7 @@ export async function generateMetadata() {
       canonical: "https://creatyum.media/patrocinado",
     };
   } catch (error) {
-    console.error("Error fetching about content:", error);
+    console.error("Error fetching sponsored content:", error);
 
     return undefined;
   }

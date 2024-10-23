@@ -40,7 +40,7 @@ export async function generateMetadata() {
       canonical: "https://creatyum.media/terminos",
     };
   } catch (error) {
-    console.error("Error fetching about content:", error);
+    console.error("Error fetching terms of use content:", error);
 
     return undefined;
   }

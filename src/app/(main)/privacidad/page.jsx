@@ -40,7 +40,7 @@ export async function generateMetadata() {
       canonical: "https://creatyum.media/privacidad",
     };
   } catch (error) {
-    console.error("Error fetching about content:", error);
+    console.error("Error fetching privacy content:", error);
 
     return undefined;
   }
