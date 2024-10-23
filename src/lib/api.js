@@ -26,7 +26,7 @@ const fetchAPI = async (endpoint, options = {}) => {
 // HOME PAGE + FEATURED ARTICLES
 export const getArticles = async (page = 1, pageSize = 12) => {
   return fetchAPI(
-    `/api/articles?fields[0]=title&fields[1]=slug&fields[2]=date&fields[3]=featured&populate[cover]=*&populate[categories]=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
+    `/api/articles?fields[0]=title&fields[1]=slug&fields[2]=date&fields[3]=featured&populate[cover][fields][0]=url&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
     {
       cache: "no-store",
     }
@@ -36,7 +36,7 @@ export const getArticles = async (page = 1, pageSize = 12) => {
 // SINGLE ARTICLE
 export const getArticleBySlug = async (slug) => {
   const data = await fetchAPI(
-    `/api/articles?filters[slug]=${slug}&fields[0]=title&fields[1]=date&fields[2]=featured&fields[3]=sponsored&fields[4]=content&fields[5]=slug&populate[cover]=*&populate[categories]=*&populate[redactions]=*`,
+    `/api/articles?filters[slug]=${slug}&fields[0]=title&fields[1]=date&fields[2]=featured&fields[3]=sponsored&fields[4]=content&fields[5]=slug&populate[cover][fields][0]=url&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&populate[redactions][fields][0]=id`,
     {
       cache: "no-store",
     }
@@ -54,7 +54,7 @@ export const getArticleBySlug = async (slug) => {
 // AUTHOR POST
 export const getAuthorById = async (authorId) => {
   const data = await fetchAPI(
-    `/api/redactions?fields[0]=name&fields[1]=description&fields[2]=slug&populate=profile`,
+    `/api/redactions?fields[0]=name&fields[1]=description&fields[2]=slug&populate[profile][fields][0]=url`,
     {
       cache: "no-store",
     }
@@ -76,7 +76,7 @@ export const getAuthorById = async (authorId) => {
 // AUTHOR PAGE
 export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
   const authorData = await fetchAPI(
-    `/api/redactions?filters[slug][$eq]=${slug}&fields[0]=name&fields[1]=description&populate=profile`
+    `/api/redactions?filters[slug][$eq]=${slug}&fields[0]=name&fields[1]=description&populate[profile][fields][0]=url`
   );
 
   if (authorData.data.length === 0) {
@@ -86,7 +86,7 @@ export const getAuthorWithArticles = async (slug, page = 1, pageSize = 18) => {
   const author = authorData.data[0];
 
   const articlesData = await fetchAPI(
-    `/api/articles?filters[redactions][slug][$eq]=${slug}&fields[0]=title&fields[1]=slug&fields[2]=date&populate[cover]=*&populate[categories]=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
+    `/api/articles?filters[redactions][slug][$eq]=${slug}&fields[0]=title&fields[1]=slug&fields[2]=date&populate[cover][fields][0]=url&populate[categories][fields][0]=title&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
     {
       cache: "no-store",
     }
@@ -116,7 +116,7 @@ export const getCategoryWithArticles = async (
   const category = categoryData.data[0];
 
   const articlesData = await fetchAPI(
-    `/api/articles?filters[categories][slug][$eq]=${slug}&fields[0]=title&fields[1]=slug&fields[2]=date&populate[cover]=*&populate[categories]=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
+    `/api/articles?filters[categories][slug][$eq]=${slug}&fields[0]=title&fields[1]=slug&fields[2]=date&populate[cover][fields][0]=url&populate[categories][fields][0]=title&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort[0]=date:desc`,
     {
       cache: "no-store",
     }
@@ -132,7 +132,7 @@ export const getCategoryWithArticles = async (
 // SIDEBAR LATEST
 export const getLatestArticles = async (limit = 5) => {
   const data = await fetchAPI(
-    `/api/articles?fields[0]=title&fields[1]=date&fields[2]=slug&populate[cover]=*&sort[0]=date:desc&pagination[limit]=${limit}`,
+    `/api/articles?fields[0]=title&fields[1]=date&fields[2]=slug&populate[cover][fields][0]=url&sort[0]=date:desc&pagination[limit]=${limit}`,
     {
       cache: "no-store",
     }
@@ -186,10 +186,10 @@ export const getTransparencyContent = async () => {
   return dataTransparency.data;
 };
 
-// LAYERED COMIC
+// LAYERED WEBCOMIC
 export const getLatestComicImage = async () => {
   const response = await fetchAPI(
-    `/api/comics?fields[0]=id&sort[0]=id:desc&populate=panel`,
+    `/api/comics?fields[0]=id&sort[0]=id:desc&populate[panel][fields][0]=url`,
     {
       cache: "no-store",
     }
@@ -210,7 +210,7 @@ export const getLatestComicImage = async () => {
 // PODCAST TESTIMONIALS
 export const getTestimonials = async () => {
   const dataTestimonial = await fetchAPI(
-    "/api/testimonials?fields[0]=quote&fields[1]=name&fields[2]=episode&populate=image"
+    "/api/testimonials?fields[0]=quote&fields[1]=name&fields[2]=episode&populate[image][fields][0]=url"
   );
 
   const sortedTestimonials = dataTestimonial.data.sort((a, b) => b.id - a.id);
