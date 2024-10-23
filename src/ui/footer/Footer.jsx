@@ -13,26 +13,14 @@ export default function Footer() {
   const isArticlePage = pathname.startsWith("/articulo/");
   const isCategoriesPage = pathname.startsWith("/categorias");
   const isCategoryPage = pathname.startsWith("/categoria/");
+  const isArchivePage = pathname.startsWith("/archivo");
+
+  const shouldShowFeaturedArticles =
+    isArticlePage || isCategoriesPage || isCategoryPage || isArchivePage;
 
   return (
     <footer className="mt-8">
-      {isArticlePage && (
-        <div className="bg-black dark:bg-yellow inverse-select">
-          <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
-            <FooterFeaturedArticles />
-          </div>
-        </div>
-      )}
-
-      {isCategoriesPage && (
-        <div className="bg-black dark:bg-yellow inverse-select">
-          <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
-            <FooterFeaturedArticles />
-          </div>
-        </div>
-      )}
-
-      {isCategoryPage && (
+      {shouldShowFeaturedArticles && (
         <div className="bg-black dark:bg-yellow inverse-select">
           <div className="container mx-auto px-8 py-4 justify-between items-center md:px-0 md:py-8">
             <FooterFeaturedArticles />
