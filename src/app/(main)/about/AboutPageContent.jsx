@@ -3,14 +3,11 @@
 import React, { useState, useEffect } from "react";
 import FormatContent from "@ui/FormatContent";
 import AuthorList from "./AuthorList";
-import {
-  getAboutContent,
-  getDescriptionContent,
-  getMissionContent,
-} from "@lib/api";
+import { getAboutContent, getMissionContent } from "@lib/api";
 import SidebarContainer from "@ui/sidebar/SidebarContainer";
 
 const AboutPageContent = () => {
+  const [title, setTitle] = useState([]);
   const [description, setDescription] = useState([]);
   const [content, setContent] = useState([]);
   const [mission, setMission] = useState("");
@@ -19,11 +16,14 @@ const AboutPageContent = () => {
   useEffect(() => {
     const fetchAboutPageData = async () => {
       try {
-        const descriptionContent = await getDescriptionContent();
-        setDescription(descriptionContent);
+        const aboutTitle = await getAboutContent();
+        setTitle(aboutTitle.title);
+
+        const aboutDescription = await getAboutContent();
+        setDescription(aboutDescription.description);
 
         const aboutContent = await getAboutContent();
-        setContent(aboutContent);
+        setContent(aboutContent.content);
 
         const missionContent = await getMissionContent();
         setMission(missionContent);
