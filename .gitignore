@@ -38,3 +38,5 @@ next-env.d.ts
 
 # database file
 api/crtymDB
+
+api.rest
