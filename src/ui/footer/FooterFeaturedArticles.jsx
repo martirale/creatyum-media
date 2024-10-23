@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { getArticles } from "@lib/api";
 
-function FeaturedArticleList({ article, isMain }) {
+function FeaturedArticleCard({ article, isMain }) {
   if (isMain) {
     return (
       <div
@@ -53,15 +51,14 @@ function FeaturedArticleList({ article, isMain }) {
       <div>
         <Link href={`/articulo/${article.slug}`}>
           <div className="flex items-center space-x-4 mb-4">
-            {article.cover && article.cover && (
-              <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
-                alt={article.title}
-                width={480}
-                height={270}
-                className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
-              />
-            )}
+            <Image
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+              alt={article.title}
+              width={480}
+              height={270}
+              className="w-16 h-16 object-cover rounded-full border border-yellow md:w-20 md:h-20 dark:border-black"
+            />
+
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-extrabold md:text-3xl hover:underline">
                 {article.title}
@@ -85,51 +82,35 @@ function FeaturedArticleList({ article, isMain }) {
   }
 }
 
-export default function FeaturedArticles() {
-  const [featuredArticles, setFeaturedArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+export default async function FooterFeaturedArticles() {
+  let allFeaturedArticles = [];
+  let page = 1;
+  const pageSize = 100;
 
-  useEffect(() => {
-    fetchFeaturedArticles();
-  }, []);
+  while (allFeaturedArticles.length < 7) {
+    const data = await getArticles(page, pageSize, {
+      sort: ["date:desc"],
+      filters: {
+        featured: {
+          $eq: true,
+        },
+      },
+    });
 
-  const fetchFeaturedArticles = async () => {
-    setIsLoading(true);
-    try {
-      let allFeaturedArticles = [];
-      let page = 1;
-      const pageSize = 100;
+    const featuredArticles = data.data.filter(
+      (article) => article.featured === true
+    );
 
-      while (allFeaturedArticles.length < 7) {
-        const data = await getArticles(page, pageSize, {
-          sort: ["date:desc"],
-          filters: {
-            featured: {
-              $eq: true,
-            },
-          },
-        });
+    allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
 
-        const featuredArticles = data.data.filter(
-          (article) => article.featured === true
-        );
-
-        allFeaturedArticles = [...allFeaturedArticles, ...featuredArticles];
-
-        if (data.data.length < pageSize) {
-          break;
-        }
-
-        page++;
-      }
-
-      setFeaturedArticles(allFeaturedArticles.slice(0, 7));
-    } catch (error) {
-      console.error("Error fetching featured articles:", error);
-    } finally {
-      setIsLoading(false);
+    if (data.data.length < pageSize) {
+      break;
     }
-  };
+
+    page++;
+  }
+
+  const featuredArticles = allFeaturedArticles.slice(0, 7);
 
   return (
     <div className="text-yellow dark:text-black">
@@ -144,31 +125,20 @@ export default function FeaturedArticles() {
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        {isLoading ? (
-          <p className="text-center col-span-3 text-white">
-            Cargando artículos destacados...
-          </p>
-        ) : (
+        {featuredArticles.length > 0 && (
           <>
-            {featuredArticles.length > 0 && (
-              <>
-                {/* Artículo más reciente */}
-                <FeaturedArticleList
-                  article={featuredArticles[0]}
-                  isMain={true}
+            {/* Artículo más reciente */}
+            <FeaturedArticleCard article={featuredArticles[0]} isMain={true} />
+            <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
+              {/* Siguientes 4 artículos destacados */}
+              {featuredArticles.slice(1, 7).map((article) => (
+                <FeaturedArticleCard
+                  key={article.id}
+                  article={article}
+                  isMain={false}
                 />
-                <div className="col-span-12 flex flex-col gap-4 md:col-span-1">
-                  {/* Siguientes 4 artículos destacados */}
-                  {featuredArticles.slice(1, 7).map((article) => (
-                    <FeaturedArticleList
-                      key={article.id}
-                      article={article}
-                      isMain={false}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+              ))}
+            </div>
           </>
         )}
       </div>

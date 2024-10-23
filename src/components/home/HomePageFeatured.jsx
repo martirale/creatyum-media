@@ -50,15 +50,14 @@ function FeaturedArticleCard({ article, isMain }) {
       <div>
         <Link href={`/articulo/${article.slug}`}>
           <div className="flex items-center space-x-4 mb-4">
-            {article.cover && article.cover && (
-              <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
-                alt={article.title}
-                width={480}
-                height={270}
-                className="w-16 h-16 object-cover rounded-full border border-black md:w-20 md:h-20 dark:border-yellow"
-              />
-            )}
+            <Image
+              src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.cover.url}`}
+              alt={article.title}
+              width={480}
+              height={270}
+              className="w-16 h-16 object-cover rounded-full border border-black md:w-20 md:h-20 dark:border-yellow"
+            />
+
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-extrabold md:text-3xl hover:underline">
                 {article.title}
