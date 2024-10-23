@@ -112,7 +112,6 @@ export default async function AuthorPage({ params, searchParams }) {
               {page > 1 ? (
                 <Link
                   href={`/autor/${slug}?page=${page - 1}`}
-                  passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
                 >
                   <FontAwesomeIcon icon={faAngleLeft} />
@@ -134,7 +133,6 @@ export default async function AuthorPage({ params, searchParams }) {
                       <Link
                         key={pageNum}
                         href={`/autor/${slug}?page=${pageNum}`}
-                        passHref
                         className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                           page === pageNum
                             ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
@@ -164,7 +162,6 @@ export default async function AuthorPage({ params, searchParams }) {
               {page < totalPages ? (
                 <Link
                   href={`/autor/${slug}?page=${page + 1}`}
-                  passHref
                   className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
                 >
                   <FontAwesomeIcon icon={faAngleRight} />
