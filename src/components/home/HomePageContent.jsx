@@ -1,15 +1,8 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleLeft,
-  faAngleRight,
-  faCalendarDays,
-  faTag,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays, faTag } from "@fortawesome/free-solid-svg-icons";
 import { getArticles } from "@lib/api";
 
 function ArticleCard({ article }) {
@@ -49,34 +42,9 @@ function ArticleCard({ article }) {
   );
 }
 
-export default function HomePageContent({ className = "" }) {
-  const [articles, setArticles] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    fetchArticles(currentPage);
-  }, [currentPage]);
-
-  const fetchArticles = async (page) => {
-    setIsLoading(true);
-    try {
-      const data = await getArticles(page, 12);
-      setArticles(data.data);
-      setTotalPages(data.meta.pagination.pageCount);
-    } catch (error) {
-      console.error("Error fetching articles:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
-  };
+export default async function HomePageContent({ className = "" }) {
+  const data = await getArticles(1, 12);
+  const articles = data.data;
 
   return (
     <section className={`${className}`}>
@@ -87,69 +55,13 @@ export default function HomePageContent({ className = "" }) {
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {isLoading ? (
-          <p className="text-center">Cargando artículos...</p>
+        {articles.length === 0 ? (
+          <p className="text-center">No se encontraron artículos.</p>
         ) : (
-          <>
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </>
+          articles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))
         )}
-      </div>
-
-      {/* PAGINACIÓN */}
-      <div className="flex justify-center mt-8">
-        <div className="inline-flex -space-x-px rounded-md">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25 transition duration-300"
-          >
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-            if (
-              page === 1 ||
-              page === totalPages ||
-              (page >= currentPage - 1 && page <= currentPage + 1)
-            ) {
-              return (
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
-                    currentPage === page
-                      ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
-                      : "bg-yellow border text-black border-black hover:bg-black hover:text-yellow dark:bg-black dark:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
-                  }`}
-                >
-                  {page}
-                </button>
-              );
-            } else if (
-              (page === currentPage - 2 && currentPage > 3) ||
-              (page === currentPage + 2 && currentPage < totalPages - 2)
-            ) {
-              return (
-                <span
-                  key={page}
-                  className="inline-flex items-center px-2 py-2 md:px-4 text-sm border border-black dark:border-yellow"
-                >
-                  ...
-                </span>
-              );
-            }
-            return null;
-          })}
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black disabled:opacity-25 transition duration-300"
-          >
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
-        </div>
       </div>
     </section>
   );
