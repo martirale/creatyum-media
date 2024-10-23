@@ -4,34 +4,49 @@ import AuthorList from "./AuthorList";
 import { getAboutContent, getMissionContent } from "@lib/api";
 import SidebarContainer from "@ui/sidebar/SidebarContainer";
 
-export const metadata = {
-  title: "Sobre Creatyum | Creatyum Media",
-  description:
-    "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-  openGraph: {
-    title: "Sobre Creatyum | Creatyum Media",
-    description:
-      "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-    url: "https://creatyum.media/about",
-    type: "website",
-    images: [
-      {
-        url: "https://creatyum.media/creatyum-default-cover.webp",
-        width: 1200,
-        height: 630,
-        alt: "Creatyum Media",
+export async function generateMetadata() {
+  try {
+    const aboutData = await getAboutContent();
+    const { title } = aboutData;
+
+    if (!title) {
+      return undefined;
+    }
+
+    return {
+      title: `${title} | Creatyum Media`,
+      description:
+        "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+      openGraph: {
+        title: `${title} | Creatyum Media`,
+        description:
+          "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+        url: "https://creatyum.media/about",
+        type: "website",
+        images: [
+          {
+            url: "https://creatyum.media/creatyum-default-cover.webp",
+            width: 1200,
+            height: 630,
+            alt: "Creatyum Media",
+          },
+        ],
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Sobre Creatyum | Creatyum Media",
-    description:
-      "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
-    images: ["https://creatyum.media/creatyum-default-cover.webp"],
-  },
-  canonical: "https://creatyum.media/about",
-};
+      twitter: {
+        card: "summary_large_image",
+        title: `${title} | Creatyum Media`,
+        description:
+          "En Creatyum ofrecemos artículos y podcasts sobre diseño y creatividad que educan, empoderan y amplían tu perspectiva en el sector creativo.",
+        images: ["https://creatyum.media/creatyum-default-cover.webp"],
+      },
+      canonical: "https://creatyum.media/about",
+    };
+  } catch (error) {
+    console.error("Error fetching about content:", error);
+
+    return undefined;
+  }
+}
 
 export default async function AboutPage() {
   try {
