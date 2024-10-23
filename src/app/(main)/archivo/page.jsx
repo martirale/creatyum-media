@@ -47,7 +47,8 @@ function ArticleCard({ article }) {
   );
 }
 
-export default async function ArchivePage({ page = 1 }) {
+export default async function ArchivePage({ searchParams }) {
+  const page = Number(searchParams.page) || 1;
   const pageSize = 20;
   const data = await getArticles(page, pageSize);
   const articles = data.data;
@@ -77,7 +78,6 @@ export default async function ArchivePage({ page = 1 }) {
           {page > 1 ? (
             <Link
               href={`/archivo?page=${page - 1}`}
-              passHref
               className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-l-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
             >
               <FontAwesomeIcon icon={faAngleLeft} />
@@ -99,7 +99,6 @@ export default async function ArchivePage({ page = 1 }) {
                   <Link
                     key={pageNum}
                     href={`/archivo?page=${pageNum}`}
-                    passHref
                     className={`inline-flex items-center px-3 py-2 md:px-4 text-sm ${
                       page === pageNum
                         ? "bg-black text-yellow border border-black hover:bg-black hover:text-yellow dark:bg-yellow dark:text-black dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
@@ -129,7 +128,6 @@ export default async function ArchivePage({ page = 1 }) {
           {page < totalPages ? (
             <Link
               href={`/archivo?page=${page + 1}`}
-              passHref
               className="inline-flex items-center px-3 py-2 md:px-4 text-sm border border-black rounded-r-3xl hover:bg-black hover:text-yellow dark:border-yellow dark:hover:bg-yellow dark:hover:text-black transition duration-300"
             >
               <FontAwesomeIcon icon={faAngleRight} />
